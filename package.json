@@ -1,0 +1,16 @@
+{
+  "name": "RentalExchange",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "latest",
+    "body-parser": "latest",
+    "react-tools": "latest",
+    "path": "latest"
+  },
+  "devDependencies": {
+  }
+}
