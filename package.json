@@ -9,7 +9,9 @@
     "express": "latest",
     "body-parser": "latest",
     "react-tools": "latest",
-    "path": "latest"
+    "path": "latest",
+    "nconf": "latest",
+    "winston": "latest"
   },
   "devDependencies": {
   }
