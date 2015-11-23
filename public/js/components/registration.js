@@ -1,33 +1,45 @@
 /** @jsx React.DOM */
 
-var RegistrationComponent = React.createClass({
-    render: function () {
-        return (
-            <div>
-                <div>
-                    <div >
-                        <h3>Registration account</h3>
-                        <div>
-                            <label> e-mail: *
-                                <input type="email"/>
-                            </label>
-                        </div>
-                    </div>
-                    <div >
-                        <button type="button" onClick={this.handleSubmit}>Registration
-                        </button>
-                    </div>
-                </div>
-            </div>
-        );
+var RegistrationForm = React.createClass({
+
+    getInitialState: function () {
+        return {email: ''};
     }
-    , handleSubmit: function () {
-        $.post(this.props.url, function(result) {
-        }.bind(this));
+    , handleEmailChange: function (e) {
+        this.setState({email: e.target.value});
+    }
+    , handleSubmit: function (e) {
+        e.preventDefault();
+        var email = this.state.email.trim();
+
+        $.ajax({
+            url: this.props.url,
+            dataType: 'json',
+            type: 'POST',
+            data: email,
+            success: function (data) {
+                alert("SUCCESS POST");
+            }.bind(this),
+            error: function (xhr, status, err) {
+                alert("ERROR POST "+status);
+            }.bind(this)
+        });
+        this.setState({email: '', text: ''});
+    }
+
+    , render: function () {
+        return (
+            <form className="registrationForm" onSubmit={this.handleSubmit}>
+                <input type="text" placeholder="Email"
+                       value={this.state.email}
+                       onChange={this.handleEmailChange}/>
+                <input type="submit" value="Registration"/>
+            </form>
+        );
     }
 });
 
 React.render(
-    <RegistrationComponent url="http://api.rental-exchange.ua/user/registration"/>,
+    <RegistrationForm url="http://api.rental-exchange.ua/user/registration"/>,
     document.getElementById('regisration_form_id')
 );
