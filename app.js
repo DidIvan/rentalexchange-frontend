@@ -4,8 +4,8 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var config = require('config');
-var log = require('libs/log')(module);
+var config = require('./config');
+var log = require('./libs/log')(module);
 var app = express();
 
 app.set('port', config.get('port'));

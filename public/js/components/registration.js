@@ -6,6 +6,7 @@ var RegistrationForm = React.createClass({
         return {email: ''};
     }
     , handleEmailChange: function (e) {
+        //validation
         this.setState({email: e.target.value});
     }
     , handleSubmit: function (e) {
@@ -24,7 +25,7 @@ var RegistrationForm = React.createClass({
                 alert("ERROR POST "+status);
             }.bind(this)
         });
-        this.setState({email: '', text: ''});
+        this.setState({email: ''});
     }
 
     , render: function () {
