@@ -41,5 +41,5 @@ var RegistrationForm = React.createClass({
 
 React.render(
     <RegistrationForm url="http://api.rental-exchange.ua/user/registration"/>,
-    document.getElementById('regisration_form_id')
+    document.getElementById('registration_form_id')
 );
