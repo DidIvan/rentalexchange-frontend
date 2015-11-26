@@ -31,10 +31,18 @@ var RegistrationForm = React.createClass({
     , render: function () {
         return (
             <form className="registrationForm" onSubmit={this.handleSubmit}>
-                <input type="text" placeholder="Email"
+              <div className="row">
+                   <div className="col l9 s12">
+                       <input type="text" placeholder="Email"
                        value={this.state.email}
                        onChange={this.handleEmailChange}/>
-                <input type="submit" value="Registration"/>
+                   </div>
+                   <div className="col l9 s12">
+                      <button className="btn waves-effect light-blue lighten-1" type="submit" value="Registration">Зарегистрировать
+                      <i className="material-icons right">send</i>
+                      </button>
+                    </div>
+              </div>
             </form>
         );
     }
