@@ -11,6 +11,7 @@ var app = express();
 app.set('port', config.get('port'));
 
 app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/activation', express.static(path.join(__dirname, 'public/activation')));
 
 http.createServer(app).listen(config.get('port'), function() {
     log.info('Express server listening on port ' + config.get('port'));
