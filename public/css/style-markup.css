@@ -1,0 +1,113 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font: 100%/1.5em;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+
+body {
+    font-family: Myriad Pro Regular, Arial, Helvetica, sans-serif;
+    background-color: rgb(243, 243, 243);
+}
+/*.wrapper{
+    width: 90%;
+    margin: 0 auto;
+}*/
+/*-------------------NAV------------------*/
+nav{
+  height: 150px;
+  margin-bottom: 30px;
+  background-color: rgb(255, 255, 255);
+}
+
+nav .logo{
+  margin-top: 2em; /*32/16*/
+  margin-left: 4.736842105263157894736842105263%;  /*90/1900*/
+}
+nav form{
+  width:54%; /*1030/1900*/
+  height: 84px;
+  margin-top: 2em; /*32/16*/
+  margin-left:5.2%; /*(410/1900)-(290/1900)*/
+  /*margin: 0 auto;*/
+  border: 2px solid rgb(225, 229, 230);
+  border-radius: 4px;
+}
+nav form .reader{
+  display: block;
+  width: 9%;/*95/1030*/
+  height: 100%;
+  clear:both;
+  border-right: 2px solid rgb(225, 229, 230);
+}
+nav #search{
+  width:70%;
+  float: left;
+}
+/*nav .field-input{
+  border: 2px solid rgb(225, 229, 230);
+  border-radius: 4px;
+  height: 100%;
+}
+nav .field-input label{
+  display: block;
+}*/
+
+/*nav .field-input input{
+  display: block;
+  float: left;
+}*/
+
+.user-name{
+  width: 21%; /*400/1900*/
+  height: 100%;
+  background-color: rgb(41, 128, 185);
+  /*min-width: 270px;*/
+  overflow: hidden;
+}
+.user-name img{
+  margin-top: 2em;
+  margin-left: 12.5%; /*50/400*/
+}
+
+/*-------------------*/
+.card-action {
+    background-color: rgb(41, 128, 185);
+}
+
+.card-action a {
+    color: rgb(255, 255, 255) !important;
+    font-size:1.5em;
+}
+.card-action a .price {
+    font-size:1.859375em;
+    font-weight: bold;
+}
+.card-action a .perweek {
+    font-size:0.75em;
+}
+/*--------------------------*/
+.container .row .title{
+    font-size: 3em;
+    color: rgb(153,153,153);
+}
