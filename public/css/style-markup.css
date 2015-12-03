@@ -60,6 +60,9 @@ nav form {
 }
 /*End adjasting form*/
 /*-------------------*/
+.wide-container{ /*перебивает 70% класса container*/
+width: 100%;
+}
 .card-action {
     background-color: rgb(41, 128, 185);
 }
