@@ -1,7 +1,7 @@
 * {
     padding: 0;
     margin: 0;
-    font: 100%/1.5em;
+    font-size: 16px;
 }
 
 ul {
@@ -36,7 +36,8 @@ nav {
     margin-bottom: 2em;
     background-color: rgb(255, 255, 255);
 }
-.brand-logo{
+
+.brand-logo {
     margin-top: 10px;
     margin-left: 15px;
 }
@@ -44,32 +45,62 @@ nav {
 /*Start adjasting form*/
 nav form {
     float: left;
-    width:30%;
-    height: 30px;
+    width: 50%;
+    height: 40px;
     border: 2px solid rgb(225, 229, 230);
-    margin-top:17px;
-    margin-left: 30%;
-    border-radius:4px ;
+    margin-top: 12px;
+    margin-left: 22%;
+    border-radius: 4px;
 }
-.input-field,input,label,i{
+
+.input-field, input, label, i {
     height: 100% !important;
     line-height: 100% !important;
 }
-.input-field input{
+
+.input-field input {
     margin-bottom: 0 !important;
 }
+
 /*End adjasting form*/
-/*-------------------*/
-.wide-container{ /*перебивает 70% класса container*/
-width: 100%;
+
+.user {
+    width: 172px;
+    height: 64px;
+    background-color: rgb(41, 128, 185);
 }
+
+.chip {
+    border-radius: 0;
+}
+
+.user img {
+    height: 48px;
+    width: 48px;
+    margin: 8px 0 0 0px;
+}
+
+.user p {
+    margin-top: 16px;
+    margin-left: 52px;
+    color: rgb(255, 255, 255);
+}
+
+/*-------------------*/
+.wide-container {
+    /*перебивает 70% класса container*/
+    width: 100%;
+}
+
 .card-action {
     background-color: rgb(41, 128, 185);
 }
 
 .card-action a {
     color: rgb(255, 255, 255) !important;
-    font-size: 1.5em;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 6px;
 }
 
 .card-action a .price {
