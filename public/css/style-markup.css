@@ -1,8 +1,7 @@
 * {
     padding: 0;
     margin: 0;
-    /*box-sizing: border-box;*/
-    /*font: 100%/1.5em;*/
+    font: 100%/1.5em;
 }
 
 ul {
@@ -12,18 +11,20 @@ ul {
 a {
     text-decoration: none;
 }
+
 .clearfix:before,
 .clearfix:after {
     content: " ";
     display: table;
 }
+
 .clearfix:after {
     clear: both;
 }
+
 .clearfix {
     *zoom: 1;
 }
-
 
 body {
     font-family: Myriad Pro Regular, Arial, Helvetica, sans-serif;
@@ -31,13 +32,33 @@ body {
 }
 
 /*-------------------NAV------------------*/
-nav{
+nav {
     margin-bottom: 2em;
+    background-color: rgb(255, 255, 255);
 }
-form{
-    float: left;
+.brand-logo{
+    margin-top: 10px;
+    margin-left: 15px;
 }
 
+/*Start adjasting form*/
+nav form {
+    float: left;
+    width:30%;
+    height: 30px;
+    border: 2px solid rgb(225, 229, 230);
+    margin-top:17px;
+    margin-left: 30%;
+    border-radius:4px ;
+}
+.input-field,input,label,i{
+    height: 100% !important;
+    line-height: 100% !important;
+}
+.input-field input{
+    margin-bottom: 0 !important;
+}
+/*End adjasting form*/
 /*-------------------*/
 .card-action {
     background-color: rgb(41, 128, 185);
@@ -45,17 +66,20 @@ form{
 
 .card-action a {
     color: rgb(255, 255, 255) !important;
-    font-size:1.5em;
+    font-size: 1.5em;
 }
+
 .card-action a .price {
-    font-size:1.859375em;
+    font-size: 1.859375em;
     font-weight: bold;
 }
+
 .card-action a .perweek {
-    font-size:0.75em;
+    font-size: 0.75em;
 }
+
 /*--------------------------*/
-.container .row .title{
+.container .row .title {
     font-size: 3em;
-    color: rgb(153,153,153);
+    color: rgb(153, 153, 153);
 }
