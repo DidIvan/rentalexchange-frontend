@@ -80,10 +80,22 @@ nav form {
     margin: 8px 0 0 0px;
 }
 
-.user p {
+.user span {
+    display: inline-block;
     margin-top: 16px;
-    margin-left: 52px;
+    margin-left: 10px;
     color: rgb(255, 255, 255);
+}
+nav .nav-wrapper i{
+    padding-top: 16px;
+}
+nav .nav-wrapper .user-menu{
+    width: 174px;
+    position: absolute;
+    top: 0px;
+    left: 941px;
+    opacity: 1;
+    display: none;"
 }
 
 /*-------------------*/
