@@ -86,16 +86,19 @@ nav form {
     margin-left: 10px;
     color: rgb(255, 255, 255);
 }
-nav .nav-wrapper i{
+
+nav .nav-wrapper i {
     padding-top: 16px;
 }
-nav .nav-wrapper .user-menu{
+
+nav .nav-wrapper .user-menu {
     width: 174px;
     position: absolute;
     top: 0px;
     left: 941px;
     opacity: 1;
-    display: none;"
+    display: none;
+"
 }
 
 /*-------------------*/
@@ -129,3 +132,18 @@ nav .nav-wrapper .user-menu{
     font-size: 3em;
     color: rgb(153, 153, 153);
 }
+
+/*start footer*/
+footer .divider {
+    margin: 0 2.125rem;
+}
+footer .container .row {
+    margin-left:2.125rem;
+    margin-right:0.125rem;
+}
+
+footer .page-footer .footer-copyright {
+
+}
+
+/*end footer*/
