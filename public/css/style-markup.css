@@ -42,8 +42,27 @@ nav {
     margin-left: 15px;
 }
 
-/*Start adjasting form*/
-nav form {
+/*/!*Start adjasting form*!/*/
+/*nav form {*/
+    /*float: left;*/
+    /*width: 50%;*/
+    /*height: 40px;*/
+    /*border: 2px solid rgb(225, 229, 230);*/
+    /*margin-top: 12px;*/
+    /*margin-left: 22%;*/
+    /*border-radius: 4px;*/
+/*}*/
+
+/*.input-field, input, label, i {*/
+    /*height: 100% !important;*/
+    /*line-height: 100% !important;*/
+/*}*/
+
+/*.input-field input {*/
+    /*margin-bottom: 0 !important;*/
+/*}*/
+
+.search{
     float: left;
     width: 50%;
     height: 40px;
@@ -53,13 +72,29 @@ nav form {
     border-radius: 4px;
 }
 
-.input-field, input, label, i {
-    height: 100% !important;
-    line-height: 100% !important;
+.search button{
+    width: 10%;
+    height: 40px;
+    border-left: 0;
+    cursor: pointer;/*делает что появлялся пальчик*/
+}
+.search input{
+    float: left;
+    width: 80%;
+    height: 40px;
+    padding-left: 20px
 }
 
-.input-field input {
-    margin-bottom: 0 !important;
+.search button[type="submit"]{
+    width: 10%;
+    height: 40px;
+    border-left: 0;
+    cursor: pointer;/*делает что появлялся пальчик*/
+}
+
+.search input:focus{ /*псевдокласс при наведении меняет свойства*/
+    outline: 0; /*убирает в форме подсветку рамки*/
+    background-color: rgb(204, 204, 204);
 }
 
 /*End adjasting form*/
@@ -91,6 +126,10 @@ nav .nav-wrapper i {
     padding-top: 4px;
 }
 
+nav .nav-wrapper .user i {
+    padding-top: 15px;
+}
+
 nav .nav-wrapper .user-menu {
     width: 174px;
     position: absolute;
@@ -102,10 +141,6 @@ nav .nav-wrapper .user-menu {
 }
 
 /*-------------------*/
-.wide-container {
-    /*перебивает 70% класса container*/
-    width: 100%;
-}
 
 .card-action {
     background-color: rgb(41, 128, 185);
@@ -127,8 +162,8 @@ nav .nav-wrapper .user-menu {
     font-size: 0.75em;
 }
 
-/*--------------------------*/
-.container .row .title {
+/*-----------Title on the midde of page---------------*/
+.row .title {
     font-size: 3em;
     color: rgb(153, 153, 153);
 }
@@ -137,13 +172,20 @@ nav .nav-wrapper .user-menu {
 footer .divider {
     margin: 0 2.125rem;
 }
-footer .container .row {
-    margin-left:2.125rem;
-    margin-right:0.125rem;
+
+.container footer .row {
+    margin-left: 2.125rem;
+    margin-right: 2.125rem;
 }
 
-footer .page-footer .footer-copyright {
+footer ul li:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
 
+.footer-copyright a:hover {
+    font-weight: bold;
+    text-decoration: underline;
 }
 
 /*end footer*/
