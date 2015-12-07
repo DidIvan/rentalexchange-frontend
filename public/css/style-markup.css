@@ -37,65 +37,91 @@ nav {
     background-color: rgb(255, 255, 255);
 }
 
+nav .logo-center {
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+
 .brand-logo {
-    margin-top: 10px;
-    margin-left: 15px;
+    top: 10px;
+    left: 6%;
 }
 
 /*/!*Start adjasting form*!/*/
 /*nav form {*/
-    /*float: left;*/
-    /*width: 50%;*/
-    /*height: 40px;*/
-    /*border: 2px solid rgb(225, 229, 230);*/
-    /*margin-top: 12px;*/
-    /*margin-left: 22%;*/
-    /*border-radius: 4px;*/
+/*float: left;*/
+/*width: 50%;*/
+/*height: 40px;*/
+/*border: 2px solid rgb(225, 229, 230);*/
+/*margin-top: 12px;*/
+/*margin-left: 22%;*/
+/*border-radius: 4px;*/
 /*}*/
 
 /*.input-field, input, label, i {*/
-    /*height: 100% !important;*/
-    /*line-height: 100% !important;*/
+/*height: 100% !important;*/
+/*line-height: 100% !important;*/
 /*}*/
 
 /*.input-field input {*/
-    /*margin-bottom: 0 !important;*/
+/*margin-bottom: 0 !important;*/
 /*}*/
 
-.search{
+.search {
     float: left;
     width: 50%;
     height: 40px;
     border: 2px solid rgb(225, 229, 230);
     margin-top: 12px;
-    margin-left: 22%;
+    margin-left: 3%;
     border-radius: 4px;
 }
 
-.search button{
-    width: 10%;
-    height: 40px;
-    border-left: 0;
-    cursor: pointer;/*делает что появлялся пальчик*/
+.search button {
+    cursor: pointer; /*делает что появлялся пальчик*/
 }
-.search input{
+
+.search .button-left {
+    display: inline-block;
+    width: 8%;
+    height: 100%;
+    float: left;
+    border: 0;
+    border-right: 2px solid rgb(225, 229, 230);
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.search .button-left i {
+    line-height: 2.5rem;
+    text-align: center;
+}
+
+.search .button-right {
+    width: 10%;
+    height: 100%;
+    float: right;
+    border: 0;
+    box-sizing: border-box;
+    background: transparent;
+}
+
+.search input {
     float: left;
     width: 80%;
-    height: 40px;
-    padding-left: 20px
+    height: 100%;
+    border-bottom: none !important;
+    box-sizing: border-box;
+    padding-left: 20px;
+    color: #000;
 }
 
-.search button[type="submit"]{
-    width: 10%;
-    height: 40px;
-    border-left: 0;
-    cursor: pointer;/*делает что появлялся пальчик*/
-}
-
-.search input:focus{ /*псевдокласс при наведении меняет свойства*/
-    outline: 0; /*убирает в форме подсветку рамки*/
-    background-color: rgb(204, 204, 204);
-}
+/*.search input:focus {*/
+    /*/!*псевдокласс при наведении меняет свойства*!/*/
+    /*outline: red; /!*убирает в форме подсветку рамки*!/*/
+    /*/!*background-color: rgb(204, 204, 204);*!/*/
+/*}*/
 
 /*End adjasting form*/
 
@@ -123,11 +149,17 @@ nav {
 }
 
 nav .nav-wrapper i {
-    padding-top: 4px;
+    line-height: 0;
+    height: 0;
+    font-size: 2.5rem;
+}
+
+.material-icons {
+    color: rgb(113, 119, 120);
 }
 
 nav .nav-wrapper .user i {
-    padding-top: 15px;
+    padding-top: 30px;
 }
 
 nav .nav-wrapper .user-menu {
