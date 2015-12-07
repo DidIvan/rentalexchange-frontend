@@ -3,7 +3,11 @@
 var Activation = React.createClass({
 
     getInitialState: function () {
-    return {password: '', password_1: ''};
+    return {
+        password: '',
+        password_1: '',
+        errMessage: ''
+    };
 }
 , handlePasswordChange: function (e) {
     //validation
@@ -20,18 +24,20 @@ var Activation = React.createClass({
     var password_1 = this.state.password_1.trim();
 
     if(password == "" || password_1 == "") {
-        alert("Нужно заполнить поля формы!");
+        this.setState({errMessage: 'Нужно заполнить поля формы!'});
         return;
     } else if(password.length < 6) {
-        alert("Пароль должен быть не менее 6 символов!");
+        this.setState({errMessage: 'Пароль должен быть не менее 6 символов!'});
         return;
     } else if(password.length > 25) {
-        alert("Пароль должен быть не более 25 символов!");
+        this.setState({errMessage: 'Пароль должен быть не более 25 символов!'});
         return;
     } else if(password != password_1) {
-        alert("Пароли не совпадают!");
+        this.setState({errMessage: 'Пароли не совпадают!'});
         return;
     }
+
+    this.setState({errMessage: ''});
 
     $.ajax({
         url: this.props.url,
@@ -58,6 +64,7 @@ var Activation = React.createClass({
     <input value={this.state.password} onChange={this.handlePasswordChange} id="password" type="password" className="validate"></input>
     <label className="active" for="password">Новый пароль</label>
 </div>
+<div className="col s3"><p className="red-text">{this.state.errMessage}</p></div>
 </div>
 <div className="row">
     <div className="col s3"><p></p></div>
@@ -74,7 +81,7 @@ var Activation = React.createClass({
 </div>
 <div className="row">
     <div className="col s6"><p></p></div>
-    <button className="btn waves-effect light-blue lighten-1" type="submit" value="Registration">Активировать</button>
+    <button className="btn waves-effect light-blue lighten-1" value="Registration">Активировать</button>
     </div>
     </form>
 );
