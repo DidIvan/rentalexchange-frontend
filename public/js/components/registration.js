@@ -3,15 +3,46 @@
 var RegistrationForm = React.createClass({
 
     getInitialState: function () {
-        return {email: ''};
+    return {
+        email: '',
+        errMessage: '',
+        validIcon: ''
+    };
     }
     , handleEmailChange: function (e) {
         //validation
         this.setState({email: e.target.value});
+    this.setState({errMessage: ''});
+    if(validateEmail(this.state.email))
+    {
+        document.getElementById('icon_email_reg').style.color = 'green';
+        this.setState({validIcon: 'done'});
+    } else {
+        document.getElementById('icon_email_reg').style.color = 'red';
+        this.setState({validIcon: 'close'});
+    }
+
+    function validateEmail(email) {
+        var re = /.+@.+\..+/i;
+        return re.test(email);
+    }
     }
     , handleSubmit: function (e) {
         e.preventDefault();
         var email = this.state.email.trim();
+
+    if(!validateEmail(email))
+    {
+        this.setState({errMessage: 'Некорректный email!'});
+        return;
+    }
+
+    function validateEmail(email) {
+        var re = /.+@.+\..+/i;
+        return re.test(email);
+    }
+
+    this.setState({errMessage: ''});
 
         $.ajax({
             url: this.props.url,
@@ -37,6 +68,7 @@ var RegistrationForm = React.createClass({
                        value={this.state.email}
                        onChange={this.handleEmailChange}/>
                    </div>
+                   <div className="col l3 s12"><i id="icon_email_reg" className="medium material-icons">{this.state.validIcon}</i></div>
                    <div className="col l9 s12">
                       <p><img src="../img/captcha.jpg" alt="captcha"></img></p>
                    </div>
@@ -45,7 +77,8 @@ var RegistrationForm = React.createClass({
                       <i className="material-icons right">send</i>
                       </button>
                     </div>
-              </div>
+                    <div className="col l12 s12"><p className="red-text">{this.state.errMessage}</p></div>
+               </div>
             </form>
         );
     }
