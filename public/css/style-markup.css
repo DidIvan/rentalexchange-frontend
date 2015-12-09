@@ -8,9 +8,6 @@ ul {
     list-style: none;
 }
 
-a {
-    text-decoration: none;
-}
 
 .clearfix:before,
 .clearfix:after {
@@ -32,12 +29,14 @@ body {
 }
 
 /*-------------------NAV------------------*/
-nav {
+.nav {
     margin-bottom: 2em;
     background-color: rgb(255, 255, 255);
+    height: 64px;
+
 }
 
-nav .logo-center {
+.nav .logo-center {
     width: 20%;
     height: 100%;
     float: left;
@@ -49,82 +48,76 @@ nav .logo-center {
 }
 
 /*/!*Start adjasting form*!/*/
-/*nav form {*/
+
+/*.search {*/
 /*float: left;*/
 /*width: 50%;*/
 /*height: 40px;*/
 /*border: 2px solid rgb(225, 229, 230);*/
 /*margin-top: 12px;*/
-/*margin-left: 22%;*/
+/*margin-left: 3%;*/
 /*border-radius: 4px;*/
 /*}*/
 
-/*.input-field, input, label, i {*/
-/*height: 100% !important;*/
-/*line-height: 100% !important;*/
+/*.search button {*/
+/*cursor: pointer; /!*делает что появлялся пальчик*!/*/
 /*}*/
 
-/*.input-field input {*/
-/*margin-bottom: 0 !important;*/
+/*.search .button-left {*/
+/*display: inline-block;*/
+/*width: 8%;*/
+/*height: 100%;*/
+/*float: left;*/
+/*border: 0;*/
+/*border-right: 2px solid rgb(225, 229, 230);*/
+/*box-sizing: border-box;*/
+/*cursor: pointer;*/
 /*}*/
 
-.search {
-    float: left;
-    width: 50%;
-    height: 40px;
-    border: 2px solid rgb(225, 229, 230);
-    margin-top: 12px;
-    margin-left: 3%;
-    border-radius: 4px;
-}
+/*.search .button-left i {*/
+/*line-height: 2.5rem;*/
+/*text-align: center;*/
+/*}*/
 
-.search button {
-    cursor: pointer; /*делает что появлялся пальчик*/
-}
+/*.search .button-right {*/
+/*width: 10%;*/
+/*height: 100%;*/
+/*float: right;*/
+/*border: 0;*/
+/*box-sizing: border-box;*/
+/*background: transparent;*/
+/*}*/
 
-.search .button-left {
-    display: inline-block;
-    width: 8%;
-    height: 100%;
-    float: left;
-    border: 0;
-    border-right: 2px solid rgb(225, 229, 230);
-    box-sizing: border-box;
-    cursor: pointer;
-}
-
-.search .button-left i {
-    line-height: 2.5rem;
-    text-align: center;
-}
-
-.search .button-right {
-    width: 10%;
-    height: 100%;
-    float: right;
-    border: 0;
-    box-sizing: border-box;
-    background: transparent;
-}
-
-.search input {
-    float: left;
-    width: 80%;
-    height: 100%;
-    border-bottom: none !important;
-    box-sizing: border-box;
-    padding-left: 20px;
-    color: #000;
-}
-
-/*.search input:focus {*/
-    /*/!*псевдокласс при наведении меняет свойства*!/*/
-    /*outline: red; /!*убирает в форме подсветку рамки*!/*/
-    /*/!*background-color: rgb(204, 204, 204);*!/*/
+/*.search input {*/
+/*float: left;*/
+/*width: 80%;*/
+/*height: 100%;*/
+/*border-bottom: none !important;*/
+/*box-sizing: border-box;*/
+/*padding-left: 20px;*/
+/*color: #000;*/
 /*}*/
 
 /*End adjasting form*/
+/*start form variant1*/
 
+form {
+    float: left;
+    width: 50%;
+    height: 100%;
+    /*border: 2px solid rgb(225, 229, 230);*/
+    margin-left: 3%;
+}
+form input {
+
+width: 80%;
+height: 100%;
+/*border-bottom: none !important;*/
+box-sizing: border-box;
+padding-left: 60px !important;
+color: #000;
+}
+/*end form variant1*/
 .user {
     width: 172px;
     height: 64px;
@@ -148,7 +141,7 @@ nav .logo-center {
     color: rgb(255, 255, 255);
 }
 
-nav .nav-wrapper i {
+.nav .nav-wrapper i {
     line-height: 0;
     height: 0;
     font-size: 2.5rem;
@@ -158,18 +151,17 @@ nav .nav-wrapper i {
     color: rgb(113, 119, 120);
 }
 
-nav .nav-wrapper .user i {
+.nav .nav-wrapper .user i {
     padding-top: 30px;
 }
 
-nav .nav-wrapper .user-menu {
+.nav .nav-wrapper .user-menu {
     width: 174px;
     position: absolute;
     top: 0px;
     left: 941px;
     opacity: 1;
     display: none;
-"
 }
 
 /*-------------------*/
