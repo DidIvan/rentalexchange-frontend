@@ -8,7 +8,6 @@ ul {
     list-style: none;
 }
 
-
 .clearfix:before,
 .clearfix:after {
     content: " ";
@@ -39,12 +38,12 @@ body {
 .nav .logo-center {
     width: 20%;
     height: 100%;
-    float: left;
+
 }
 
-.brand-logo {
-    top: 10px;
-    left: 6%;
+.nav .logo-center a {
+    display: inline-block;
+    margin: 10px 0 0 70px;
 }
 
 /*/!*Start adjasting form*!/*/
@@ -57,35 +56,6 @@ body {
 /*margin-top: 12px;*/
 /*margin-left: 3%;*/
 /*border-radius: 4px;*/
-/*}*/
-
-/*.search button {*/
-/*cursor: pointer; /!*делает что появлялся пальчик*!/*/
-/*}*/
-
-/*.search .button-left {*/
-/*display: inline-block;*/
-/*width: 8%;*/
-/*height: 100%;*/
-/*float: left;*/
-/*border: 0;*/
-/*border-right: 2px solid rgb(225, 229, 230);*/
-/*box-sizing: border-box;*/
-/*cursor: pointer;*/
-/*}*/
-
-/*.search .button-left i {*/
-/*line-height: 2.5rem;*/
-/*text-align: center;*/
-/*}*/
-
-/*.search .button-right {*/
-/*width: 10%;*/
-/*height: 100%;*/
-/*float: right;*/
-/*border: 0;*/
-/*box-sizing: border-box;*/
-/*background: transparent;*/
 /*}*/
 
 /*.search input {*/
@@ -104,22 +74,23 @@ body {
 form {
     float: left;
     width: 50%;
-    height: 100%;
-    /*border: 2px solid rgb(225, 229, 230);*/
+    height: 85%;
     margin-left: 3%;
+
 }
-.nav .input-field{
+
+.nav .input-field {
     margin-top: 0;
 }
-form input {
 
-width: 80%;
-height: 100%;
-/*border-bottom: none !important;*/
-box-sizing: border-box;
-padding-left: 60px !important;
-color: #000;
+form input {
+    width: 85% !important;
+    /*border-bottom: none !important;*/
+    box-sizing: border-box;
+    padding-left: 60px !important;
+    color: #000;
 }
+
 /*end form variant1*/
 .user {
     width: 172px;
@@ -144,21 +115,22 @@ color: #000;
     color: rgb(255, 255, 255);
 }
 
-.nav .nav-wrapper i {
+.nav .user i {
     line-height: 0;
     height: 0;
     font-size: 2.5rem;
+    color: rgb(255, 255, 255);
 }
 
 .material-icons {
     color: rgb(113, 119, 120);
 }
 
-.nav .nav-wrapper .user i {
+.nav .user i {
     padding-top: 30px;
 }
 
-.nav .nav-wrapper .user-menu {
+.nav .user-menu {
     width: 174px;
     position: absolute;
     top: 0px;
