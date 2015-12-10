@@ -69,6 +69,8 @@ form input {
 }
 
 /*=============end form==================*/
+
+/*==========start user-menu==============*/
 .user {
     position: relative;
     width: 180px;
@@ -101,6 +103,21 @@ form input {
     opacity: 1;
     display: none;
 }
+
+/*=============end user-menu==================*/
+
+/*==========start entrance-menu==============*/
+.entrance-menu{
+    width:180px;
+    height: 100%;
+}
+.entrance-menu button{
+    position: relative;
+    width: 180px;
+    height: 100%;
+    background-color: rgb(41, 128, 185);
+}
+/*=============end entrance-menu==================*/
 
 /*-------------------*/
 
