@@ -46,30 +46,7 @@ body {
     margin: 10px 0 0 70px;
 }
 
-/*/!*Start adjasting form*!/*/
-
-/*.search {*/
-/*float: left;*/
-/*width: 50%;*/
-/*height: 40px;*/
-/*border: 2px solid rgb(225, 229, 230);*/
-/*margin-top: 12px;*/
-/*margin-left: 3%;*/
-/*border-radius: 4px;*/
-/*}*/
-
-/*.search input {*/
-/*float: left;*/
-/*width: 80%;*/
-/*height: 100%;*/
-/*border-bottom: none !important;*/
-/*box-sizing: border-box;*/
-/*padding-left: 20px;*/
-/*color: #000;*/
-/*}*/
-
-/*End adjasting form*/
-/*start form variant1*/
+/*==========start form==============*/
 
 form {
     float: left;
@@ -91,50 +68,36 @@ form input {
     color: #000;
 }
 
-/*end form variant1*/
+/*=============end form==================*/
 .user {
-    width: 172px;
+    position: relative;
+    width: 180px;
     height: 64px;
     background-color: rgb(41, 128, 185);
 }
 
-.chip {
-    border-radius: 0;
-}
-
 .user img {
+
     height: 48px;
     width: 48px;
-    margin: 8px 0 0 0px;
+    margin: 8px 0 0 5px;
+
 }
 
-.user span {
-    display: inline-block;
-    margin-top: 16px;
-    margin-left: 10px;
-    color: rgb(255, 255, 255);
-}
-
-.nav .user i {
-    line-height: 0;
-    height: 0;
-    font-size: 2.5rem;
-    color: rgb(255, 255, 255);
-}
-
-.material-icons {
-    color: rgb(113, 119, 120);
-}
-
-.nav .user i {
-    padding-top: 30px;
-}
-
-.nav .user-menu {
-    width: 174px;
+.btn-flat {
     position: absolute;
-    top: 0px;
-    left: 941px;
+    display: inline-block;
+    width: 128px;
+    top: 14px;
+    padding: 0 7px;
+
+}
+
+.dropdown-content {
+    width: 128px;
+    position: absolute;
+    top: 50px !important;
+    left: 100px;
     opacity: 1;
     display: none;
 }
