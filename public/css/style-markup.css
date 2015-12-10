@@ -42,8 +42,7 @@ body {
 }
 
 .nav .logo-center a {
-    display: inline-block;
-    margin: 10px 0 0 70px;
+    margin: 0 0 0 70px;
 }
 
 /*==========start form==============*/
@@ -114,7 +113,7 @@ form input {
 .entrance-menu button{
     position: relative;
     width: 180px;
-    height: 100%;
+    height: 64px;
     background-color: rgb(41, 128, 185);
 }
 /*=============end entrance-menu==================*/
