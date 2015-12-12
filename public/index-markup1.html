@@ -8,20 +8,27 @@
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!--Import react-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="css/style-markup.css"/>
+
+    <script src="js/components/markup/footer-id.js"></script>
 </head>
 
 <body>
-<div class="container">
+<div id="container-id" class="container">
 
     <!--Begin header-->
 
-    <div class="nav z-depth-2">
+    <div id="header-id" class="nav z-depth-2">
 
         <div class="logo-center left col s12 valign-wrapper">
-            <a href="index-markup.html" class="brand-logo"><img src="img/logo.png" class="valign" alt="logo"/></a>
+            <a href="#" class="brand-logo"><img src="img/logo.png" class="valign" alt="logo"/></a>
         </div>
         <!-- search-->
         <!--<form class="search hide-on-med-and-down left">-->
@@ -30,7 +37,7 @@
         <!--<button type="submit" class="button-right"><i class="material-icons">search</i></button>-->
         <!--</form>-->
         <!-- end search-->
-        <form class="hide-on-med-and-down left">
+        <form id="search-id" class="hide-on-med-and-down left">
             <div class="input-field">
                 <input placeholder="Поиск нужной вещи" id="search-id1" type="text">
                 <label for="search-id1" class="active"> <i class="material-icons prefix">search</i></label>
@@ -39,10 +46,8 @@
 
         <!--start user-menu entrance-->
 
-        <div class="entrance-menu right hide-on-med-and-down valign-wrapper">
-
-            <button class="btn valign" id="login_button">
-                <span class="label">Войти</span></button>
+        <div id="auth-id" class="entrance-menu right hide-on-med-and-down valign-wrapper">
+            <button class="btn valign" id="login_button"><span class="label">Войти</span></button>
         </div>
         <!--end user-menu entrance-->
 
@@ -50,10 +55,10 @@
     <!--End header-->
 
     <!--Begin container#1-->
-    <div class="row">
+    <div id="goodsCategoryRow-id" class="row">
 
         <!--IMG#1-->
-        <div class="col s12 m4 l4">
+        <div id="goodsCategory#1-id" class="col s12 m4 l4">
             <div class="card">
                 <div class="card-image">
                     <a href="#"><img src="img/artleo.png"></a>
@@ -65,7 +70,7 @@
         </div>
 
         <!--IMG#2-->
-        <div class="col s12 m4 l4">
+        <div id="goodsCategory#2-id" class="col s12 m4 l4">
             <div class="card">
                 <div class="card-image">
                     <a href="index-markup.html"><img
@@ -78,7 +83,7 @@
         </div>
 
         <!--IMG#3-->
-        <div class="col s12 m4 l4">
+        <div id="goodsCategory#3-id" class="col s12 m4 l4">
             <div class="card">
                 <div class="card-image">
                     <a href="#"><img
@@ -101,10 +106,10 @@
     </div>
 
     <!--Begin container#2-->
-    <div class="row">
+    <div id="bestGoods-id" class="row">
 
         <!--IMG#1-->
-        <div class="col s12 m3 l3">
+        <div id="goods#1-id" class="col s12 m3 l3">
             <div class="card z-depth-2">
                 <div class="card-image">
                     <a href="#"><img src="img/Product.png"></a>
@@ -116,7 +121,7 @@
         </div>
 
         <!--IMG#2-->
-        <div class="col s12 m3 l3">
+        <div id="goods#2-id" class="col s12 m3 l3">
             <div class="card z-depth-2">
                 <div class="card-image">
                     <a href="#"> <img src="img/Product.png"></a>
@@ -128,7 +133,7 @@
         </div>
 
         <!--IMG#3-->
-        <div class="col s12 m3 l3">
+        <div id="goods#3-id" class="col s12 m3 l3">
             <div class="card z-depth-2">
                 <div class="card-image">
                     <a href="#"> <img src="img/Product.png"></a>
@@ -140,7 +145,7 @@
         </div>
 
         <!--IMG#4-->
-        <div class="col s12 m3 l3">
+        <div id="goods#4-id" class="col s12 m3 l3">
             <div class="card z-depth-2">
                 <div class="card-image">
                     <a href="#"> <img src="img/Product.png"></a>
@@ -154,7 +159,7 @@
     <!--End container#2-->
 
     <!--Begin Footer-->
-    <footer class="page-footer white">
+    <footer id="footer-id" class="page-footer white">
 
         <div class="row">
 
