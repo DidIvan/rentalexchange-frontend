@@ -3,10 +3,10 @@
  */
 /** @jsx React.DOM */
 
-var footer = React.createClass({
+var Footer = React.createClass({
     render: function () {
         return (
-            <footer id="footer-id" className="page-footer white">
+            <footer className="page-footer white">
 
                 <div className="row">
 
@@ -71,4 +71,4 @@ var footer = React.createClass({
     }
 });
 
-React.render(<footer/>, document.getElementById('footer-id'));
+React.render(<Footer/>, document.getElementById('footer-id'));
