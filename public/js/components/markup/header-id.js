@@ -8,7 +8,7 @@ var Header = React.createClass({
 
     render: function () {
         return (
-            <div>
+
                 <div className="nav z-depth-2">
 
                     <div className="logo-center left col s12 valign-wrapper">
@@ -19,7 +19,7 @@ var Header = React.createClass({
 
                     <Auth/>
                 </div>
-            </div>
+
         )
     }
 });
