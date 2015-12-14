@@ -1,18 +1,13 @@
-/**
- * Created by Ivan on 13.12.2015.
- */
 /** @jsx React.DOM */
 
 var GoodsCategory = React.createClass({
     render: function () {
         return (
-
             <div className="row">
-                < GoodsCategory1/>
-                < GoodsCategory2/>
-                < GoodsCategory3/>
+                <GoodsCategory1/>
+                <GoodsCategory2/>
+                <GoodsCategory3/>
             </div>
-
         )
     }
 });
@@ -37,7 +32,7 @@ var GoodsCategory1 = React.createClass({
 var GoodsCategory2 = React.createClass({
     render: function () {
         return (
-            <div class="col s12 m4 l4">
+            <div className="col s12 m4 l4">
                 <div className="card">
                     <div className="card-image">
                         <a href="index-markup.html"><img
@@ -70,4 +65,4 @@ var GoodsCategory3 = React.createClass({
     }
 });
 
-React.render(<GoodsCategory/>, document.getElementById('goodsCategoryRow-id'));
+React.render(<GoodsCategory/>, document.getElementById("goodsCategory-id"));
