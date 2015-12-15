@@ -4,18 +4,26 @@
 /** @jsx React.DOM */
 
 var BestGoods = React.createClass({
-    getInitialState: function () {
-        //TODO extract data from server
-    },
+    /*    getInitialState: function () {
+     //TODO extract data from server
+     },*/
     render: function () {
         return (
             <div className="row">
-                <Goods image="img/Product.png" price="150" goodName="Name1"/>
+                <Title title="ксвьхе опедкнфемхъ медекх"/>
+                <Goods image="img/Product.png" price="155" goodName="Name1"/>
                 <Goods image="img/Product.png" price="250" goodName="Name2"/>
                 <Goods image="img/Product.png" price="350" goodName="Name3"/>
                 <Goods image="img/Product.png" price="450" goodName="Name4"/>
             </div>
 
+        )
+    }
+});
+var Title = React.createClass({
+    render: function () {
+        return (
+            <h1 className="title center-align">{this.props.title}</h1>
         )
     }
 });

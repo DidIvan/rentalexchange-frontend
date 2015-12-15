@@ -166,4 +166,9 @@ footer ul li:hover {
     text-decoration: underline;
 }
 
+.copyright{
+    white-space: nowrap;
+    font-size: 13px;
+}
+
 /*end footer*/
