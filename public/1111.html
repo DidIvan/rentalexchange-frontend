@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script src="http://fb.me/react-0.12.2.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" href="css/style-markup1.css"/>
+
+    <!--<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>-->
+    <title>ddd</title>
+</head>
+<body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+    });
+</script>
+<!-- Modal Trigger -->
+<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Зарегистрироваться</a>
+<!--Modal Structure-->
+<div id="modal1" class="modal">
+    <div class="z-depth-4 card-panel">
+        <form class="login-form">
+
+            <div class="row center">
+                <h5>Регистрация учётной записи пользователя</h5>
+            </div>
+
+            <div class="row margin">
+                <div class="input-field col s12">
+                    <i class="mdi-communication-email prefix"></i>
+                    <input id="email" type="email">
+                    <label for="email" class="center-align">Email</label>
+                </div>
+            </div>
+
+            <div class="row margin">
+                <p>На этот e-mail мы отправим письмо для проверки корректности указанного адреса. В письме будут
+                    содержаться инструкции по активации учётной записи пользователя с таким e-mail.</p>
+            </div>
+            <!--<div class="col l9 s12" data-reactid=".0.0.2"><p data-reactid=".0.0.2.0"><img src="../img/captcha.jpg" alt="captcha" data-reactid=".0.0.2.0.0"></p></div>-->
+            <div class="row margin">
+                <img src="img/recaptcha.png" alt="captcha"/>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <a href="index.html" class="btn waves-effect waves-light col s12">Register Now</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--Import jQuery before materialize.js-->
+<script src="js/jquery.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+</html>

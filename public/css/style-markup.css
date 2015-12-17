@@ -172,3 +172,9 @@ footer ul li:hover {
 }
 
 /*end footer*/
+
+/*Регистрация учётной записи пользователя*/
+.modal{
+    width: 35%;
+    max-height:80% ;
+}
