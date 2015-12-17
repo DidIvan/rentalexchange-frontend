@@ -4,12 +4,12 @@ var GoodsCategory = React.createClass({
     render: function () {
         return (
             <div className="row">
-                <Category image="img/artleo.png" categoryName="Ôîòîòåõíèêà"/>
+                <Category image="img/artleo.png" categoryName="Ð¤Ð¾Ñ‚Ð¾Ñ‚ÐµÑ…Ð½Ð¸ÐºÐ°"/>
                 <Category image="img/00d07bd5f7f5307f333775b4786c--raboty-dlya-detej-detskij-vyazanyj-komplekt.png"
-                               categoryName="âñå äëÿ äåòåé"/>
+                               categoryName="Ð²ÑÐµ Ð´Ð»Ñ Ð´ÐµÑ‚ÐµÐ¹"/>
                 <Category
                     image="img/11425817-A-young-family-of-four-with-a-cat-sitting-on-sofa-looking-at-camera-and-smiling-Stock-Photo.png"
-                    categoryName="Îäåæäà äëÿ âñåé ñåìüè"/>
+                    categoryName="ÐžÐ´ÐµÐ¶Ð´Ð° Ð´Ð»Ñ Ð²ÑÐµÐ¹ ÑÐµÐ¼ÑŒÐ¸"/>
             </div>
         )
     }

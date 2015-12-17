@@ -15,24 +15,24 @@ var Footer = React.createClass({
                     </div>
 
                     <div className="col l3 s12">
-                        <span className="grey-text">КАТАЛОГ</span>
+                        <span className="grey-text">РљРђРўРђР›РћР“</span>
                     </div>
 
                     <div className="col l3 s12">
                         <ul>
-                            <li><a className="grey-text" href="#">Спорт и отдых</a></li>
-                            <li><a className="grey-text" href="#">Одежда и обувь</a></li>
-                            <li><a className="grey-text" href="#">Ремонт и спецтехника</a></li>
-                            <li><a className="grey-text" href="#">Техника и электроника</a></li>
+                            <li><a className="grey-text" href="#">РЎРїРѕСЂС‚ Рё РѕС‚РґС‹С…</a></li>
+                            <li><a className="grey-text" href="#">РћРґРµР¶РґР° Рё РѕР±СѓРІСЊ</a></li>
+                            <li><a className="grey-text" href="#">Р РµРјРѕРЅС‚ Рё СЃРїРµС†С‚РµС…РЅРёРєР°</a></li>
+                            <li><a className="grey-text" href="#">РўРµС…РЅРёРєР° Рё СЌР»РµРєС‚СЂРѕРЅРёРєР°</a></li>
                         </ul>
                     </div>
 
                     <div className="col l3 s12">
                         <ul>
-                            <li><a className="grey-text" href="#">Детские товары</a></li>
-                            <li><a className="grey-text" href="#">Дом дача сад</a></li>
-                            <li><a className="grey-text" href="#">Авто-мото транспорт</a></li>
-                            <li><a className="grey-text" href="#">Здоровье и красота</a></li>
+                            <li><a className="grey-text" href="#">Р”РµС‚СЃРєРёРµ С‚РѕРІР°СЂС‹</a></li>
+                            <li><a className="grey-text" href="#">Р”РѕРј РґР°С‡Р° СЃР°Рґ</a></li>
+                            <li><a className="grey-text" href="#">РђРІС‚Рѕ-РјРѕС‚Рѕ С‚СЂР°РЅСЃРїРѕСЂС‚</a></li>
+                            <li><a className="grey-text" href="#">Р—РґРѕСЂРѕРІСЊРµ Рё РєСЂР°СЃРѕС‚Р°</a></li>
                         </ul>
                     </div>
 
@@ -45,23 +45,23 @@ var Footer = React.createClass({
                     <div className="row">
 
                         <div className="col l2 s12">
-                            <a className="grey-text" href="#">О НАС</a>
+                            <a className="grey-text" href="#">Рћ РќРђРЎ</a>
                         </div>
 
                         <div className="col l2 s12">
-                            <a className="grey-text" href="#">ПРАВИЛА ПОЛЬЗОВАНИЯ</a>
+                            <a className="grey-text" href="#">РџР РђР’РР›Рђ РџРћР›Р¬Р—РћР’РђРќРРЇ</a>
                         </div>
 
                         <div className="col l2 s12">
-                            <a className="grey-text" href="#">ОТЗЫВЫ</a>
+                            <a className="grey-text" href="#">РћРўР—Р«Р’Р«</a>
                         </div>
 
                         <div className="col l2 s12">
-                            <a className="grey-text" href="#">КОНТАКТЫ</a>
+                            <a className="grey-text" href="#">РљРћРќРўРђРљРўР«</a>
                         </div>
 
                         <div className="col l4 s12">
-                            <span className="grey-text" href="#">© 2015 Биржа Аренды. All Rights Reserved.</span>
+                            <span className="grey-text" href="#">В© 2015 Р‘РёСЂР¶Р° РђСЂРµРЅРґС‹. All Rights Reserved.</span>
                         </div>
 
                     </div>

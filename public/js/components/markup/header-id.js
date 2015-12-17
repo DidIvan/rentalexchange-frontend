@@ -29,7 +29,7 @@ var Search = React.createClass({
         return (
             <form className="hide-on-med-and-down left">
                 <div className="input-field">
-                    <input placeholder="Поиск нужной вещи" type="text"/>
+                    <input placeholder="РџРѕРёСЃРє РЅСѓР¶РЅРѕР№ РІРµС‰Рё" type="text"/>
                     <label for="search-id1" className="active"> <i className="material-icons prefix">search</i></label>
                 </div>
             </form>
@@ -41,7 +41,7 @@ var Auth = React.createClass({
     render: function () {
         return (
             <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
-                <button className="btn valign" id="login_button"><span className="label">Войти</span></button>
+                <button className="btn valign" id="login_button"><span className="label">Р’РѕР№С‚Рё</span></button>
             </div>
         )
     }

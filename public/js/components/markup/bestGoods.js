@@ -10,7 +10,7 @@ var BestGoods = React.createClass({
     render: function () {
         return (
             <div className="row">
-                <Title title="ËÓ×ØÈÅ ÏÐÅÄËÎÆÅÍÈß ÍÅÄÅËÈ"/>
+                <Title title="Ð›Ð£Ð§Ð¨Ð˜Ð• ÐŸÐ Ð•Ð”Ð›ÐžÐ–Ð•ÐÐ˜Ð¯ ÐÐ•Ð”Ð•Ð›Ð˜"/>
                 <Goods image="img/Product.png" price="155" goodName="Name1"/>
                 <Goods image="img/Product.png" price="250" goodName="Name2"/>
                 <Goods image="img/Product.png" price="350" goodName="Name3"/>
