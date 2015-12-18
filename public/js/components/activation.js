@@ -88,8 +88,10 @@ var Activation = React.createClass({
 }
 });
 
+var config = require('../../../config');
+
 React.render(
-<Activation url="http://api.rental-exchange.ua/user/activation"/>,
+<Activation url={config.get('host') + "/user/activation"}/>,
     document.getElementById('activation_form_id')
 );
 

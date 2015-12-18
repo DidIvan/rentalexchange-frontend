@@ -5,7 +5,7 @@
 	font-size: inherit;
 }
 #wrap {
-    display: none;
+    display: block;
     position: fixed;
     left: 0;
     right: 0;
@@ -18,7 +18,7 @@
     opacity: 0.8;
 }
 #registration_window {
-    display: none;
+    display: block;
     position: fixed;
     left: 0;
     right: 0;

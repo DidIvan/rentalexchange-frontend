@@ -13,34 +13,28 @@ var LoginForm = React.createClass({
     //validation
     this.setState({email: e.target.value});
     this.setState({errMessage: ''});
-    if(validateEmail(this.state.email))
-    {
+    if (this.validateEmail(this.state.email)) {
         document.getElementById('icon_email_login').style.color = 'green';
         this.setState({validIcon: 'done'});
     } else {
         document.getElementById('icon_email_login').style.color = 'red';
         this.setState({validIcon: 'close'});
     }
-
-    function validateEmail(email) {
-        var re = /.+@.+\..+/i;
-        return re.test(email);
-    }
-
 }
+
+    , validateEmail: function (email) {
+    var re = /.+@.+\..+/i;
+    return re.test(email);
+}
+
 , handleSubmit: function (e) {
     e.preventDefault();
     var email = this.state.email.trim();
 
-    if(!validateEmail(email))
+    if(!this.validateEmail(email))
     {
         this.setState({errMessage: 'Некорректный email!'});
         return;
-    }
-
-    function validateEmail(email) {
-        var re = /.+@.+\..+/i;
-        return re.test(email);
     }
 
     this.setState({errMessage: ''});
@@ -86,7 +80,7 @@ var LoginForm = React.createClass({
 });
 
 React.render(
-<LoginForm url="http://api.rental-exchange.ua/user/registration"/>,
+<LoginForm url="http://api.rental-exchange.ua/user/login"/>,
     document.getElementById('login_form_id')
 );
 

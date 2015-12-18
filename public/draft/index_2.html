@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Rental exchange</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="http://fb.me/react-0.12.2.js"></script>
+  <script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="../js/materialize.js"></script>
+  <script src="../js/init.js"></script>
+</head>
+<body class="grey lighten-5">
+
+<!-- ЗАТЕМНЕНИЕ-->
+<div id="wrap" onclick="showlogin('none'), showreg('none')"></div>
+
+<!-- ОКНО ВХОДА-->
+<div id="login_window">
+  <div class="chip right hide-on-med-and-down">
+    Закрыть
+    <i class="material-icons" onclick="showlogin('none')">close</i>
+  </div>
+  <div id="login_form_id"></div>
+</div>
+
+<!-- ОКНО РЕГИСТРАЦИИ-->
+<div id="registration_window">
+  <div class="chip right hide-on-med-and-down">
+    Закрыть
+    <i class="material-icons" onclick="showreg('none')">close</i>
+  </div>
+  <div id="registration_form_id"></div>
+</div>
+
+<nav class="light-blue lighten-1" role="navigation">
+  <div class="nav-wrapper container">
+    <a href="#" class="brand-logo">БИРЖА АРЕНДЫ</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+      <!-- ВЫЗОВ ОКНА ВХОДА-->
+      <li><a id="id_login_form" href="#" onclick="showlogin('block')">Войти</a></li>
+      <script type="text/javascript">
+        function showlogin(state) {
+          document.getElementById('login_window').style.display = state;
+          document.getElementById('wrap').style.display = state;
+        }
+      </script>
+      <script type="text/jsx" src="../js/components/login.js"></script>
+
+      <!-- ВЫЗОВ ОКНА РЕГИСТРАЦИИ-->
+      <li><a id="id_registration_form" href="#" onclick="showreg('block')">Зарегистрироваться</a></li>
+      <script type="text/javascript">
+        function showreg(state) {
+          document.getElementById('registration_window').style.display = state;
+          document.getElementById('wrap').style.display = state;
+        }
+      </script>
+      <script type="text/jsx" src="../js/components/registration.js"></script>
+
+    </ul>
+  </div>
+</nav>
+
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <br><br>
+    <h1 class="header center blue-text text-lighten-1">LANDING PAGE</h1>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  </div>
+</div>
+<footer class="page-footer white">
+  <div class="container">
+    <div class="row">
+      <div class="col l3 s12">
+        <h5 class="grey-text text-lighten-1">БИРЖА АРЕНДЫ</h5>
+      </div>
+      <div class="col l3 s12">
+        <h5 class="grey-text">КАТАЛОГ</h5>
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">  </h5>
+        <ul>
+          <li><a class="grey-text" href="#!">Техника и электроника</a></li>
+          <li><a class="grey-text" href="#!">Детские товары</a></li>
+          <li><a class="grey-text" href="#!">Дом дача сад</a></li>
+          <li><a class="grey-text" href="#!">Авто-мото транспорт</a></li>
+          <li><a class="grey-text" href="#!">Здоровье и красота</a></li>
+        </ul>
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">  </h5>
+        <ul>
+          <li><a class="grey-text" href="#!">Техника и электроника</a></li>
+          <li><a class="grey-text" href="#!">Детские товары</a></li>
+          <li><a class="grey-text" href="#!">Дом дача сад</a></li>
+          <li><a class="grey-text" href="#!">Авто-мото транспорт</a></li>
+          <li><a class="grey-text" href="#!">Здоровье и красота</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col l2 s12">
+          <a class="grey-text" href="#!">О НАС</a>
+        </div>
+        <div class="col l4 s12">
+          <a class="grey-text" href="#!">ПРАВИЛА ПОЛЬЗОВАНИЯ</a>
+        </div>
+        <div class="col l3 s12">
+          <a class="grey-text" href="#!">ОТЗЫВЫ</a>
+        </div>
+        <div class="col l3 s12">
+          <a class="grey-text" href="#!">КОНТАКТЫ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

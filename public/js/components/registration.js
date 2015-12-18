@@ -20,8 +20,6 @@ var RegistrationForm = React.createClass({
             document.getElementById('icon_email_reg').style.color = 'red';
             this.setState({validIcon: 'close'});
         }
-
-
     }
 
     , validateEmail: function (email) {

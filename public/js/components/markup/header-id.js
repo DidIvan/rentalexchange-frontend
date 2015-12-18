@@ -41,7 +41,7 @@ var Auth = React.createClass({
     render: function () {
         return (
             <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
-                <button className="btn valign" id="login_button"><span className="label">Войти</span></button>
+                <button className="btn valign" id="login_button"><span className="label">Зарегистрироваться</span></button>
             </div>
         )
     }
