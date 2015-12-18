@@ -47,7 +47,7 @@ body {
 
 /*==========start form==============*/
 
-form {
+.nav form {
     float: left;
     width: 50%;
     height: 85%;
@@ -59,7 +59,7 @@ form {
     margin-top: 0;
 }
 
-form input {
+.nav form input {
     width: 85% !important;
     /*border-bottom: none !important;*/
     box-sizing: border-box;
@@ -110,11 +110,14 @@ form input {
     width:180px;
     height: 100%;
 }
-.entrance-menu button{
+.entrance-menu a{
     position: relative;
     width: 180px;
     height: 64px;
     background-color: rgb(41, 128, 185);
+    font-size: 13px;
+    font-weight: bold;
+    padding: 13px 5px;
 }
 /*=============end entrance-menu==================*/
 
@@ -172,9 +175,3 @@ footer ul li:hover {
 }
 
 /*end footer*/
-
-/*Регистрация учётной записи пользователя*/
-.modal{
-    width: 35%;
-    max-height:80% ;
-}

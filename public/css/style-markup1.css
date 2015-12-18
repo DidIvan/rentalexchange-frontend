@@ -6,6 +6,11 @@
 
 /*Регистрация учётной записи пользователя*/
 .modal {
-    width: 35%;
+    width: 28%;
     max-height: 80%;
 }
+
+.modal .margin {
+    margin: 0 0;
+}
+

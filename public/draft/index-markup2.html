@@ -9,6 +9,7 @@
     <script src="http://fb.me/react-0.12.2.js"></script>
     <script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" href="../css/style-markup1.css"/>
 </head>
 
 <body>
@@ -36,26 +37,56 @@
         </form>
 
         <!--start user-menu-->
-
         <div class="entrance-menu right hide-on-med-and-down valign-wrapper">
-            <!--<button class="btn valign" id="login_button"><span class="label">-->
-            <a class="waves-effect waves-light btn modal-trigger" href="#" data-activates="modal1">Modal</a>
-            <!--</span> </button>-->
-            <!-- Modal Structure -->
-            <div id="modal1" class="modal">
-                <div class="modal-content">
-                    <h4>Modal Header</h4>
-
-                    <p>A bunch of text</p>
-                </div>
-                <div class="modal-footer">
-                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-                </div>
-            </div>
+            <!--<button class="btn valign" id="login_button"><span class="label">Войти</span></button>-->
+            <!-- Modal Trigger -->
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Зарегистрироваться</a>
         </div>
         <!--end user-menu-->
-
     </div>
+
+    <!--Begin modal window-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal();
+        });
+    </script>
+    <!--Modal Structure-->
+    <div id="modal1" class="modal">
+        <div class="card-panel">
+            <form class="login-form">
+
+                <div class="row center">
+                    <h5>Регистрация учётной записи пользователя</h5>
+                </div>
+
+                <div class="row margin">
+                    <div class="input-field col s12">
+                        <i class="mdi-communication-email prefix"></i>
+                        <input id="email" type="email">
+                        <label for="email" class="center-align">Email</label>
+                    </div>
+                </div>
+
+                <div class="row margin">
+                    <p class="center">На этот e-mail мы отправим письмо для проверки корректности указанного адреса. В
+                        письме будут
+                        содержаться инструкции по активации учётной записи пользователя с таким e-mail.</p>
+                </div>
+                <div class="row margin">
+                    <img src="../img/captcha.jpg" alt="captcha"/>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <a href="#" class="btn waves-effect waves-light col s12">Register Now</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--END modal window-->
     <!--End header-->
 
     <!--Begin container#1-->
@@ -102,12 +133,6 @@
     </div>
 
     <!--End container#1-->
-
-    <!--<div class="row">-->
-    <!--<div class="col s12 m12 l12">-->
-    <!--<h1 class="title center-align">ЛУЧШИЕ ПРЕДЛОЖЕНИЯ НЕДЕЛИ</h1>-->
-    <!--</div>-->
-    <!--</div>-->
 
     <!--Begin container#2-->
     <div class="row">
