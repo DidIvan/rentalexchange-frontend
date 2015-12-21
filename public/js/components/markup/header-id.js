@@ -31,26 +31,18 @@ var Search = React.createClass({
 });
 
 var Auth = React.createClass({
-    getInitialState: function () {
-        return {isModalNeed: false};
+    registryClick: function (event) {
+        $(document).ready(function () {
+            $('.modal-trigger').leanModal();
+        });
     }
-    , registryClick: function (event) {
-        this.setState({isModalNeed: !this.state.isModalNeed});
-    }
-    ,
-    render: function () {
-        var modalComp = <div></div>;
-        if (this.state.isModalNeed) {
-            modalComp = <ModalRegistrationWindow/>;
-        } else {
-            modalComp = <div></div>;
-        }
+    , render: function () {
         return (
             <div>
                 <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
                     <a className="waves-effect waves-light btn" href="#" onClick={this.registryClick}>Регистрация</a>
                 </div>
-                {modalComp}
+                <ModalRegistrationWindow/>;
             </div>
         )
     }
@@ -96,6 +88,5 @@ var ModalRegistrationWindow = React.createClass({
         )
     }
 });
-
 
 React.render(<Header/>, document.getElementById('header-id'));
