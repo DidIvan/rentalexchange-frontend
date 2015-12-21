@@ -3,6 +3,11 @@
  */
 /** @jsx React.DOM */
 
+$(document).ready(function () {
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+});
+
 var Header = React.createClass({
     render: function () {
         return (
@@ -31,18 +36,21 @@ var Search = React.createClass({
 });
 
 var Auth = React.createClass({
-    registryClick: function (event) {
-        $(document).ready(function () {
-            $('.modal-trigger').leanModal();
-        });
-    }
-    , render: function () {
+  /*  getInitialState: function () {
+        return (
+            document.getElementById("modal1").style.display = "none"
+        )
+    },*/
+    getModal: function () {
+        document.getElementById("modal1").style.display = "block";
+    },
+    render: function () {
         return (
             <div>
                 <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
-                    <a className="waves-effect waves-light btn" href="#" onClick={this.registryClick}>Регистрация</a>
+                    <a className="waves-effect waves-light btn modal-trigger" href="#modal1" onClick={this.getModal}>Регистрация</a>
                 </div>
-                <ModalRegistrationWindow/>;
+                <ModalRegistrationWindow/>
             </div>
         )
     }
@@ -51,7 +59,7 @@ var Auth = React.createClass({
 var ModalRegistrationWindow = React.createClass({
     render: function () {
         return (
-            <div className="modal">
+            <div id="modal1" className="modal">
                 <div className="card-panel">
                     <form className="login-form">
 
