@@ -3,7 +3,7 @@
     margin: 0;
     font-size: 16px;
 }
-
+body { overflow-y: scroll; }
 ul {
     list-style: none;
 }
@@ -218,7 +218,7 @@ footer ul li:hover {
 }
 
 .modal {
-    width: 28%;
+    width: 370px;
     max-height: 80%;
 }
 
