@@ -37,11 +37,6 @@ var Search = React.createClass({
 
 var Auth = React.createClass({
 
-  /*  getInitialState: function () {
-        return (
-            document.getElementById("modal1").style.display = "none"
-        )
-    },*/
     componentDidMount: function () {
         $(document).ready(function () {
             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
