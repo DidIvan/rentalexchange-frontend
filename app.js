@@ -8,6 +8,8 @@ var config = require('./config');
 var log = require('./libs/log')(module);
 var app = express();
 
+console.log(config.get('port'));
+
 app.set('port', config.get('port'));
 
 app.use('/', express.static(path.join(__dirname, 'public')));

@@ -71,7 +71,7 @@ body {
     box-shadow: 0 1px 0 0 rgb(41, 128, 185);
 }
 
-/* label focus color цвет иконки поиска*/
+/* label focus color пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ*/
 .nav .input-field input[type=text]:focus + label {
     color:rgb(41, 128, 185);
 }
@@ -189,18 +189,18 @@ footer ul li:hover {
 
 /*Begin modal window*/
 
-/* label underline focus color цвет нижней линии*/
+/* label underline focus color пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ*/
 .modal .input-field input[type=email]:focus {
     border-bottom: 1px solid rgb(41, 128, 185);
     box-shadow: 0 1px 0 0 rgb(41, 128, 185);
 }
 
-/* icon prefix focus color цвет иконки ящика */
+/* icon prefix focus color пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ */
 .modal .input-field .prefix.active {
     color: rgb(41, 128, 185);
 }
 
-/* label focus color цвет иконки поиска*/
+/* label focus color пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ*/
 .modal .input-field input[type=email]:focus + label {
     color:#2980B9;
 }
@@ -220,6 +220,7 @@ footer ul li:hover {
 .modal {
     width: 370px;
     max-height: 80%;
+    z-index: 1000;
 }
 
 .modal .margin {
