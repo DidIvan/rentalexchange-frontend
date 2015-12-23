@@ -36,12 +36,13 @@ var Search = React.createClass({
 });
 
 var Auth = React.createClass({
+
   /*  getInitialState: function () {
         return (
             document.getElementById("modal1").style.display = "none"
         )
     },*/
-    getModal: function () {
+    componentDidMount: function () {
         $(document).ready(function () {
             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
             $('.modal-trigger').leanModal();
@@ -51,7 +52,7 @@ var Auth = React.createClass({
         return (
             <div>
                 <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
-                    <a className="waves-effect waves-light btn modal-trigger" href="#modal1" onClick={this.getModal}>Регистрация</a>
+                    <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Регистрация</a>
                 </div>
                 <ModalRegistrationWindow/>
             </div>
