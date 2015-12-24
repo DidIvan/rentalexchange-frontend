@@ -59,7 +59,7 @@ body {
     margin-top: 0;
 }
 
-.nav form input {
+.nav form.search input {
     width: 85% !important;
     /*border-bottom: none !important;*/
     box-sizing: border-box;
