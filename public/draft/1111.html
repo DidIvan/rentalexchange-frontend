@@ -1,64 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection"/>
+
+    <!--Import react-->
     <script src="http://fb.me/react-0.12.2.js"></script>
     <script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <link rel="stylesheet" href="../css/style-markup1.css"/>
 
-    <!--<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>-->
-    <title>ddd</title>
+    <!--Import react(temporary) -->
+    <!--<script src="build/react.js"></script>-->
+    <!--<script src="build/JSXTransformer.js"></script>-->
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="../css/style-markup.css"/>
+
+    <script type="text/jsx" src="../js/components/markup/footer-id.js"></script>
+    <script type="text/jsx" src="../js/components/markup/captcha.js"></script>
+    <script type="text/jsx" src="../js/components/markup/goodsCategory.js"></script>
+    <script type="text/jsx" src="../js/components/markup/bestGoods.js"></script>
 </head>
+
 <body>
-<script type="text/javascript">
-    $(document).ready(function () {
-        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-        $('.modal-trigger').leanModal();
-    });
-</script>
-<!-- Modal Trigger -->
-<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Зарегистрироваться</a>
-<!--Modal Structure-->
-<div id="modal1" class="modal">
-    <div class="z-depth-4 card-panel">
-        <form class="login-form">
+<div id="container-id" class="container">
 
-            <div class="row center">
-                <h5>Регистрация учётной записи пользователя</h5>
-            </div>
+    <div id="header-id"></div>
+    <div id="goodsCategory-id"></div>
+    <div id="bestGoods-id"></div>
+    <div id="footer-id"></div>
 
-            <div class="row margin">
-                <div class="input-field col s12">
-                    <i class="mdi-communication-email prefix"></i>
-                    <input id="email" type="email">
-                    <label for="email" class="center-align">Email</label>
-                </div>
-            </div>
-
-            <div class="row margin">
-                <p class="center">На этот e-mail мы отправим письмо для проверки корректности указанного адреса. В
-                    письме будут
-                    содержаться инструкции по активации учётной записи пользователя с таким e-mail.</p>
-            </div>
-            <div class="row margin">
-                <img src="../img/captcha.jpg" alt="captcha"/>
-            </div>
-
-            <div class="row">
-                <div class="input-field col s12">
-                    <a href="#" class="btn waves-effect waves-light col s12">Register Now</a>
-                </div>
-            </div>
-        </form>
-    </div>
 </div>
 
 <!--Import jQuery before materialize.js-->
 <script src="../js/jquery.js"></script>
 <script type="text/javascript" src="../js/materialize.min.js"></script>
+
 </body>
 </html>
