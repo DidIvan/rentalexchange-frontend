@@ -1,17 +1,22 @@
 /**
- * Created by Ivan on 17.12.2015.
+ * Created by Ivan on 13.12.2015.
  */
 /** @jsx React.DOM */
+
+$(document).ready(function () {
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+});
 
 var Header = React.createClass({
     render: function () {
         return (
             <div className="nav z-depth-2">
                 <div className="logo-center left col s12 valign-wrapper">
-                    <a href="#" className="brand-logo"><img src="../img/logo.png" className="valign" alt="logo"/></a>
+                    <a href="#" className="brand-logo"><img src="img/logo.png" className="valign" alt="logo"/></a>
                 </div>
                 <Search/>
-                <Auth/>
+                <Auth isModal="false"/>
             </div>
         )
     }
@@ -51,67 +56,57 @@ var Auth = React.createClass({
 });
 
 var ModalRegistrationWindow = React.createClass({
-    getInitialState: function(){
-      return{
-          emali:""
-      }
-    },
-    handleEmailChange:function(event){
-    this.setState({email:event.target.val});
-    },
-    render: function () {
-        return (
-            <div id="modal1" className="modal">
-                <div className="card-panel">
-                    <form className="login-form">
+        getInitialState: function () {
+            return {
+                validationStarted: false
+            }
+        }
+        ,
+        componentWillMount: function () {
 
-                        <div className="row center">
-                            <h5>Регистрация учётной записи пользователя</h5>
-                        </div>
+        },
+        /* var email = this.state.email.trim(),*/
 
-                        <div className="row margin">
-                            <div className="input-field col s12">
-                                <i className="mdi-communication-email prefix"></i>
-                                <input id="email" type="email" onChange={this.handleEmailChange}>
-                                <label for="email" className="center-align">Email</label>
+        render: function () {
+            return (
+                <div id="modal1" className="modal">
+                    <div className="card-panel">
+                        <form className="login-form">
+
+                            <div className="row center">
+                                <h5>Регистрация учётной записи пользователя</h5>
                             </div>
-                        </div>
 
-                        <div className="row margin">
-                            <p className="center">На этот e-mail мы отправим письмо для проверки корректности указанного
-                                адреса. В
-                                письме будут
-                                содержаться инструкции по активации учётной записи пользователя с таким e-mail.</p>
-                        </div>
-                        <div className="row margin">
-                            <img src="../img/captcha.jpg" alt="captcha"/>
-                        </div>
-
-                        <div className="row">
-                            <div className="input-field col s12">
-                                <a href="#" className="btn waves-effect waves-light col s12">Зарегистрироваться</a>
+                            <div className="row margin">
+                                <div className="input-field col s12">
+                                    <i className="mdi-communication-email prefix"></i>
+                                    <input id="email" type="email" onChange={this.handleEmailChange}/>
+                                    <label for="email" className="center-align">Email</label>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+
+                            <div className="row margin">
+                                <p className="center">На этот e-mail мы отправим письмо для проверки корректности
+                                    указанного
+                                    адреса. В
+                                    письме будут
+                                    содержаться инструкции по активации учётной записи пользователя с таким e-mail.</p>
+                            </div>
+                            <div className="row margin">
+                                <img src="img/captcha.jpg" alt="captcha"/>
+                            </div>
+
+                            <div className="row">
+                                <div className="input-field col s12">
+                                    <a href="#" className="btn waves-effect waves-light col s12">Зарегистрироваться</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        )
-    }
-});
+            )
+        }
+    })
+    ;
 
 React.render(<Header/>, document.getElementById('header-id'));
-//var Recaptcha = require('react-recaptcha');
-//
-//// specifying your onload callback function
-//var callback = function () {
-//    console.log('Done!!!!');
-//};
-//
-//ReactDOM.render(
-//    <Recaptcha
-//        sitekey="xxxxxxxxxxxxxxxxxxxx"
-//        render="explicit"
-//        onloadCallback={callback}
-//        />,
-//    document.getElementById('example')
-//);

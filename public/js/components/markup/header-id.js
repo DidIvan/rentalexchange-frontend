@@ -3,11 +3,6 @@
  */
 /** @jsx React.DOM */
 
-$(document).ready(function () {
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal-trigger').leanModal();
-});
-
 var Header = React.createClass({
     render: function () {
         return (
@@ -16,7 +11,7 @@ var Header = React.createClass({
                     <a href="#" className="brand-logo"><img src="img/logo.png" className="valign" alt="logo"/></a>
                 </div>
                 <Search/>
-                <Auth isModal="false"/>
+                <Auth/>
             </div>
         )
     }
@@ -49,18 +44,46 @@ var Auth = React.createClass({
                 <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
                     <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Регистрация</a>
                 </div>
-                <ModalRegistrationWindow/>
+                <ModalRegistrationWindow url={"http://demo3788566.mockable.io"}/>
             </div>
         )
     }
 });
 
 var ModalRegistrationWindow = React.createClass({
+    getInitialState: function () {
+        return {
+            email: '',
+            errMessage: ''
+        }
+    },
+    handleEmailChange: function (event) {
+        this.setState({email: event.target.value})
+    }
+    ,
+    handleSubmit: function (event) {
+        event.preventDefault();
+        /*prevent the default action*/
+        var email = this.state.email.trim();
+        /* delete all gaps in email*/
+
+        var re = new RegExp('[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,3}');
+
+        if (email = '') {
+            this.setState({errMessage: 'Поле email не должно быть пустым'})
+        } else if (re.test(email)) {
+            alert("Ok!")
+        }
+        else {
+            alert("try onemore")
+        }
+    },
+
     render: function () {
         return (
             <div id="modal1" className="modal">
                 <div className="card-panel">
-                    <form className="login-form">
+                    <form claassName="login-form" onChange="handleSubmit">
 
                         <div className="row center">
                             <h5>Регистрация учётной записи пользователя</h5>
@@ -69,13 +92,14 @@ var ModalRegistrationWindow = React.createClass({
                         <div className="row margin">
                             <div className="input-field col s12">
                                 <i className="mdi-communication-email prefix"></i>
-                                <input id="email" type="email"/>
+                                <input id="email" type="email" onChange={this.handleEmailChange}/>
                                 <label for="email" className="center-align">Email</label>
                             </div>
                         </div>
 
                         <div className="row margin">
-                            <p className="center">На этот e-mail мы отправим письмо для проверки корректности указанного
+                            <p className="center">На этот e-mail мы отправим письмо для проверки корректности
+                                указанного
                                 адреса. В
                                 письме будут
                                 содержаться инструкции по активации учётной записи пользователя с таким e-mail.</p>
