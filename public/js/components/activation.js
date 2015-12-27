@@ -66,7 +66,7 @@ var Activation = React.createClass({
                     <div className="row">
                         <div className="col s3"><p></p></div>
                         <div className="input-field col s6">
-                            <input value={this.state.password} onChange={this.handlePasswordChange} id="password"
+                            <input value={this.state.passwowrd} onChange={this.handlePasswordChange} id="password"
                                    type="password" className="validate"></input>
                             <label className="active" for="password">Новый пароль</label>
                         </div>

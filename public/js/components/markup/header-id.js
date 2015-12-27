@@ -44,7 +44,7 @@ var Auth = React.createClass({
                 <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
                     <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Регистрация</a>
                 </div>
-                <ModalRegistrationWindow url={"http://demo3788566.mockable.io"}/>
+                <ModalRegistrationWindow url={"http://demo3788566.mockable.io/"}/>
             </div>
         )
     }
@@ -72,7 +72,7 @@ var ModalRegistrationWindow = React.createClass({
 
         if (email = '') {
             this.setState({errMessage: 'Поле email не должно быть пустым'})
-        } else if (regexp.test(this.state.email)) {
+        } else if (regexp.test(email)) {
             this.setState({errMessage: ''})
         }
         else {
@@ -100,48 +100,51 @@ var ModalRegistrationWindow = React.createClass({
 
         if (!this.state.isActivationSuccess) {
 
-            activationComp = <div id="modal1" className="modal">
-                <div className="card-panel">
-                    <form claassName="login-form" onSubmit="handleSubmit">
+            activationComp =
+                <div id="modal1" className="modal">
+                    <div className="card-panel">
+                        <form claassName="login-form" onSubmit="handleSubmit">
 
-                        <div className="row center">
-                            <h5>Регистрация учётной записи пользователя</h5>
-                        </div>
-
-                        <div className="row margin">
-                            <div className="input-field col s12">
-                                <i className="mdi-communication-email prefix"></i>
-                                <input id="email" type="email" onChange={this.handleEmailChange}/>
-                                <label for="email" className="center-align">Email</label>
+                            <div className="row center">
+                                <h5>Регистрация учётной записи пользователя</h5>
                             </div>
-                        </div>
 
-                        <div className="row margin">
-                            <p className="center">На этот e-mail мы отправим письмо для проверки корректности
-                                указанного
-                                адреса. В
-                                письме будут
-                                содержаться инструкции по активации учётной записи пользователя с таким e-mail.</p>
-                        </div>
-                        <div className="row margin">
-                            <img src="img/captcha.jpg" alt="captcha"/>
-                        </div>
-
-                        <div className="row">
-                            <div className="input-field col s12">
-                                <a href="#" className="btn waves-effect waves-light col s12">Зарегистрироваться</a>
+                            <div className="row margin">
+                                <div className="input-field col s12">
+                                    <i className="mdi-communication-email prefix"></i>
+                                    <input value={this.state.email} id="email" type="email"
+                                           onChange={this.handleEmailChange}/>
+                                    <label for="email" className="center-align">Email</label>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                            <div className="row"><p className="red-text">{this.state.errMessage}</p></div>
+                            <div className="row margin">
+                                <p className="center">На этот e-mail мы отправим письмо для проверки корректности
+                                    указанного
+                                    адреса. В
+                                    письме будут
+                                    содержаться инструкции по активации учётной записи пользователя с таким e-mail.</p>
+                            </div>
+                            <div className="row margin">
+                                <img src="img/captcha.jpg" alt="captcha"/>
+                            </div>
+
+                            <div className="row">
+                                <div className="input-field col s12">
+                                    <a href="#" className="btn waves-effect waves-light col s12">Зарегистрироваться</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
         } else {
-            activationComp = <div>
-                <h5 className="header center blue-text text-lighten-1">На указанный email отправлено письмо
-                    активации</h5>
-            </div>;
+            activationComp =
+                <div>
+                    <h5 className="header center blue-text text-lighten-1">На указанный email отправлено письмо
+                        активации</h5>
+                </div>;
         }
-        return(
+        return (
             <div>{activationComp}</div>
         )
     }
