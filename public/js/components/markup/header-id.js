@@ -54,7 +54,8 @@ var ModalRegistrationWindow = React.createClass({
     getInitialState: function () {
         return {
             email: '',
-            errMessage: ''
+            errMessage: '',
+            isActivationSuccess: false
         }
     },
     handleEmailChange: function (event) {
@@ -67,23 +68,41 @@ var ModalRegistrationWindow = React.createClass({
         var email = this.state.email.trim();
         /* delete all gaps in email*/
 
-        var re = new RegExp('[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,3}');
+        var regexp = new RegExp('[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,4}');
 
         if (email = '') {
             this.setState({errMessage: 'Поле email не должно быть пустым'})
-        } else if (re.test(email)) {
-            alert("Ok!")
+        } else if (regexp.test(this.state.email)) {
+            this.setState({errMessage: ''})
         }
         else {
-            alert("try onemore")
+            this.setState({errMessage: 'некорректный ввод'})
         }
+
+        $.ajax({
+            url: this.props.url,
+            dataType: 'json',
+            type: 'POST',
+            data: {email: email},
+            success: function (data) {
+                this.state.isActivationSuccess = true;
+                this.forceUpdate();
+            }.bind(this),
+            error: function (xhr, status, err) {
+                alert("ERROR POST " + status);
+            }.bind(this)
+        });
     },
 
     render: function () {
-        return (
-            <div id="modal1" className="modal">
+
+        var activationComp = "";
+
+        if (!this.state.isActivationSuccess) {
+
+            activationComp = <div id="modal1" className="modal">
                 <div className="card-panel">
-                    <form claassName="login-form" onChange="handleSubmit">
+                    <form claassName="login-form" onSubmit="handleSubmit">
 
                         <div className="row center">
                             <h5>Регистрация учётной записи пользователя</h5>
@@ -116,6 +135,14 @@ var ModalRegistrationWindow = React.createClass({
                     </form>
                 </div>
             </div>
+        } else {
+            activationComp = <div>
+                <h5 className="header center blue-text text-lighten-1">На указанный email отправлено письмо
+                    активации</h5>
+            </div>;
+        }
+        return(
+            <div>{activationComp}</div>
         )
     }
 });
