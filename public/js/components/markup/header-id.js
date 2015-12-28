@@ -44,7 +44,7 @@ var Auth = React.createClass({
                 <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
                     <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Регистрация</a>
                 </div>
-                <ModalRegistrationWindow url={"http://demo3788566.mockable.io/"}/>
+                <ModalRegistrationWindow /*url={"http://demo3788566.mockable.io/"}*//>
             </div>
         )
     }
@@ -77,12 +77,12 @@ var ModalRegistrationWindow = React.createClass({
         }
 
         $.ajax({
-            url: this.props.url,
-            dataType: 'jsonp',
-            type: 'POST',
+            url: "http://demo3788566.mockable.io/",
+            dataType: 'json',
+            type: 'GET',
             data: {email: email},
             success: function (data) {
-                alert( "Прибыли данные: " + data );
+                alert("Прибыли данные: " + data);
                 this.state.isActivationSuccess = true;
                 this.forceUpdate();
             }.bind(this),
@@ -101,7 +101,7 @@ var ModalRegistrationWindow = React.createClass({
             activationComp =
                 <div id="modal1" className="modal">
                     <div className="card-panel">
-                        <form claassName="login-form">
+                        <form claassName="login-form" onSubmit={this.handleSubmit}>
 
                             <div className="row center">
                                 <h5>Регистрация учётной записи пользователя</h5>
@@ -129,8 +129,9 @@ var ModalRegistrationWindow = React.createClass({
 
                             <div className="row">
                                 <div className="input-field col s12">
-                                    <a href="#" className="btn waves-effect waves-light col s12"
-                                       onClick={this.handleSubmit}>Зарегистрироваться</a>
+                                    <button type="submit" href="#" className="btn waves-effect waves-light col s12">
+                                        Зарегистрироваться
+                                    </button>
                                 </div>
                             </div>
                         </form>
