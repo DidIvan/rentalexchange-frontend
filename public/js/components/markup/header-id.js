@@ -103,7 +103,7 @@ var ModalRegistrationWindow = React.createClass({
             activationComp =
                 <div id="modal1" className="modal">
                     <div className="card-panel">
-                        <form claassName="login-form" onSubmit="handleSubmit">
+                        <form claassName="login-form" >
 
                             <div className="row center">
                                 <h5>Регистрация учётной записи пользователя</h5>
@@ -131,7 +131,7 @@ var ModalRegistrationWindow = React.createClass({
 
                             <div className="row">
                                 <div className="input-field col s12">
-                                    <a href="#" className="btn waves-effect waves-light col s12">Зарегистрироваться</a>
+                                    <a href="#" className="btn waves-effect waves-light col s12" onClick={this.handleSubmit}>Зарегистрироваться</a>
                                 </div>
                             </div>
                         </form>
