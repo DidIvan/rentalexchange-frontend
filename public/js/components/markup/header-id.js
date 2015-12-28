@@ -70,21 +70,19 @@ var ModalRegistrationWindow = React.createClass({
 
         var regexp = new RegExp('[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,4}');
 
-        if (email = '') {
-            this.setState({errMessage: 'Поле email не должно быть пустым'})
-        } else if (regexp.test(email)) {
-            this.setState({errMessage: ''})
-        }
-        else {
+        if (regexp.test(email)) {
+            this.setState({errMessage: 'корректный ввод'})
+        } else {
             this.setState({errMessage: 'некорректный ввод'})
         }
 
         $.ajax({
             url: this.props.url,
-            dataType: 'json',
+            dataType: 'jsonp',
             type: 'POST',
             data: {email: email},
             success: function (data) {
+                alert( "Прибыли данные: " + data );
                 this.state.isActivationSuccess = true;
                 this.forceUpdate();
             }.bind(this),
@@ -103,7 +101,7 @@ var ModalRegistrationWindow = React.createClass({
             activationComp =
                 <div id="modal1" className="modal">
                     <div className="card-panel">
-                        <form claassName="login-form" >
+                        <form claassName="login-form">
 
                             <div className="row center">
                                 <h5>Регистрация учётной записи пользователя</h5>
@@ -131,7 +129,8 @@ var ModalRegistrationWindow = React.createClass({
 
                             <div className="row">
                                 <div className="input-field col s12">
-                                    <a href="#" className="btn waves-effect waves-light col s12" onClick={this.handleSubmit}>Зарегистрироваться</a>
+                                    <a href="#" className="btn waves-effect waves-light col s12"
+                                       onClick={this.handleSubmit}>Зарегистрироваться</a>
                                 </div>
                             </div>
                         </form>
