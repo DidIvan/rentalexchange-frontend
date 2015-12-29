@@ -77,9 +77,9 @@ var ModalRegistrationWindow = React.createClass({
         }
 
         $.ajax({
-            url: "http://demo3788566.mockable.io/",
+            url: "http://demo8099007.mockable.io/activation",
             dataType: 'json',
-            type: 'GET',
+            type: 'POST',
             data: {email: email},
             success: function (data) {
                 alert("Прибыли данные: " + data);
