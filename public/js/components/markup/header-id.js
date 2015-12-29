@@ -44,7 +44,7 @@ var Auth = React.createClass({
                 <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
                     <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Регистрация</a>
                 </div>
-                <ModalRegistrationWindow /*url={"http://demo3788566.mockable.io/"}*//>
+                <ModalRegistrationWindow url={"http://rental.com:8080/user/registration"}/>
             </div>
         )
     }
@@ -64,59 +64,28 @@ var ModalRegistrationWindow = React.createClass({
     ,
     handleSubmit: function (event) {
         event.preventDefault();
-        /*prevent the default action*/
         var email = this.state.email.trim();
-        /* delete all gaps in email*/
+        var dataJson = {
+            "email": email
+        };
 
-        var regexp = new RegExp('[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,4}');
-
-      /*  if (regexp.test(email)) {
-            this.setState({errMessage: 'корректный ввод'})
-        } else {
-            this.setState({errMessage: 'некорректный ввод'})
-        }
-*/
-
-
-        var data = {
-            email: this.state.email,
-        }
-
-        // Submit form via jQuery/AJAX
         $.ajax({
+            url: this.props.url,
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
             type: 'POST',
-            url: '/user/registration',
-            data: data
-        })
-            .done(function(data) {
-                alert("++++");
-            })
-            .fail(function(jqXhr) {
-                alert("---");
-            });
-
-
-
-       /* $.ajax({
-            type: "POST",
-            url: "http://localhost:8080/user/registration",
-            dataType: "json",
-            success: function (msg) {
-                alert("++++");
-
+            data: JSON.stringify(dataJson),
+            success: function (data) {
+                console.log("+");
             },
             error: function (xhr, status, err) {
-                alert("---");
-            },
-            data: sendInfo
-        });*/
-
+                console.log("-");
+            }
+        });
     },
 
     render: function () {
-
         var activationComp = "";
-
         if (!this.state.isActivationSuccess) {
 
             activationComp =
@@ -150,7 +119,7 @@ var ModalRegistrationWindow = React.createClass({
 
                             <div className="row">
                                 <div className="input-field col s12">
-                                    <button type="submit" href="#" className="btn waves-effect waves-light col s12">
+                                    <button type="submit" className="btn waves-effect waves-light col s12">
                                         Зарегистрироваться
                                     </button>
                                 </div>
