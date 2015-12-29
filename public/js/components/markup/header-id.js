@@ -70,26 +70,47 @@ var ModalRegistrationWindow = React.createClass({
 
         var regexp = new RegExp('[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,4}');
 
-        if (regexp.test(email)) {
+      /*  if (regexp.test(email)) {
             this.setState({errMessage: 'корректный ввод'})
         } else {
             this.setState({errMessage: 'некорректный ввод'})
         }
+*/
 
+
+        var data = {
+            email: this.state.email,
+        }
+
+        // Submit form via jQuery/AJAX
         $.ajax({
-            url: "http://demo8099007.mockable.io/activation",
-            dataType: 'json',
             type: 'POST',
-            data: {email: email},
-            success: function (data) {
-                alert("Прибыли данные: " + data);
-                this.state.isActivationSuccess = true;
-                this.forceUpdate();
-            }.bind(this),
+            url: '/user/registration',
+            data: data
+        })
+            .done(function(data) {
+                alert("++++");
+            })
+            .fail(function(jqXhr) {
+                alert("---");
+            });
+
+
+
+       /* $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/user/registration",
+            dataType: "json",
+            success: function (msg) {
+                alert("++++");
+
+            },
             error: function (xhr, status, err) {
-                alert("ERROR POST " + status);
-            }.bind(this)
-        });
+                alert("---");
+            },
+            data: sendInfo
+        });*/
+
     },
 
     render: function () {
