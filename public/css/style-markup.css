@@ -205,10 +205,16 @@ footer ul li:hover {
     color:#2980B9;
 }
 
+.modal .input-field button[type=submit]:focus + label {
+    color:#2980B9;
+}
 
+
+/*
 .modal .login-form .input-field .btn {
     background-color: rgb(41, 128, 185);
 }
+*/
 
 .modal .login-form p {
     font-size: 11px;

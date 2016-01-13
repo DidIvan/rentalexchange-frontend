@@ -44,7 +44,7 @@ var Auth = React.createClass({
                 <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
                     <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Регистрация</a>
                 </div>
-                <ModalRegistrationWindow url={"http://rental.com:8080/user/registration"}/>
+                <ModalRegistrationWindow url={"http://demo3788566.mockable.io/activation"}/>
             </div>
         )
     }
