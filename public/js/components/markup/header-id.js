@@ -76,10 +76,15 @@ var ModalRegistrationWindow = React.createClass({
             type: 'POST',
             data: JSON.stringify(dataJson),
             success: function (data) {
-                console.log("+");
+                //server Success component(+парметр)
             },
             error: function (xhr, status, err) {
-                console.log("-");
+                if (status == 505) {
+                    //server Error component(+парметр)
+                }
+                if (status == 400) {
+                    //server Error component(+парметр2)
+                }
             }
         });
     },
