@@ -68,7 +68,7 @@ var ModalRegistrationWindow = React.createClass({
         var dataJson = {
             "email": email
         };
-
+        var that = this;
         $.ajax({
             url: this.props.url,
             dataType: 'json',
@@ -76,14 +76,11 @@ var ModalRegistrationWindow = React.createClass({
             type: 'POST',
             data: JSON.stringify(dataJson),
             success: function (data) {
-                //server Success component(+парметр)
+                that.setState({isActivationSuccess: true});
             },
             error: function (xhr, status, err) {
-                if (status == 505) {
-                    //server Error component(+парметр)
-                }
                 if (status == 400) {
-                    //server Error component(+парметр2)
+                    that.setState({errMessage:"fail registration - user alredy registered in system"})
                 }
             }
         });
@@ -134,10 +131,26 @@ var ModalRegistrationWindow = React.createClass({
                 </div>
         } else {
             activationComp =
-                <div>
-                    <h5 className="header center blue-text text-lighten-1">На указанный email отправлено письмо
-                        активации</h5>
-                </div>;
+                <div id="modal1" className="modal">
+                    <div className="card-panel">
+                        <form claassName="login-form" onSubmit={this.handleSubmit}>
+
+                            <div className="row center">
+                                <h5>Регистрация учётной записи пользователя</h5>
+                            </div>
+                            <div className="row margin">
+                                <p className="center">Спасибо!
+                                    На указаный Вами e-mail <b>{this.state.email}</b> отправлено письмо для проверки
+                                    корректности указанного
+                                    адреса.
+                                    Пожалуйста, следуйте указанным в письме инструкциям для активации учётной записи
+                                    пользователя
+                                    или повторите попытку регистрации, если вы ошиблись в адресе.</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
         }
         return (
             <div>{activationComp}</div>
