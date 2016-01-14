@@ -79,7 +79,7 @@ var ModalRegistrationWindow = React.createClass({
                 that.setState({isActivationSuccess: true});
             },
             error: function (xhr, status, err) {
-                if (status == 400) {
+                if (xhr.status == 400) {
                     that.setState({errMessage:"fail registration - user alredy registered in system"})
                 }
             }
