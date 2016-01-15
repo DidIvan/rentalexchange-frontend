@@ -64,26 +64,35 @@ var ModalRegistrationWindow = React.createClass({
     ,
     handleSubmit: function (event) {
         event.preventDefault();
-        var email = this.state.email.trim();
-        var dataJson = {
-            "email": email
-        };
-        var that = this;
-        $.ajax({
-            url: this.props.url,
-            dataType: 'json',
-            contentType: "application/json; charset=utf-8",
-            type: 'POST',
-            data: JSON.stringify(dataJson),
-            success: function (data) {
-                that.setState({isActivationSuccess: true});
-            },
-            error: function (xhr, status, err) {
-                if (xhr.status == 400) {
-                    that.setState({errMessage:"fail registration - user alredy registered in system"})
+
+        if (this.state.email == '') {
+            this.setState({errMessage: "empty field"})
+        } else {
+
+            var email = this.state.email.trim();
+
+
+            var dataJson = {
+                "email": email
+            };
+
+            var that = this;
+            $.ajax({
+                url: this.props.url,
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                type: 'POST',
+                data: JSON.stringify(dataJson),
+                success: function (data) {
+                    that.setState({isActivationSuccess: true});
+                },
+                error: function (xhr, status, err) {
+                    if (xhr.status == 400) {
+                        that.setState({errMessage: "fail registration - user alredy registered in system"})
+                    }
                 }
-            }
-        });
+            });
+        }
     },
 
     render: function () {
