@@ -38,11 +38,17 @@ var Auth = React.createClass({
             $('.modal-trigger').leanModal();
         });
     },
+    /*------------------*/
+    formReset: function () {
+        this.setState({errMessage: ''});
+        this.setState({isActivationSuccess: false});
+    },
+    /*------------------*/
     render: function () {
         return (
             <div>
                 <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
-                    <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Регистрация</a>
+                    <a className="waves-effect waves-light btn modal-trigger" href="#modal1" onclick={this.formReset}>Регистрация</a>
                 </div>
                 <ModalRegistrationWindow url={"http://demo3788566.mockable.io/activation"}/>
             </div>
@@ -68,10 +74,7 @@ var ModalRegistrationWindow = React.createClass({
         if (this.state.email == '') {
             this.setState({errMessage: "empty field"})
         } else {
-
             var email = this.state.email.trim();
-
-
             var dataJson = {
                 "email": email
             };
@@ -142,7 +145,7 @@ var ModalRegistrationWindow = React.createClass({
             activationComp =
                 <div id="modal1" className="modal">
                     <div className="card-panel">
-                        <form claassName="login-form" onSubmit={this.handleSubmit}>
+                        <form claassName="login-form">
 
                             <div className="row center">
                                 <h5>Регистрация учётной записи пользователя</h5>
