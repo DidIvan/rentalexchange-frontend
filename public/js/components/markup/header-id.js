@@ -50,7 +50,7 @@ var Auth = React.createClass({
                 <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
                     <a className="waves-effect waves-light btn modal-trigger" href="#modal1" onclick={this.formReset}>Регистрация</a>
                 </div>
-                <ModalRegistrationWindow url={"http://demo3788566.mockable.io/activation"}/>
+                <ModalRegistrationWindow url={"https://demo3788566.mockable.io/activation"}/>
             </div>
         )
     }
@@ -65,9 +65,15 @@ var ModalRegistrationWindow = React.createClass({
         }
     },
     handleEmailChange: function (event) {
-        this.setState({email: event.target.value})
+        this.setState({email: event.target.value});
+        this.setState({errMessage:""});
     }
     ,
+ /*   clearState: function(){
+        this.setState({email: ''});
+        this.setState({errMessage: ''});
+        this.setState({isActivationSuccess: false});
+    },*/
     handleSubmit: function (event) {
         event.preventDefault();
 
@@ -100,6 +106,7 @@ var ModalRegistrationWindow = React.createClass({
 
     render: function () {
         var activationComp = "";
+
         if (!this.state.isActivationSuccess) {
 
             activationComp =
