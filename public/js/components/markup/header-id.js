@@ -32,29 +32,40 @@ var Search = React.createClass({
 
 var Auth = React.createClass({
 
-    componentDidMount: function () {
-        $(document).ready(function () {
-            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-            $('.modal-trigger').leanModal();
-        });
-    },
-    /*------------------*/
-    formReset: function () {
-        this.setState({errMessage: ''});
-        this.setState({isActivationSuccess: false});
-    },
-    /*------------------*/
-    render: function () {
-        return (
-            <div>
-                <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
-                    <a className="waves-effect waves-light btn modal-trigger" href="#modal1" onclick={this.formReset}>Регистрация</a>
+        componentDidMount: function () {
+                $(document).ready(function () {
+             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+             $('.modal-trigger').leanModal();
+             });
+          /*  $('.modal-trigger').leanModal({
+                    dismissible: true, // Modal can be dismissed by clicking outside of the modal
+                    opacity: .5, // Opacity of modal background
+                    in_duration: 300, // Transition in duration
+                    out_duration: 200, // Transition out duration
+                    ready: function () {
+                        alert('Ready');
+                    }, // Callback for Modal open
+                    complete: function () {
+                        alert('Closed');
+                    } // Callback for Modal close
+                }
+            );*/
+        },
+        componentWillUnmount: function () {
+            this.setState({isActivationSuccess: false});
+        },
+        render: function () {
+            return (
+                <div>
+                    <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
+                        <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Регистрация</a>
+                    </div>
+                    <ModalRegistrationWindow url={"https://demo3788566.mockable.io/activation"}/>
                 </div>
-                <ModalRegistrationWindow url={"https://demo3788566.mockable.io/activation"}/>
-            </div>
-        )
-    }
-});
+            )
+        }
+    })
+    ;
 
 var ModalRegistrationWindow = React.createClass({
     getInitialState: function () {
@@ -66,14 +77,9 @@ var ModalRegistrationWindow = React.createClass({
     },
     handleEmailChange: function (event) {
         this.setState({email: event.target.value});
-        this.setState({errMessage:""});
+        this.setState({errMessage: ""});
     }
     ,
- /*   clearState: function(){
-        this.setState({email: ''});
-        this.setState({errMessage: ''});
-        this.setState({isActivationSuccess: false});
-    },*/
     handleSubmit: function (event) {
         event.preventDefault();
 
@@ -103,7 +109,6 @@ var ModalRegistrationWindow = React.createClass({
             });
         }
     },
-
     render: function () {
         var activationComp = "";
 
@@ -169,7 +174,6 @@ var ModalRegistrationWindow = React.createClass({
                         </form>
                     </div>
                 </div>
-
         }
         return (
             <div>{activationComp}</div>
