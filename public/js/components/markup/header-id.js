@@ -11,7 +11,7 @@ var Header = React.createClass({
                     <a href="#" className="brand-logo"><img src="img/logo.png" className="valign" alt="logo"/></a>
                 </div>
                 <Search/>
-                <Auth/>
+                <Auth url="//https://demo3788566.mockable.io/activation"/>
             </div>
         )
     }
@@ -31,43 +31,6 @@ var Search = React.createClass({
 });
 
 var Auth = React.createClass({
-
-        componentDidMount: function () {
-                $(document).ready(function () {
-             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-             $('.modal-trigger').leanModal();
-             });
-          /*  $('.modal-trigger').leanModal({
-                    dismissible: true, // Modal can be dismissed by clicking outside of the modal
-                    opacity: .5, // Opacity of modal background
-                    in_duration: 300, // Transition in duration
-                    out_duration: 200, // Transition out duration
-                    ready: function () {
-                        alert('Ready');
-                    }, // Callback for Modal open
-                    complete: function () {
-                        alert('Closed');
-                    } // Callback for Modal close
-                }
-            );*/
-        },
-        componentWillUnmount: function () {
-            this.setState({isActivationSuccess: false});
-        },
-        render: function () {
-            return (
-                <div>
-                    <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
-                        <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Регистрация</a>
-                    </div>
-                    <ModalRegistrationWindow url={"https://demo3788566.mockable.io/activation"}/>
-                </div>
-            )
-        }
-    })
-    ;
-
-var ModalRegistrationWindow = React.createClass({
     getInitialState: function () {
         return {
             email: '',
@@ -78,8 +41,7 @@ var ModalRegistrationWindow = React.createClass({
     handleEmailChange: function (event) {
         this.setState({email: event.target.value});
         this.setState({errMessage: ""});
-    }
-    ,
+    },
     handleSubmit: function (event) {
         event.preventDefault();
 
@@ -109,12 +71,35 @@ var ModalRegistrationWindow = React.createClass({
             });
         }
     },
+    componentDidMount: function () {
+        var that = this;
+        $(document).ready(function () {
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal({
+                complete: function () {
+                    that.setState({errMessage: ""});
+                    that.setState({isActivationSuccess: false});
+                } // Callback for Modal close
+            });
+        });
+        /*  $('.modal-trigger').leanModal({
+         dismissible: true, // Modal can be dismissed by clicking outside of the modal
+         opacity: .5, // Opacity of modal background
+         in_duration: 300, // Transition in duration
+         out_duration: 200, // Transition out duration
+         ready: function () {
+         alert('Ready');
+         }, // Callback for Modal open
+         complete: function () {
+         alert('Closed');
+         } // Callback for Modal close
+         }
+         );*/
+    },
     render: function () {
-        var activationComp = "";
-
+        var registrForm = "";
         if (!this.state.isActivationSuccess) {
-
-            activationComp =
+            registrForm =
                 <div id="modal1" className="modal">
                     <div className="card-panel">
                         <form claassName="login-form" onSubmit={this.handleSubmit}>
@@ -154,7 +139,7 @@ var ModalRegistrationWindow = React.createClass({
                     </div>
                 </div>
         } else {
-            activationComp =
+            registrForm =
                 <div id="modal1" className="modal">
                     <div className="card-panel">
                         <form claassName="login-form">
@@ -176,7 +161,12 @@ var ModalRegistrationWindow = React.createClass({
                 </div>
         }
         return (
-            <div>{activationComp}</div>
+            <div>
+                <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
+                    <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Регистрация</a>
+                </div>
+                <div>{registrForm}</div>
+            </div>
         )
     }
 });
