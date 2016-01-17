@@ -31,38 +31,27 @@ var Search = React.createClass({
 });
 
 var Auth = React.createClass({
-
-        componentDidMount: function () {
-                $(document).ready(function () {
-             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-             $('.modal-trigger').leanModal();
-             });
-          /*  $('.modal-trigger').leanModal({
-                    dismissible: true, // Modal can be dismissed by clicking outside of the modal
-                    opacity: .5, // Opacity of modal background
-                    in_duration: 300, // Transition in duration
-                    out_duration: 200, // Transition out duration
-                    ready: function () {
-                        alert('Ready');
-                    }, // Callback for Modal open
-                    complete: function () {
-                        alert('Closed');
-                    } // Callback for Modal close
-                }
-            );*/
-        },
-        componentWillUnmount: function () {
-            this.setState({isActivationSuccess: false});
+        getInitialState: function () {
+            return {
+                isActivationSuccess: false
+            }
         },
         render: function () {
             return (
                 <div>
                     <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
-                        <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Регистрация</a>
+                        <a className="waves-effect waves-light btn modal-trigger" href="#modal1"
+                           onClick={this.formReset}>Регистрация</a>
                     </div>
                     <ModalRegistrationWindow url={"https://demo3788566.mockable.io/activation"}/>
                 </div>
             )
+        },
+        componentDidMount: function () {
+            $(document).ready(function () {
+                // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+                $('.modal-trigger').leanModal();
+            });
         }
     })
     ;
@@ -71,8 +60,7 @@ var ModalRegistrationWindow = React.createClass({
     getInitialState: function () {
         return {
             email: '',
-            errMessage: '',
-            isActivationSuccess: false
+            errMessage: ''
         }
     },
     handleEmailChange: function (event) {
@@ -82,7 +70,6 @@ var ModalRegistrationWindow = React.createClass({
     ,
     handleSubmit: function (event) {
         event.preventDefault();
-
         if (this.state.email == '') {
             this.setState({errMessage: "empty field"})
         } else {
