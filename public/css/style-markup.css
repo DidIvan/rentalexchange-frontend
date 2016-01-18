@@ -3,7 +3,7 @@
     margin: 0;
     font-size: 16px;
 }
-body { overflow-y: scroll; }
+
 ul {
     list-style: none;
 }
@@ -26,6 +26,17 @@ body {
     font-family: Myriad Pro Regular, Arial, Helvetica, sans-serif;
     background-color: rgb(243, 243, 243);
 }
+
+/* убираем скролл, чтоб не прыгала страница при открытии модал.окна start*/
+/* хром, сафари */
+.element::-webkit-scrollbar { width: 0; }
+
+/* ie 10+ */
+.element { -ms-overflow-style: none; }
+
+/* Firefox (свойство больше не работает, других способов тоже нет)*/
+.element { overflow: -moz-scrollbars-none; }
+/* убираем скролл, чтоб не прыгала страница при открытии модал.окна end*/
 
 /*-------------------NAV------------------*/
 .nav {
@@ -66,14 +77,15 @@ body {
     padding-left: 60px !important;
     color: #000;
 }
-.nav .input-field input[type=text]:focus{
+
+.nav .input-field input[type=text]:focus {
     border-bottom: 1px solid rgb(41, 128, 185);
     box-shadow: 0 1px 0 0 rgb(41, 128, 185);
 }
 
 /* label focus color ���� ������ ������*/
 .nav .input-field input[type=text]:focus + label {
-    color:rgb(41, 128, 185);
+    color: rgb(41, 128, 185);
 }
 
 /*=============end form==================*/
@@ -202,13 +214,12 @@ footer ul li:hover {
 
 /* label focus color ���� ������ ������*/
 .modal .input-field input[type=email]:focus + label {
-    color:#2980B9;
+    color: #2980B9;
 }
 
 .modal .input-field button[type=submit]:focus + label {
-    color:#2980B9;
+    color: #2980B9;
 }
-
 
 /*
 .modal .login-form .input-field .btn {
@@ -219,6 +230,7 @@ footer ul li:hover {
 .modal .login-form p {
     font-size: 11px;
 }
+
 .modal .card-panel {
     margin: 0;
 }
@@ -231,4 +243,5 @@ footer ul li:hover {
 .modal .margin {
     margin: 0 0;
 }
+
 /*End modal window*/

@@ -77,7 +77,7 @@ var Auth = React.createClass({
             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
             $('.modal-trigger').leanModal({
                 complete: function () {
-                    that.setState({email: ""});
+                    that.setState({email: ''});
                     that.setState({errMessage: ""});
                     that.setState({isActivationSuccess: false});
                 } // Callback for Modal close
