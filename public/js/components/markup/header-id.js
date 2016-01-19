@@ -11,7 +11,7 @@ var Header = React.createClass({
                     <a href="#" className="brand-logo"><img src="img/logo.png" className="valign" alt="logo"/></a>
                 </div>
                 <Search/>
-                <Auth url="http://demo3788566.mockable.io/activation"/>
+                <Auth url="https://demo3788566.mockable.io/activation"/>
             </div>
         )
     }
@@ -78,7 +78,7 @@ var Auth = React.createClass({
             $('.modal-trigger').leanModal({
                 complete: function () {
                     that.setState({email: ''});
-                    that.setState({errMessage: ""});
+                    that.setState({errMessage: ''});
                     that.setState({isActivationSuccess: false});
                 } // Callback for Modal close
             });

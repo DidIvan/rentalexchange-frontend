@@ -29,13 +29,20 @@ body {
 
 /* убираем скролл, чтоб не прыгала страница при открытии модал.окна start*/
 /* хром, сафари */
-.element::-webkit-scrollbar { width: 0; }
+.element::-webkit-scrollbar {
+    width: 0;
+}
 
 /* ie 10+ */
-.element { -ms-overflow-style: none; }
+.element {
+    -ms-overflow-style: none;
+}
 
 /* Firefox (свойство больше не работает, других способов тоже нет)*/
-.element { overflow: -moz-scrollbars-none; }
+.element {
+    overflow: -moz-scrollbars-none;
+}
+
 /* убираем скролл, чтоб не прыгала страница при открытии модал.окна end*/
 
 /*-------------------NAV------------------*/
@@ -221,12 +228,16 @@ footer ul li:hover {
     color: #2980B9;
 }
 
-/*
-.modal .login-form .input-field .btn {
-    background-color: rgb(41, 128, 185);
+/*colors  of button "Registration" start*/
+.input-field .btn, .btn:focus {
+    background-color: rgb(41, 128, 185)
 }
-*/
 
+.input-field .btn:hover {
+    background-color: rgb(42, 155, 221)
+}
+
+/*colors  of button "Registration" end*/
 .modal .login-form p {
     font-size: 11px;
 }
