@@ -11,7 +11,7 @@ var Header = React.createClass({
                     <a href="#" className="brand-logo"><img src="img/logo.png" className="valign" alt="logo"/></a>
                 </div>
                 <Search/>
-                <Auth url="http://univerpulse.noip.me:8002/user/registration"/>
+                <Auth url="http://localhost:8002/user/registration"/>
             </div>
         )
     }
