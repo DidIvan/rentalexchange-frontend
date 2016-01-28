@@ -8,7 +8,7 @@ var Header = React.createClass({
         return (
             <div className="nav z-depth-2">
                 <div className="logo-center left col s12 valign-wrapper">
-                    <a href="#" className="brand-logo"><img src="img/logo.png" className="valign" alt="logo"/></a>
+                    <a href="#" className="brand-logo"><img src="../public/img/logo.png" className="valign" alt="logo"/></a>
                 </div>
                 <Search/>
                 <Auth url="http://univerpulse.noip.me:8002/user/registration"/>
@@ -126,7 +126,7 @@ var Auth = React.createClass({
                                     содержаться инструкции по активации учётной записи пользователя с таким e-mail.</p>
                             </div>
                             <div className="row margin">
-                                <img src="img/captcha.jpg" alt="captcha"/>
+                                <img src="../public/img/captcha.jpg" alt="captcha"/>
                             </div>
 
                             <div className="row">

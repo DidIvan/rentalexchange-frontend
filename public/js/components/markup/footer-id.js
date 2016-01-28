@@ -11,7 +11,7 @@ var Footer = React.createClass({
                 <div className="row">
 
                     <div className="col l3 s12">
-                        <a href="index-markup.html" className="brand-logo"><img src="img/logo.png" alt="logo"/></a>
+                        <a href="index-markup.html" className="brand-logo"><img src="../public/img/logo.png" alt="logo"/></a>
                     </div>
 
                     <div className="col l3 s12">
