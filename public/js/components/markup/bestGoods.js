@@ -1,7 +1,7 @@
 /**
  * Created by Ivan on 14.12.2015.
  */
-/** @jsx React.DOM */
+
 
 var BestGoods = React.createClass({
     /*    getInitialState: function () {

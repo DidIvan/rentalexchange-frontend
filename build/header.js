@@ -1,1 +1,310 @@
-var header=function(g){function C(A){if(I[A])return I[A].exports;var c=I[A]={exports:{},id:A,loaded:!1};return g[A].call(c.exports,c,c.exports,C),c.loaded=!0,c.exports}var I={};return C.m=g,C.c=I,C.p="",C(0)}([function(module,exports){eval('/**\r\n * Created by Ivan on 13.12.2015.\r\n */\r\n/** @jsx React.DOM */\r\n\r\nvar Header = React.createClass({displayName: "Header",\r\n    render: function () {\r\n        return (\r\n            React.createElement("div", {className: "nav z-depth-2"}, \r\n                React.createElement("div", {className: "logo-center left col s12 valign-wrapper"}, \r\n                    React.createElement("a", {href: "#", className: "brand-logo"}, React.createElement("img", {src: "../public/img/logo.png", className: "valign", alt: "logo"}))\r\n                ), \r\n                React.createElement(Search, null), \r\n                React.createElement(Auth, {url: "http://localhost:8002/user/registration"})\r\n            )\r\n        )\r\n    }\r\n});\r\n\r\nvar Search = React.createClass({displayName: "Search",\r\n    render: function () {\r\n        return (\r\n            React.createElement("form", {className: "search hide-on-med-and-down left"}, \r\n                React.createElement("div", {className: "input-field"}, \r\n                    React.createElement("input", {placeholder: "Поиск нужной вещи", type: "text"}), \r\n                    React.createElement("label", {for: "search-id1", className: "active"}, " ", React.createElement("i", {className: "material-icons prefix"}, "search"))\r\n                )\r\n            )\r\n        )\r\n    }\r\n});\r\n\r\nvar Auth = React.createClass({displayName: "Auth",\r\n    getInitialState: function () {\r\n        return {\r\n            email: \'\',\r\n            errMessage: \'\',\r\n            isActivationSuccess: false\r\n        }\r\n    },\r\n    handleEmailChange: function (event) {\r\n        this.setState({email: event.target.value});\r\n        this.setState({errMessage: ""});\r\n    },\r\n    handleSubmit: function (event) {\r\n        event.preventDefault();\r\n\r\n        if (this.state.email == \'\') {\r\n            this.setState({errMessage: "empty field"})\r\n        } else {\r\n            var email = this.state.email.trim();\r\n            var dataJson = {\r\n                "email": email\r\n            };\r\n\r\n            var that = this;\r\n            $.ajax({\r\n                url: this.props.url,\r\n                dataType: \'json\',\r\n                contentType: "application/json; charset=utf-8",\r\n                type: \'POST\',\r\n                data: JSON.stringify(dataJson),\r\n                success: function (data) {\r\n                    that.setState({isActivationSuccess: true});\r\n                },\r\n                error: function (xhr, status, err) {\r\n                    if (xhr.status == 400) {\r\n                        that.setState({errMessage: "fail registration - user alredy registered in system"})\r\n                    }\r\n                }\r\n            });\r\n        }\r\n    },\r\n    componentDidMount: function () {\r\n        var that = this;\r\n        $(document).ready(function () {\r\n            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered\r\n            $(\'.modal-trigger\').leanModal({\r\n                complete: function () {\r\n                    that.setState({email: \'\'});\r\n                    that.setState({errMessage: \'\'});\r\n                    that.setState({isActivationSuccess: false});\r\n                } // Callback for Modal close\r\n            });\r\n        });\r\n        /*  $(\'.modal-trigger\').leanModal({\r\n         dismissible: true, // Modal can be dismissed by clicking outside of the modal\r\n         opacity: .5, // Opacity of modal background\r\n         in_duration: 300, // Transition in duration\r\n         out_duration: 200, // Transition out duration\r\n         ready: function () {\r\n         alert(\'Ready\');\r\n         }, // Callback for Modal open\r\n         complete: function () {\r\n         alert(\'Closed\');\r\n         } // Callback for Modal close\r\n         }\r\n         );*/\r\n    },\r\n    render: function () {\r\n        var registrForm = "";\r\n        if (!this.state.isActivationSuccess) {\r\n            registrForm =\r\n                React.createElement("div", {id: "modal1", className: "modal"}, \r\n                    React.createElement("div", {className: "card-panel"}, \r\n                        React.createElement("form", {claassName: "login-form", onSubmit: this.handleSubmit}, \r\n\r\n                            React.createElement("div", {className: "row center"}, \r\n                                React.createElement("h5", null, "Регистрация учётной записи пользователя")\r\n                            ), \r\n\r\n                            React.createElement("div", {className: "row margin"}, \r\n                                React.createElement("div", {className: "input-field col s12"}, \r\n                                    React.createElement("i", {className: "mdi-communication-email prefix"}), \r\n                                    React.createElement("input", {value: this.state.email, id: "email", type: "email", \r\n                                           onChange: this.handleEmailChange}), \r\n                                    React.createElement("label", {for: "email", className: "center-align"}, "Email")\r\n                                )\r\n                            ), \r\n                            React.createElement("div", {className: "row"}, React.createElement("p", {className: "red-text"}, this.state.errMessage)), \r\n                            React.createElement("div", {className: "row margin"}, \r\n                                React.createElement("p", {className: "center"}, "На этот e-mail мы отправим письмо для проверки корректности" + " " +\n                                    "указанного" + " " +\n                                    "адреса. В" + " " +\n                                    "письме будут" + " " +\n                                    "содержаться инструкции по активации учётной записи пользователя с таким e-mail.")\r\n                            ), \r\n                            React.createElement("div", {className: "row margin"}, \r\n                                React.createElement("img", {src: "../public/img/captcha.jpg", alt: "captcha"})\r\n                            ), \r\n\r\n                            React.createElement("div", {className: "row"}, \r\n                                React.createElement("div", {className: "input-field col s12"}, \r\n                                    React.createElement("button", {type: "submit", className: "btn waves-effect waves-light col s12"}, \n                                        "Зарегистрироваться"\n                                    )\r\n                                )\r\n                            )\r\n                        )\r\n                    )\r\n                )\r\n        } else {\r\n            registrForm =\r\n                React.createElement("div", {id: "modal1", className: "modal"}, \r\n                    React.createElement("div", {className: "card-panel"}, \r\n                        React.createElement("form", {claassName: "login-form"}, \r\n\r\n                            React.createElement("div", {className: "row center"}, \r\n                                React.createElement("h5", null, "Регистрация учётной записи пользователя")\r\n                            ), \r\n                            React.createElement("div", {className: "row margin"}, \r\n                                React.createElement("p", {className: "center"}, "Спасибо!" + " " +\n                                    "На указаный Вами e-mail ", React.createElement("b", null, this.state.email), " отправлено письмо для проверки" + " " +\n                                    "корректности указанного" + " " +\n                                    "адреса." + " " +\n                                    "Пожалуйста, следуйте указанным в письме инструкциям для активации учётной записи" + " " +\n                                    "пользователя" + " " +\n                                    "или повторите попытку регистрации, если вы ошиблись в адресе.")\r\n                            )\r\n                        )\r\n                    )\r\n                )\r\n        }\r\n        return (\r\n            React.createElement("div", null, \r\n                React.createElement("div", {className: "entrance-menu right hide-on-med-and-down valign-wrapper"}, \r\n                    React.createElement("a", {className: "waves-effect waves-light btn modal-trigger", href: "#modal1"}, "Регистрация")\r\n                ), \r\n                React.createElement("div", null, registrForm)\r\n            )\r\n        )\r\n    }\r\n});\r\n\r\nReact.render(React.createElement(Header, null), document.getElementById(\'header-id\'));\r\n//@ sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMC5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3B1YmxpYy9qcy9jb21wb25lbnRzL21hcmt1cC9oZWFkZXItaWQuanM/MTJjNCJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcclxuICogQ3JlYXRlZCBieSBJdmFuIG9uIDEzLjEyLjIwMTUuXHJcbiAqL1xyXG4vKiogQGpzeCBSZWFjdC5ET00gKi9cclxuXHJcbnZhciBIZWFkZXIgPSBSZWFjdC5jcmVhdGVDbGFzcyh7XHJcbiAgICByZW5kZXI6IGZ1bmN0aW9uICgpIHtcclxuICAgICAgICByZXR1cm4gKFxyXG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm5hdiB6LWRlcHRoLTJcIj5cclxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibG9nby1jZW50ZXIgbGVmdCBjb2wgczEyIHZhbGlnbi13cmFwcGVyXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgPGEgaHJlZj1cIiNcIiBjbGFzc05hbWU9XCJicmFuZC1sb2dvXCI+PGltZyBzcmM9XCIuLi9wdWJsaWMvaW1nL2xvZ28ucG5nXCIgY2xhc3NOYW1lPVwidmFsaWduXCIgYWx0PVwibG9nb1wiLz48L2E+XHJcbiAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgIDxTZWFyY2gvPlxyXG4gICAgICAgICAgICAgICAgPEF1dGggdXJsPVwiaHR0cDovL2xvY2FsaG9zdDo4MDAyL3VzZXIvcmVnaXN0cmF0aW9uXCIvPlxyXG4gICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICApXHJcbiAgICB9XHJcbn0pO1xyXG5cclxudmFyIFNlYXJjaCA9IFJlYWN0LmNyZWF0ZUNsYXNzKHtcclxuICAgIHJlbmRlcjogZnVuY3Rpb24gKCkge1xyXG4gICAgICAgIHJldHVybiAoXHJcbiAgICAgICAgICAgIDxmb3JtIGNsYXNzTmFtZT1cInNlYXJjaCBoaWRlLW9uLW1lZC1hbmQtZG93biBsZWZ0XCI+XHJcbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImlucHV0LWZpZWxkXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgPGlucHV0IHBsYWNlaG9sZGVyPVwi0J/QvtC40YHQuiDQvdGD0LbQvdC+0Lkg0LLQtdGJ0LhcIiB0eXBlPVwidGV4dFwiLz5cclxuICAgICAgICAgICAgICAgICAgICA8bGFiZWwgZm9yPVwic2VhcmNoLWlkMVwiIGNsYXNzTmFtZT1cImFjdGl2ZVwiPiA8aSBjbGFzc05hbWU9XCJtYXRlcmlhbC1pY29ucyBwcmVmaXhcIj5zZWFyY2g8L2k+PC9sYWJlbD5cclxuICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICA8L2Zvcm0+XHJcbiAgICAgICAgKVxyXG4gICAgfVxyXG59KTtcclxuXHJcbnZhciBBdXRoID0gUmVhY3QuY3JlYXRlQ2xhc3Moe1xyXG4gICAgZ2V0SW5pdGlhbFN0YXRlOiBmdW5jdGlvbiAoKSB7XHJcbiAgICAgICAgcmV0dXJuIHtcclxuICAgICAgICAgICAgZW1haWw6ICcnLFxyXG4gICAgICAgICAgICBlcnJNZXNzYWdlOiAnJyxcclxuICAgICAgICAgICAgaXNBY3RpdmF0aW9uU3VjY2VzczogZmFsc2VcclxuICAgICAgICB9XHJcbiAgICB9LFxyXG4gICAgaGFuZGxlRW1haWxDaGFuZ2U6IGZ1bmN0aW9uIChldmVudCkge1xyXG4gICAgICAgIHRoaXMuc2V0U3RhdGUoe2VtYWlsOiBldmVudC50YXJnZXQudmFsdWV9KTtcclxuICAgICAgICB0aGlzLnNldFN0YXRlKHtlcnJNZXNzYWdlOiBcIlwifSk7XHJcbiAgICB9LFxyXG4gICAgaGFuZGxlU3VibWl0OiBmdW5jdGlvbiAoZXZlbnQpIHtcclxuICAgICAgICBldmVudC5wcmV2ZW50RGVmYXVsdCgpO1xyXG5cclxuICAgICAgICBpZiAodGhpcy5zdGF0ZS5lbWFpbCA9PSAnJykge1xyXG4gICAgICAgICAgICB0aGlzLnNldFN0YXRlKHtlcnJNZXNzYWdlOiBcImVtcHR5IGZpZWxkXCJ9KVxyXG4gICAgICAgIH0gZWxzZSB7XHJcbiAgICAgICAgICAgIHZhciBlbWFpbCA9IHRoaXMuc3RhdGUuZW1haWwudHJpbSgpO1xyXG4gICAgICAgICAgICB2YXIgZGF0YUpzb24gPSB7XHJcbiAgICAgICAgICAgICAgICBcImVtYWlsXCI6IGVtYWlsXHJcbiAgICAgICAgICAgIH07XHJcblxyXG4gICAgICAgICAgICB2YXIgdGhhdCA9IHRoaXM7XHJcbiAgICAgICAgICAgICQuYWpheCh7XHJcbiAgICAgICAgICAgICAgICB1cmw6IHRoaXMucHJvcHMudXJsLFxyXG4gICAgICAgICAgICAgICAgZGF0YVR5cGU6ICdqc29uJyxcclxuICAgICAgICAgICAgICAgIGNvbnRlbnRUeXBlOiBcImFwcGxpY2F0aW9uL2pzb247IGNoYXJzZXQ9dXRmLThcIixcclxuICAgICAgICAgICAgICAgIHR5cGU6ICdQT1NUJyxcclxuICAgICAgICAgICAgICAgIGRhdGE6IEpTT04uc3RyaW5naWZ5KGRhdGFKc29uKSxcclxuICAgICAgICAgICAgICAgIHN1Y2Nlc3M6IGZ1bmN0aW9uIChkYXRhKSB7XHJcbiAgICAgICAgICAgICAgICAgICAgdGhhdC5zZXRTdGF0ZSh7aXNBY3RpdmF0aW9uU3VjY2VzczogdHJ1ZX0pO1xyXG4gICAgICAgICAgICAgICAgfSxcclxuICAgICAgICAgICAgICAgIGVycm9yOiBmdW5jdGlvbiAoeGhyLCBzdGF0dXMsIGVycikge1xyXG4gICAgICAgICAgICAgICAgICAgIGlmICh4aHIuc3RhdHVzID09IDQwMCkge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICB0aGF0LnNldFN0YXRlKHtlcnJNZXNzYWdlOiBcImZhaWwgcmVnaXN0cmF0aW9uIC0gdXNlciBhbHJlZHkgcmVnaXN0ZXJlZCBpbiBzeXN0ZW1cIn0pXHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9KTtcclxuICAgICAgICB9XHJcbiAgICB9LFxyXG4gICAgY29tcG9uZW50RGlkTW91bnQ6IGZ1bmN0aW9uICgpIHtcclxuICAgICAgICB2YXIgdGhhdCA9IHRoaXM7XHJcbiAgICAgICAgJChkb2N1bWVudCkucmVhZHkoZnVuY3Rpb24gKCkge1xyXG4gICAgICAgICAgICAvLyB0aGUgXCJocmVmXCIgYXR0cmlidXRlIG9mIC5tb2RhbC10cmlnZ2VyIG11c3Qgc3BlY2lmeSB0aGUgbW9kYWwgSUQgdGhhdCB3YW50cyB0byBiZSB0cmlnZ2VyZWRcclxuICAgICAgICAgICAgJCgnLm1vZGFsLXRyaWdnZXInKS5sZWFuTW9kYWwoe1xyXG4gICAgICAgICAgICAgICAgY29tcGxldGU6IGZ1bmN0aW9uICgpIHtcclxuICAgICAgICAgICAgICAgICAgICB0aGF0LnNldFN0YXRlKHtlbWFpbDogJyd9KTtcclxuICAgICAgICAgICAgICAgICAgICB0aGF0LnNldFN0YXRlKHtlcnJNZXNzYWdlOiAnJ30pO1xyXG4gICAgICAgICAgICAgICAgICAgIHRoYXQuc2V0U3RhdGUoe2lzQWN0aXZhdGlvblN1Y2Nlc3M6IGZhbHNlfSk7XHJcbiAgICAgICAgICAgICAgICB9IC8vIENhbGxiYWNrIGZvciBNb2RhbCBjbG9zZVxyXG4gICAgICAgICAgICB9KTtcclxuICAgICAgICB9KTtcclxuICAgICAgICAvKiAgJCgnLm1vZGFsLXRyaWdnZXInKS5sZWFuTW9kYWwoe1xyXG4gICAgICAgICBkaXNtaXNzaWJsZTogdHJ1ZSwgLy8gTW9kYWwgY2FuIGJlIGRpc21pc3NlZCBieSBjbGlja2luZyBvdXRzaWRlIG9mIHRoZSBtb2RhbFxyXG4gICAgICAgICBvcGFjaXR5OiAuNSwgLy8gT3BhY2l0eSBvZiBtb2RhbCBiYWNrZ3JvdW5kXHJcbiAgICAgICAgIGluX2R1cmF0aW9uOiAzMDAsIC8vIFRyYW5zaXRpb24gaW4gZHVyYXRpb25cclxuICAgICAgICAgb3V0X2R1cmF0aW9uOiAyMDAsIC8vIFRyYW5zaXRpb24gb3V0IGR1cmF0aW9uXHJcbiAgICAgICAgIHJlYWR5OiBmdW5jdGlvbiAoKSB7XHJcbiAgICAgICAgIGFsZXJ0KCdSZWFkeScpO1xyXG4gICAgICAgICB9LCAvLyBDYWxsYmFjayBmb3IgTW9kYWwgb3BlblxyXG4gICAgICAgICBjb21wbGV0ZTogZnVuY3Rpb24gKCkge1xyXG4gICAgICAgICBhbGVydCgnQ2xvc2VkJyk7XHJcbiAgICAgICAgIH0gLy8gQ2FsbGJhY2sgZm9yIE1vZGFsIGNsb3NlXHJcbiAgICAgICAgIH1cclxuICAgICAgICAgKTsqL1xyXG4gICAgfSxcclxuICAgIHJlbmRlcjogZnVuY3Rpb24gKCkge1xyXG4gICAgICAgIHZhciByZWdpc3RyRm9ybSA9IFwiXCI7XHJcbiAgICAgICAgaWYgKCF0aGlzLnN0YXRlLmlzQWN0aXZhdGlvblN1Y2Nlc3MpIHtcclxuICAgICAgICAgICAgcmVnaXN0ckZvcm0gPVxyXG4gICAgICAgICAgICAgICAgPGRpdiBpZD1cIm1vZGFsMVwiIGNsYXNzTmFtZT1cIm1vZGFsXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjYXJkLXBhbmVsXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxmb3JtIGNsYWFzc05hbWU9XCJsb2dpbi1mb3JtXCIgb25TdWJtaXQ9e3RoaXMuaGFuZGxlU3VibWl0fT5cclxuXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInJvdyBjZW50ZXJcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aDU+0KDQtdCz0LjRgdGC0YDQsNGG0LjRjyDRg9GH0ZHRgtC90L7QuSDQt9Cw0L/QuNGB0Lgg0L/QvtC70YzQt9C+0LLQsNGC0LXQu9GPPC9oNT5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicm93IG1hcmdpblwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiaW5wdXQtZmllbGQgY29sIHMxMlwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8aSBjbGFzc05hbWU9XCJtZGktY29tbXVuaWNhdGlvbi1lbWFpbCBwcmVmaXhcIj48L2k+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxpbnB1dCB2YWx1ZT17dGhpcy5zdGF0ZS5lbWFpbH0gaWQ9XCJlbWFpbFwiIHR5cGU9XCJlbWFpbFwiXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17dGhpcy5oYW5kbGVFbWFpbENoYW5nZX0vPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8bGFiZWwgZm9yPVwiZW1haWxcIiBjbGFzc05hbWU9XCJjZW50ZXItYWxpZ25cIj5FbWFpbDwvbGFiZWw+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicm93XCI+PHAgY2xhc3NOYW1lPVwicmVkLXRleHRcIj57dGhpcy5zdGF0ZS5lcnJNZXNzYWdlfTwvcD48L2Rpdj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicm93IG1hcmdpblwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cImNlbnRlclwiPtCd0LAg0Y3RgtC+0YIgZS1tYWlsINC80Ysg0L7RgtC/0YDQsNCy0LjQvCDQv9C40YHRjNC80L4g0LTQu9GPINC/0YDQvtCy0LXRgNC60Lgg0LrQvtGA0YDQtdC60YLQvdC+0YHRgtC4XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgINGD0LrQsNC30LDQvdC90L7Qs9C+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgINCw0LTRgNC10YHQsC4g0JJcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg0L/QuNGB0YzQvNC1INCx0YPQtNGD0YJcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg0YHQvtC00LXRgNC20LDRgtGM0YHRjyDQuNC90YHRgtGA0YPQutGG0LjQuCDQv9C+INCw0LrRgtC40LLQsNGG0LjQuCDRg9GH0ZHRgtC90L7QuSDQt9Cw0L/QuNGB0Lgg0L/QvtC70YzQt9C+0LLQsNGC0LXQu9GPINGBINGC0LDQutC40LwgZS1tYWlsLjwvcD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJyb3cgbWFyZ2luXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGltZyBzcmM9XCIuLi9wdWJsaWMvaW1nL2NhcHRjaGEuanBnXCIgYWx0PVwiY2FwdGNoYVwiLz5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicm93XCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJpbnB1dC1maWVsZCBjb2wgczEyXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxidXR0b24gdHlwZT1cInN1Ym1pdFwiIGNsYXNzTmFtZT1cImJ0biB3YXZlcy1lZmZlY3Qgd2F2ZXMtbGlnaHQgY29sIHMxMlwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg0JfQsNGA0LXQs9C40YHRgtGA0LjRgNC+0LLQsNGC0YzRgdGPXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvYnV0dG9uPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDwvZm9ybT5cclxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgIH0gZWxzZSB7XHJcbiAgICAgICAgICAgIHJlZ2lzdHJGb3JtID1cclxuICAgICAgICAgICAgICAgIDxkaXYgaWQ9XCJtb2RhbDFcIiBjbGFzc05hbWU9XCJtb2RhbFwiPlxyXG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY2FyZC1wYW5lbFwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8Zm9ybSBjbGFhc3NOYW1lPVwibG9naW4tZm9ybVwiPlxyXG5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicm93IGNlbnRlclwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxoNT7QoNC10LPQuNGB0YLRgNCw0YbQuNGPINGD0YfRkdGC0L3QvtC5INC30LDQv9C40YHQuCDQv9C+0LvRjNC30L7QstCw0YLQtdC70Y88L2g1PlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInJvdyBtYXJnaW5cIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJjZW50ZXJcIj7QodC/0LDRgdC40LHQviFcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg0J3QsCDRg9C60LDQt9Cw0L3Ri9C5INCS0LDQvNC4IGUtbWFpbCA8Yj57dGhpcy5zdGF0ZS5lbWFpbH08L2I+INC+0YLQv9GA0LDQstC70LXQvdC+INC/0LjRgdGM0LzQviDQtNC70Y8g0L/RgNC+0LLQtdGA0LrQuFxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICDQutC+0YDRgNC10LrRgtC90L7RgdGC0Lgg0YPQutCw0LfQsNC90L3QvtCz0L5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg0LDQtNGA0LXRgdCwLlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICDQn9C+0LbQsNC70YPQudGB0YLQsCwg0YHQu9C10LTRg9C50YLQtSDRg9C60LDQt9Cw0L3QvdGL0Lwg0LIg0L/QuNGB0YzQvNC1INC40L3RgdGC0YDRg9C60YbQuNGP0Lwg0LTQu9GPINCw0LrRgtC40LLQsNGG0LjQuCDRg9GH0ZHRgtC90L7QuSDQt9Cw0L/QuNGB0LhcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg0L/QvtC70YzQt9C+0LLQsNGC0LXQu9GPXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgINC40LvQuCDQv9C+0LLRgtC+0YDQuNGC0LUg0L/QvtC/0YvRgtC60YMg0YDQtdCz0LjRgdGC0YDQsNGG0LjQuCwg0LXRgdC70Lgg0LLRiyDQvtGI0LjQsdC70LjRgdGMINCyINCw0LTRgNC10YHQtS48L3A+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPC9mb3JtPlxyXG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG4gICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgfVxyXG4gICAgICAgIHJldHVybiAoXHJcbiAgICAgICAgICAgIDxkaXY+XHJcbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImVudHJhbmNlLW1lbnUgcmlnaHQgaGlkZS1vbi1tZWQtYW5kLWRvd24gdmFsaWduLXdyYXBwZXJcIj5cclxuICAgICAgICAgICAgICAgICAgICA8YSBjbGFzc05hbWU9XCJ3YXZlcy1lZmZlY3Qgd2F2ZXMtbGlnaHQgYnRuIG1vZGFsLXRyaWdnZXJcIiBocmVmPVwiI21vZGFsMVwiPtCg0LXQs9C40YHRgtGA0LDRhtC40Y88L2E+XHJcbiAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgICAgIDxkaXY+e3JlZ2lzdHJGb3JtfTwvZGl2PlxyXG4gICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICApXHJcbiAgICB9XHJcbn0pO1xyXG5cclxuUmVhY3QucmVuZGVyKDxIZWFkZXIvPiwgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2hlYWRlci1pZCcpKTtcclxuXG5cblxuLyoqIFdFQlBBQ0sgRk9PVEVSICoqXG4gKiogLi9wdWJsaWMvanMvY29tcG9uZW50cy9tYXJrdXAvaGVhZGVyLWlkLmpzXG4gKiovIl0sIm1hcHBpbmdzIjoiQUFBQTs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBOztBQUVBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFLQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUFBQTtBQUdBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUFDQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBTUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTsiLCJzb3VyY2VSb290IjoiIn0=')}]);
+var header =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	/**
+	 * Created by Ivan on 13.12.2015.
+	 */
+	
+	var Header = React.createClass({
+	    displayName: "Header",
+	
+	    render: function render() {
+	        return React.createElement(
+	            "div",
+	            { className: "nav z-depth-2" },
+	            React.createElement(
+	                "div",
+	                { className: "logo-center left col s12 valign-wrapper" },
+	                React.createElement(
+	                    "a",
+	                    { href: "#", className: "brand-logo" },
+	                    React.createElement("img", { src: "../public/img/logo.png", className: "valign", alt: "logo" })
+	                )
+	            ),
+	            React.createElement(Search, null),
+	            React.createElement(Auth, { url: "http://univerpulse.noip.me:8002/user/registration" })
+	        );
+	    }
+	});
+	
+	var Search = React.createClass({
+	    displayName: "Search",
+	
+	    render: function render() {
+	        return React.createElement(
+	            "form",
+	            { className: "search hide-on-med-and-down left" },
+	            React.createElement(
+	                "div",
+	                { className: "input-field" },
+	                React.createElement("input", { placeholder: "Поиск нужной вещи", type: "text" }),
+	                React.createElement(
+	                    "label",
+	                    { "for": "search-id1", className: "active" },
+	                    " ",
+	                    React.createElement(
+	                        "i",
+	                        { className: "material-icons prefix" },
+	                        "search"
+	                    )
+	                )
+	            )
+	        );
+	    }
+	});
+	
+	var Auth = React.createClass({
+	    displayName: "Auth",
+	
+	    getInitialState: function getInitialState() {
+	        return {
+	            email: '',
+	            errMessage: '',
+	            isActivationSuccess: false
+	        };
+	    },
+	    handleEmailChange: function handleEmailChange(event) {
+	        this.setState({ email: event.target.value });
+	        this.setState({ errMessage: "" });
+	    },
+	    handleSubmit: function handleSubmit(event) {
+	        event.preventDefault();
+	
+	        if (this.state.email == '') {
+	            this.setState({ errMessage: "empty field" });
+	        } else {
+	            var email = this.state.email.trim();
+	            var dataJson = {
+	                "email": email
+	            };
+	
+	            var that = this;
+	            $.ajax({
+	                url: this.props.url,
+	                dataType: 'json',
+	                contentType: "application/json; charset=utf-8",
+	                type: 'POST',
+	                data: JSON.stringify(dataJson),
+	                success: function success(data) {
+	                    that.setState({ isActivationSuccess: true });
+	                },
+	                error: function error(xhr, status, err) {
+	                    if (xhr.status == 400) {
+	                        that.setState({ errMessage: "fail registration - user alredy registered in system" });
+	                    }
+	                }
+	            });
+	        }
+	    },
+	    componentDidMount: function componentDidMount() {
+	        var that = this;
+	        $(document).ready(function () {
+	            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+	            $('.modal-trigger').leanModal({
+	                complete: function complete() {
+	                    that.setState({ email: '' });
+	                    that.setState({ errMessage: '' });
+	                    that.setState({ isActivationSuccess: false });
+	                } // Callback for Modal close
+	            });
+	        });
+	        /*  $('.modal-trigger').leanModal({
+	         dismissible: true, // Modal can be dismissed by clicking outside of the modal
+	         opacity: .5, // Opacity of modal background
+	         in_duration: 300, // Transition in duration
+	         out_duration: 200, // Transition out duration
+	         ready: function () {
+	         alert('Ready');
+	         }, // Callback for Modal open
+	         complete: function () {
+	         alert('Closed');
+	         } // Callback for Modal close
+	         }
+	         );*/
+	    },
+	    render: function render() {
+	        var registrForm = "";
+	        if (!this.state.isActivationSuccess) {
+	            registrForm = React.createElement(
+	                "div",
+	                { id: "modal1", className: "modal" },
+	                React.createElement(
+	                    "div",
+	                    { className: "card-panel" },
+	                    React.createElement(
+	                        "form",
+	                        { claassName: "login-form", onSubmit: this.handleSubmit },
+	                        React.createElement(
+	                            "div",
+	                            { className: "row center" },
+	                            React.createElement(
+	                                "h5",
+	                                null,
+	                                "Регистрация учётной записи пользователя"
+	                            )
+	                        ),
+	                        React.createElement(
+	                            "div",
+	                            { className: "row margin" },
+	                            React.createElement(
+	                                "div",
+	                                { className: "input-field col s12" },
+	                                React.createElement("i", { className: "mdi-communication-email prefix" }),
+	                                React.createElement("input", { value: this.state.email, id: "email", type: "email",
+	                                    onChange: this.handleEmailChange }),
+	                                React.createElement(
+	                                    "label",
+	                                    { "for": "email", className: "center-align" },
+	                                    "Email"
+	                                )
+	                            )
+	                        ),
+	                        React.createElement(
+	                            "div",
+	                            { className: "row" },
+	                            React.createElement(
+	                                "p",
+	                                { className: "red-text" },
+	                                this.state.errMessage
+	                            )
+	                        ),
+	                        React.createElement(
+	                            "div",
+	                            { className: "row margin" },
+	                            React.createElement(
+	                                "p",
+	                                { className: "center" },
+	                                "На этот e-mail мы отправим письмо для проверки корректности указанного адреса. В письме будут содержаться инструкции по активации учётной записи пользователя с таким e-mail."
+	                            )
+	                        ),
+	                        React.createElement(
+	                            "div",
+	                            { className: "row margin" },
+	                            React.createElement("img", { src: "../public/img/captcha.jpg", alt: "captcha" })
+	                        ),
+	                        React.createElement(
+	                            "div",
+	                            { className: "row" },
+	                            React.createElement(
+	                                "div",
+	                                { className: "input-field col s12" },
+	                                React.createElement(
+	                                    "button",
+	                                    { type: "submit", className: "btn waves-effect waves-light col s12" },
+	                                    "Зарегистрироваться"
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        } else {
+	            registrForm = React.createElement(
+	                "div",
+	                { id: "modal1", className: "modal" },
+	                React.createElement(
+	                    "div",
+	                    { className: "card-panel" },
+	                    React.createElement(
+	                        "form",
+	                        { claassName: "login-form" },
+	                        React.createElement(
+	                            "div",
+	                            { className: "row center" },
+	                            React.createElement(
+	                                "h5",
+	                                null,
+	                                "Регистрация учётной записи пользователя"
+	                            )
+	                        ),
+	                        React.createElement(
+	                            "div",
+	                            { className: "row margin" },
+	                            React.createElement(
+	                                "p",
+	                                { className: "center" },
+	                                "Спасибо! На указаный Вами e-mail ",
+	                                React.createElement(
+	                                    "b",
+	                                    null,
+	                                    this.state.email
+	                                ),
+	                                " отправлено письмо для проверки корректности указанного адреса. Пожалуйста, следуйте указанным в письме инструкциям для активации учётной записи пользователя или повторите попытку регистрации, если вы ошиблись в адресе."
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	        return React.createElement(
+	            "div",
+	            null,
+	            React.createElement(
+	                "div",
+	                { className: "entrance-menu right hide-on-med-and-down valign-wrapper" },
+	                React.createElement(
+	                    "a",
+	                    { className: "waves-effect waves-light btn modal-trigger", href: "#modal1" },
+	                    "Регистрация"
+	                )
+	            ),
+	            React.createElement(
+	                "div",
+	                null,
+	                registrForm
+	            )
+	        );
+	    }
+	});
+	
+	React.render(React.createElement(Header, null), document.getElementById('header-id'));
+
+/***/ }
+/******/ ]);
+//# sourceMappingURL=header.js.map

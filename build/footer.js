@@ -1,1 +1,233 @@
-var footer=function(I){function C(A){if(g[A])return g[A].exports;var e=g[A]={exports:{},id:A,loaded:!1};return I[A].call(e.exports,e,e.exports,C),e.loaded=!0,e.exports}var g={};return C.m=I,C.c=g,C.p="",C(0)}([function(module,exports){eval('/**\r\n * Created by Ivan on 12.12.2015.\r\n */\r\n/** @jsx React.DOM */\r\n\r\nvar Footer = React.createClass({displayName: "Footer",\r\n    render: function () {\r\n        return (\r\n            React.createElement("footer", {className: "page-footer white"}, \r\n\r\n                React.createElement("div", {className: "row"}, \r\n\r\n                    React.createElement("div", {className: "col l3 s12"}, \r\n                        React.createElement("a", {href: "index-markup.html", className: "brand-logo"}, React.createElement("img", {src: "../public/img/logo.png", alt: "logo"}))\r\n                    ), \r\n\r\n                    React.createElement("div", {className: "col l3 s12"}, \r\n                        React.createElement("span", {className: "grey-text"}, "КАТАЛОГ")\r\n                    ), \r\n\r\n                    React.createElement("div", {className: "col l3 s12"}, \r\n                        React.createElement("ul", null, \r\n                            React.createElement("li", null, React.createElement("a", {className: "grey-text", href: "#"}, "Спорт и отдых")), \r\n                            React.createElement("li", null, React.createElement("a", {className: "grey-text", href: "#"}, "Одежда и обувь")), \r\n                            React.createElement("li", null, React.createElement("a", {className: "grey-text", href: "#"}, "Ремонт и спецтехника")), \r\n                            React.createElement("li", null, React.createElement("a", {className: "grey-text", href: "#"}, "Техника и электроника"))\r\n                        )\r\n                    ), \r\n\r\n                    React.createElement("div", {className: "col l3 s12"}, \r\n                        React.createElement("ul", null, \r\n                            React.createElement("li", null, React.createElement("a", {className: "grey-text", href: "#"}, "Детские товары")), \r\n                            React.createElement("li", null, React.createElement("a", {className: "grey-text", href: "#"}, "Дом дача сад")), \r\n                            React.createElement("li", null, React.createElement("a", {className: "grey-text", href: "#"}, "Авто-мото транспорт")), \r\n                            React.createElement("li", null, React.createElement("a", {className: "grey-text", href: "#"}, "Здоровье и красота"))\r\n                        )\r\n                    )\r\n\r\n                ), \r\n\r\n                React.createElement("div", {className: "divider"}), \r\n\r\n                React.createElement("div", {className: "footer-copyright white"}, \r\n\r\n                    React.createElement("div", {className: "row"}, \r\n\r\n                        React.createElement("div", {className: "col l2 s12"}, \r\n                            React.createElement("a", {className: "grey-text", href: "#"}, "О НАС")\r\n                        ), \r\n\r\n                        React.createElement("div", {className: "col l2 s12"}, \r\n                            React.createElement("a", {className: "grey-text", href: "#"}, "ПРАВИЛА ПОЛЬЗОВАНИЯ")\r\n                        ), \r\n\r\n                        React.createElement("div", {className: "col l2 s12"}, \r\n                            React.createElement("a", {className: "grey-text", href: "#"}, "ОТЗЫВЫ")\r\n                        ), \r\n\r\n                        React.createElement("div", {className: "col l2 s12"}, \r\n                            React.createElement("a", {className: "grey-text", href: "#"}, "КОНТАКТЫ")\r\n                        ), \r\n\r\n                        React.createElement("div", {className: "col l4 s12"}, \r\n                            React.createElement("span", {className: "grey-text", href: "#"}, "© 2015 Биржа Аренды. All Rights Reserved.")\r\n                        )\r\n\r\n                    )\r\n                )\r\n            )\r\n        );\r\n    }\r\n});\r\n\r\nReact.render(React.createElement(Footer, null), document.getElementById(\'footer-id\'));//@ sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMC5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3B1YmxpYy9qcy9jb21wb25lbnRzL21hcmt1cC9mb290ZXItaWQuanM/YmVhMCJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcclxuICogQ3JlYXRlZCBieSBJdmFuIG9uIDEyLjEyLjIwMTUuXHJcbiAqL1xyXG4vKiogQGpzeCBSZWFjdC5ET00gKi9cclxuXHJcbnZhciBGb290ZXIgPSBSZWFjdC5jcmVhdGVDbGFzcyh7XHJcbiAgICByZW5kZXI6IGZ1bmN0aW9uICgpIHtcclxuICAgICAgICByZXR1cm4gKFxyXG4gICAgICAgICAgICA8Zm9vdGVyIGNsYXNzTmFtZT1cInBhZ2UtZm9vdGVyIHdoaXRlXCI+XHJcblxyXG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJyb3dcIj5cclxuXHJcbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjb2wgbDMgczEyXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxhIGhyZWY9XCJpbmRleC1tYXJrdXAuaHRtbFwiIGNsYXNzTmFtZT1cImJyYW5kLWxvZ29cIj48aW1nIHNyYz1cIi4uL3B1YmxpYy9pbWcvbG9nby5wbmdcIiBhbHQ9XCJsb2dvXCIvPjwvYT5cclxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuXHJcbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjb2wgbDMgczEyXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImdyZXktdGV4dFwiPtCa0JDQotCQ0JvQntCTPC9zcGFuPlxyXG4gICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG5cclxuICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImNvbCBsMyBzMTJcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPHVsPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPGxpPjxhIGNsYXNzTmFtZT1cImdyZXktdGV4dFwiIGhyZWY9XCIjXCI+0KHQv9C+0YDRgiDQuCDQvtGC0LTRi9GFPC9hPjwvbGk+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8bGk+PGEgY2xhc3NOYW1lPVwiZ3JleS10ZXh0XCIgaHJlZj1cIiNcIj7QntC00LXQttC00LAg0Lgg0L7QsdGD0LLRjDwvYT48L2xpPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPGxpPjxhIGNsYXNzTmFtZT1cImdyZXktdGV4dFwiIGhyZWY9XCIjXCI+0KDQtdC80L7QvdGCINC4INGB0L/QtdGG0YLQtdGF0L3QuNC60LA8L2E+PC9saT5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxsaT48YSBjbGFzc05hbWU9XCJncmV5LXRleHRcIiBocmVmPVwiI1wiPtCi0LXRhdC90LjQutCwINC4INGN0LvQtdC60YLRgNC+0L3QuNC60LA8L2E+PC9saT5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPC91bD5cclxuICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuXHJcbiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjb2wgbDMgczEyXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDx1bD5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxsaT48YSBjbGFzc05hbWU9XCJncmV5LXRleHRcIiBocmVmPVwiI1wiPtCU0LXRgtGB0LrQuNC1INGC0L7QstCw0YDRizwvYT48L2xpPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPGxpPjxhIGNsYXNzTmFtZT1cImdyZXktdGV4dFwiIGhyZWY9XCIjXCI+0JTQvtC8INC00LDRh9CwINGB0LDQtDwvYT48L2xpPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPGxpPjxhIGNsYXNzTmFtZT1cImdyZXktdGV4dFwiIGhyZWY9XCIjXCI+0JDQstGC0L4t0LzQvtGC0L4g0YLRgNCw0L3RgdC/0L7RgNGCPC9hPjwvbGk+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8bGk+PGEgY2xhc3NOYW1lPVwiZ3JleS10ZXh0XCIgaHJlZj1cIiNcIj7Ql9C00L7RgNC+0LLRjNC1INC4INC60YDQsNGB0L7RgtCwPC9hPjwvbGk+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDwvdWw+XHJcbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XHJcblxyXG4gICAgICAgICAgICAgICAgPC9kaXY+XHJcblxyXG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJkaXZpZGVyXCI+PC9kaXY+XHJcblxyXG4gICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmb290ZXItY29weXJpZ2h0IHdoaXRlXCI+XHJcblxyXG4gICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwicm93XCI+XHJcblxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImNvbCBsMiBzMTJcIj5cclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxhIGNsYXNzTmFtZT1cImdyZXktdGV4dFwiIGhyZWY9XCIjXCI+0J4g0J3QkNChPC9hPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY29sIGwyIHMxMlwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPGEgY2xhc3NOYW1lPVwiZ3JleS10ZXh0XCIgaHJlZj1cIiNcIj7Qn9Cg0JDQktCY0JvQkCDQn9Ce0JvQrNCX0J7QktCQ0J3QmNCvPC9hPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuXHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY29sIGwyIHMxMlwiPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgPGEgY2xhc3NOYW1lPVwiZ3JleS10ZXh0XCIgaHJlZj1cIiNcIj7QntCi0JfQq9CS0Ks8L2E+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjb2wgbDIgczEyXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8YSBjbGFzc05hbWU9XCJncmV5LXRleHRcIiBocmVmPVwiI1wiPtCa0J7QndCi0JDQmtCi0Ks8L2E+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PlxyXG5cclxuICAgICAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjb2wgbDQgczEyXCI+XHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJncmV5LXRleHRcIiBocmVmPVwiI1wiPsKpIDIwMTUg0JHQuNGA0LbQsCDQkNGA0LXQvdC00YsuIEFsbCBSaWdodHMgUmVzZXJ2ZWQuPC9zcGFuPlxyXG4gICAgICAgICAgICAgICAgICAgICAgICA8L2Rpdj5cclxuXHJcbiAgICAgICAgICAgICAgICAgICAgPC9kaXY+XHJcbiAgICAgICAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICAgICAgPC9mb290ZXI+XHJcbiAgICAgICAgKTtcclxuICAgIH1cclxufSk7XHJcblxyXG5SZWFjdC5yZW5kZXIoPEZvb3Rlci8+LCBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZm9vdGVyLWlkJykpO1xuXG5cbi8qKiBXRUJQQUNLIEZPT1RFUiAqKlxuICoqIC4vcHVibGljL2pzL2NvbXBvbmVudHMvbWFya3VwL2Zvb3Rlci1pZC5qc1xuICoqLyJdLCJtYXBwaW5ncyI6IkFBQUE7O0FBRUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTsiLCJzb3VyY2VSb290IjoiIn0=')}]);
+var footer =
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	/**
+	 * Created by Ivan on 12.12.2015.
+	 */
+	
+	var Footer = React.createClass({
+	    displayName: "Footer",
+	
+	    render: function render() {
+	        return React.createElement(
+	            "footer",
+	            { className: "page-footer white" },
+	            React.createElement(
+	                "div",
+	                { className: "row" },
+	                React.createElement(
+	                    "div",
+	                    { className: "col l3 s12" },
+	                    React.createElement(
+	                        "a",
+	                        { href: "index-markup.html", className: "brand-logo" },
+	                        React.createElement("img", { src: "../public/img/logo.png", alt: "logo" })
+	                    )
+	                ),
+	                React.createElement(
+	                    "div",
+	                    { className: "col l3 s12" },
+	                    React.createElement(
+	                        "span",
+	                        { className: "grey-text" },
+	                        "КАТАЛОГ"
+	                    )
+	                ),
+	                React.createElement(
+	                    "div",
+	                    { className: "col l3 s12" },
+	                    React.createElement(
+	                        "ul",
+	                        null,
+	                        React.createElement(
+	                            "li",
+	                            null,
+	                            React.createElement(
+	                                "a",
+	                                { className: "grey-text", href: "#" },
+	                                "Спорт и отдых"
+	                            )
+	                        ),
+	                        React.createElement(
+	                            "li",
+	                            null,
+	                            React.createElement(
+	                                "a",
+	                                { className: "grey-text", href: "#" },
+	                                "Одежда и обувь"
+	                            )
+	                        ),
+	                        React.createElement(
+	                            "li",
+	                            null,
+	                            React.createElement(
+	                                "a",
+	                                { className: "grey-text", href: "#" },
+	                                "Ремонт и спецтехника"
+	                            )
+	                        ),
+	                        React.createElement(
+	                            "li",
+	                            null,
+	                            React.createElement(
+	                                "a",
+	                                { className: "grey-text", href: "#" },
+	                                "Техника и электроника"
+	                            )
+	                        )
+	                    )
+	                ),
+	                React.createElement(
+	                    "div",
+	                    { className: "col l3 s12" },
+	                    React.createElement(
+	                        "ul",
+	                        null,
+	                        React.createElement(
+	                            "li",
+	                            null,
+	                            React.createElement(
+	                                "a",
+	                                { className: "grey-text", href: "#" },
+	                                "Детские товары"
+	                            )
+	                        ),
+	                        React.createElement(
+	                            "li",
+	                            null,
+	                            React.createElement(
+	                                "a",
+	                                { className: "grey-text", href: "#" },
+	                                "Дом дача сад"
+	                            )
+	                        ),
+	                        React.createElement(
+	                            "li",
+	                            null,
+	                            React.createElement(
+	                                "a",
+	                                { className: "grey-text", href: "#" },
+	                                "Авто-мото транспорт"
+	                            )
+	                        ),
+	                        React.createElement(
+	                            "li",
+	                            null,
+	                            React.createElement(
+	                                "a",
+	                                { className: "grey-text", href: "#" },
+	                                "Здоровье и красота"
+	                            )
+	                        )
+	                    )
+	                )
+	            ),
+	            React.createElement("div", { className: "divider" }),
+	            React.createElement(
+	                "div",
+	                { className: "footer-copyright white" },
+	                React.createElement(
+	                    "div",
+	                    { className: "row" },
+	                    React.createElement(
+	                        "div",
+	                        { className: "col l2 s12" },
+	                        React.createElement(
+	                            "a",
+	                            { className: "grey-text", href: "#" },
+	                            "О НАС"
+	                        )
+	                    ),
+	                    React.createElement(
+	                        "div",
+	                        { className: "col l2 s12" },
+	                        React.createElement(
+	                            "a",
+	                            { className: "grey-text", href: "#" },
+	                            "ПРАВИЛА ПОЛЬЗОВАНИЯ"
+	                        )
+	                    ),
+	                    React.createElement(
+	                        "div",
+	                        { className: "col l2 s12" },
+	                        React.createElement(
+	                            "a",
+	                            { className: "grey-text", href: "#" },
+	                            "ОТЗЫВЫ"
+	                        )
+	                    ),
+	                    React.createElement(
+	                        "div",
+	                        { className: "col l2 s12" },
+	                        React.createElement(
+	                            "a",
+	                            { className: "grey-text", href: "#" },
+	                            "КОНТАКТЫ"
+	                        )
+	                    ),
+	                    React.createElement(
+	                        "div",
+	                        { className: "col l4 s12" },
+	                        React.createElement(
+	                            "span",
+	                            { className: "grey-text", href: "#" },
+	                            "© 2015 Биржа Аренды. All Rights Reserved."
+	                        )
+	                    )
+	                )
+	            )
+	        );
+	    }
+	});
+	
+	React.render(React.createElement(Footer, null), document.getElementById('footer-id'));
+
+/***/ }
+/******/ ]);
+//# sourceMappingURL=footer.js.map

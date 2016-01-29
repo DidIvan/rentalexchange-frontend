@@ -26,7 +26,8 @@ module.exports = {
     },
     /*разделяет запакованый файл на отдельные модули*/
     /*   devtool: "source-map"   */
-    devtool: NODE_ENV == "development" ? "cheap-module-eval-source-map" : "source-map",
+    //devtool: NODE_ENV == "development" ? "cheap-module-eval-source-map" : "source-map",
+    devtool: "source-map",
 
     plugins: [
         new webpack.NoErrorsPlugin()
@@ -34,8 +35,14 @@ module.exports = {
 
     module: {
         loaders: [
-            {test: /\.js$/, loader: 'jsx-loader'},
-            // => "jade" loader is used for ".jade" files
+            {
+                test: /\.jsx?$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel', // 'babel-loader' is also a legal name to reference
+                query: {
+                    presets: ['react', 'es2015']
+                }
+            }
         ]
     }
 };

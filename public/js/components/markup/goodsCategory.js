@@ -1,4 +1,4 @@
-/** @jsx React.DOM */
+
 
 var GoodsCategory = React.createClass({
     render: function () {

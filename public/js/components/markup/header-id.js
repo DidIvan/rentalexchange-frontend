@@ -1,7 +1,6 @@
 /**
  * Created by Ivan on 13.12.2015.
  */
-/** @jsx React.DOM */
 
 var Header = React.createClass({
     render: function () {
