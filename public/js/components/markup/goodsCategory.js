@@ -1,4 +1,4 @@
-
+'use strict';
 
 var GoodsCategory = React.createClass({
     render: function () {

@@ -1,7 +1,7 @@
 /**
  * Created by Ivan on 12.12.2015.
  */
-
+'use strict';
 
 var Footer = React.createClass({
     render: function () {

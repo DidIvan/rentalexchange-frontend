@@ -1,8 +1,7 @@
 /**
  * Created by Ivan on 13.12.2015.
  */
-
-
+'use strict';
 
 var Auth = React.createClass({
     haha: function () {
