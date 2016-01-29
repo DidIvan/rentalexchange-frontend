@@ -34,7 +34,7 @@ module.exports = {
 
     module: {
         loaders: [
-            {test: /\.js$/, loader: 'jsx-loader'}
+            {test: /\.js$/, loader: 'jsx-loader'},
             // => "jade" loader is used for ".jade" files
         ]
     }
