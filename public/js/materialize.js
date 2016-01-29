@@ -1961,7 +1961,7 @@ $(document).ready(function(){
           var deltaX = e.deltaX;
           var activationDistance = 80;
 
-          // If toast dragged past activation point
+          // If toast dragged past activation_2 point
           if (Math.abs(deltaX) > activationDistance) {
             Vel(toast, {marginTop: '-40px'}, { duration: 375,
                 easing: 'easeOutExpo',

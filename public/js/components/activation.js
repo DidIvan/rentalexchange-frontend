@@ -1,5 +1,7 @@
 /** @jsx React.DOM */
 
+var React = require('react');
+
 var Activation = React.createClass({
     getInitialState: function () {
         return {
@@ -56,7 +58,7 @@ var Activation = React.createClass({
 
     , render: function () {
 
-        var activationComp = "";
+       /* var activationComp = "";
 
         if (!this.state.isActivationSuccess) {
             activationComp =
@@ -98,18 +100,30 @@ var Activation = React.createClass({
                     <h5 className="header center blue-text text-lighten-1">На указанный email отправлено письмо
                         активации</h5>
                 </div>;
-        }
+        }*/
 
-        return (
+       /* return (
             <div>
                 {activationComp}
             </div>
-        );
+        );*/
+
+         return (
+             React.DOM.div(
+                 {className: "divider"},
+                 "Label Text",
+                 React.DOM.hr(),
+                 this.props.uuid
+             )
+         );
     }
 });
 
-React.render(
+module.exports = Activation;
+
+
+/*React.render(
     <Activation url={"http://demo8099007.mockable.io/activation"}/>,
     document.getElementById('activation_form_id')
-);
+);*/
 
