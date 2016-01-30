@@ -12,7 +12,7 @@ console.log(config.get('port'));
 
 app.set('port', config.get('port'));
 
-app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, 'build')));
 
 app.use('/activation_2', express.static(path.join(__dirname, 'public/activation_2')));
 
