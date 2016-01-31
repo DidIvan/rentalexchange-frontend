@@ -13,7 +13,7 @@ console.log(config.get('port'));
 app.set('port', config.get('port'));
 
 /*app.use('/', express.static(path.join(__dirname, '/packaged')));*/
-app.use('/', express.static(path.join(__dirname, './packaged/index.html')));
+app.use('/', express.static(path.join('./packaged/index.html')));
 
 app.use('/activation_2', express.static(path.join(__dirname, 'public/activation_2')));
 
