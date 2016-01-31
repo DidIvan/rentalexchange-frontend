@@ -131,7 +131,7 @@ var PageOneContent = React.createClass({
         React.DOM.code(null, 'id'),
         ' of "one" on my page container. I\'m first in the source order so I\'m shown when the page loads.'
       ),
-      React.DOM.p(null, 'This is a multi-page boilerplate template that you can copy to build your first jQuery Mobile page. This template contains multiple "page" containers inside, unlike a single page template that has just one page within it.'),
+      React.DOM.p(null, 'This is a multi-page boilerplate template that you can copy to packaged your first jQuery Mobile page. This template contains multiple "page" containers inside, unlike a single page template that has just one page within it.'),
       React.DOM.p(null, 'Just view the source and copy the code to get started. All the CSS and JS is linked to the jQuery CDN versions so this is super easy to set up. Remember to include a meta viewport tag in the head to set the zoom level.'),
       React.DOM.p(null,
         'You link to internal pages by referring to the ',

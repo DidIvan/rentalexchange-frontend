@@ -1,0 +1,258 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+ul {
+    list-style: none;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+body {
+    font-family: Myriad Pro Regular, Arial, Helvetica, sans-serif;
+    background-color: rgb(243, 243, 243);
+}
+
+/* убираем скролл, чтоб не прыгала страница при открытии модал.окна start*/
+/* хром, сафари */
+.element::-webkit-scrollbar {
+    width: 0;
+}
+
+/* ie 10+ */
+.element {
+    -ms-overflow-style: none;
+}
+
+/* Firefox (свойство больше не работает, других способов тоже нет)*/
+.element {
+    overflow: -moz-scrollbars-none;
+}
+
+/* убираем скролл, чтоб не прыгала страница при открытии модал.окна end*/
+
+/*-------------------NAV------------------*/
+.nav {
+    margin-bottom: 2em;
+    background-color: rgb(255, 255, 255);
+    height: 64px;
+
+}
+
+.nav .logo-center {
+    width: 20%;
+    height: 100%;
+
+}
+
+.nav .logo-center a {
+    margin: 0 0 0 70px;
+}
+
+/*==========start form==============*/
+
+.nav form.search {
+    float: left;
+    width: 50%;
+    height: 85%;
+    margin-left: 3%;
+
+}
+
+.nav .input-field {
+    margin-top: 0;
+}
+
+.nav form.search input {
+    width: 85% !important;
+    /*border-bottom: none !important;*/
+    box-sizing: border-box;
+    padding-left: 60px !important;
+    color: #000;
+}
+
+.nav .input-field input[type=text]:focus {
+    border-bottom: 1px solid rgb(41, 128, 185);
+    box-shadow: 0 1px 0 0 rgb(41, 128, 185);
+}
+
+/* label focus color ���� ������ ������*/
+.nav .input-field input[type=text]:focus + label {
+    color: rgb(41, 128, 185);
+}
+
+/*=============end form==================*/
+
+/*==========start user-menu==============*/
+.user {
+    position: relative;
+    width: 180px;
+    height: 64px;
+    background-color: rgb(41, 128, 185);
+}
+
+.user img {
+
+    height: 48px;
+    width: 48px;
+    margin: 8px 0 0 5px;
+
+}
+
+.btn-flat {
+    position: absolute;
+    display: inline-block;
+    width: 128px;
+    top: 14px;
+    padding: 0 7px;
+
+}
+
+.dropdown-content {
+    width: 128px;
+    position: absolute;
+    top: 50px !important;
+    left: 100px;
+    opacity: 1;
+    display: none;
+}
+
+/*=============end user-menu==================*/
+
+/*==========start entrance-menu==============*/
+.entrance-menu {
+    width: 180px;
+    height: 100%;
+}
+
+.entrance-menu .btn {
+    position: relative;
+    width: 180px;
+    height: 64px;
+    background-color: rgb(41, 128, 185);
+    font-size: 13px;
+    font-weight: bold;
+    padding: 13px 5px;
+}
+
+/*=============end entrance-menu==================*/
+
+/*-------------------*/
+
+.card-action {
+    background-color: rgb(41, 128, 185);
+}
+
+.card-action a {
+    color: rgb(255, 255, 255) !important;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 6px;
+}
+
+.card-action a .price {
+    font-size: 1.859375em;
+    font-weight: bold;
+}
+
+.card-action a .perweek {
+    font-size: 0.75em;
+}
+
+/*-----------Title on the midde of page---------------*/
+.row .title {
+    font-size: 3em;
+    color: rgb(153, 153, 153);
+}
+
+/*start footer*/
+footer .divider {
+    margin: 0 2.125rem;
+}
+
+.container footer .row {
+    margin-left: 2.125rem;
+    margin-right: 2.125rem;
+}
+
+footer ul li:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.footer-copyright a:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.copyright {
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+/*end footer*/
+
+/*Begin modal window*/
+
+/* label underline focus color ���� ������ �����*/
+.modal .input-field input[type=email]:focus {
+    border-bottom: 1px solid rgb(41, 128, 185);
+    box-shadow: 0 1px 0 0 rgb(41, 128, 185);
+}
+
+/* icon prefix focus color ���� ������ ����� */
+.modal .input-field .prefix.active {
+    color: rgb(41, 128, 185);
+}
+
+/* label focus color ���� ������ ������*/
+.modal .input-field input[type=email]:focus + label {
+    color: #2980B9;
+}
+
+.modal .input-field button[type=submit]:focus + label {
+    color: #2980B9;
+}
+
+/*colors  of button "Registration" start*/
+.input-field .btn, .btn:focus {
+    background-color: rgb(41, 128, 185)
+}
+
+.input-field .btn:hover {
+    background-color: rgb(42, 155, 221)
+}
+
+/*colors  of button "Registration" end*/
+.modal .login-form p {
+    font-size: 11px;
+}
+
+.modal .card-panel {
+    margin: 0;
+}
+
+.modal {
+    width: 370px;
+    max-height: 80%;
+}
+
+.modal .margin {
+    margin: 0 0;
+}
+
+/*End modal window*/

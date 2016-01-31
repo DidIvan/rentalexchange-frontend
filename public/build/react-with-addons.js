@@ -15,7 +15,7 @@
 
 /**
  * This module exists purely in the open source project, and is meant as a way
- * to create a separate standalone build of React. This build has "addons", or
+ * to create a separate standalone packaged of React. This packaged has "addons", or
  * functionality we've built and think might be useful but doesn't have a good
  * place to live inside React core.
  */
@@ -10210,7 +10210,7 @@ function handleTopLevelWithoutPath(bookKeeping) {
   var topLevelTarget = ReactMount.getFirstReactDOM(getEventTarget(bookKeeping.nativeEvent)) || window;
 
   // Loop through the hierarchy, in case there's any nested components.
-  // It's important that we build the array of ancestors before calling any
+  // It's important that we packaged the array of ancestors before calling any
   // event handlers, because event handlers can modify the DOM, leading to
   // inconsistencies with ReactMount's node cache. See #1105.
   var ancestor = topLevelTarget;
@@ -17639,8 +17639,8 @@ function deprecated(fnName, newModule, newPackage, ctx, fn) {
     var newFn = function () {
       "development" !== 'production' ? warning(warned,
       // Require examples in this string must be split to prevent React's
-      // build tools from mistaking them for real requires.
-      // Otherwise the build tools will attempt to build a '%s' module.
+      // packaged tools from mistaking them for real requires.
+      // Otherwise the packaged tools will attempt to packaged a '%s' module.
       'React.%s is deprecated. Please use %s.%s from require' + '(\'%s\') ' + 'instead.', fnName, newModule, fnName, newPackage) : undefined;
       warned = true;
       return fn.apply(ctx, arguments);
@@ -20410,7 +20410,7 @@ module.exports = keyMirror;
  */
 
 /**
- * Allows extraction of a minified key. Let's the build system minify keys
+ * Allows extraction of a minified key. Let's the packaged system minify keys
  * without losing the ability to dynamically use key strings as values
  * themselves. Pass in an object with a single key/val pair and it will return
  * you the string key of that single record. Suppose you want to grab the
