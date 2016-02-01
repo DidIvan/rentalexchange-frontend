@@ -1,0 +1,47 @@
+.icon-block {
+  padding: 0 15px;
+}
+.icon-block .material-icons {
+	font-size: inherit;
+}
+#wrap {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 16px;
+    background-color: rgba(1, 1, 1, 0.725);
+    z-index: 100;
+    overflow: auto;
+    opacity: 0.8;
+}
+#registration_window {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 16px;
+    background: #fff;
+    z-index: 200;
+    width: 400px;
+    height: 280px;
+    margin: 200px auto;
+}
+#login_window {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 16px;
+    background: #fff;
+    z-index: 200;
+    width: 400px;
+    height: 280px;
+    margin: 200px auto;
+}
