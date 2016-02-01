@@ -2,7 +2,8 @@
 
 var React = require('react');
 
-var Activation = React.createClass({
+var Activation;
+Activation = React.createClass({
     getInitialState: function () {
         return {
             password: '',
@@ -19,6 +20,7 @@ var Activation = React.createClass({
     }
     , handleSubmit: function (e) {
         e.preventDefault();
+        alert('submit!!!');
 
         var password = this.state.password.trim();
         var password_1 = this.state.password_1.trim();
@@ -58,7 +60,7 @@ var Activation = React.createClass({
 
     , render: function () {
 
-       /* var activationComp = "";
+        var activationComp = "";
 
         if (!this.state.isActivationSuccess) {
             activationComp =
@@ -100,22 +102,57 @@ var Activation = React.createClass({
                     <h5 className="header center blue-text text-lighten-1">На указанный email отправлено письмо
                         активации</h5>
                 </div>;
-        }*/
+        }
 
-       /* return (
+        return (
             <div>
                 {activationComp}
             </div>
-        );*/
+        );
+
+        /*var activationComp = "";
+         if (!this.state.isActivationSuccess) {
+         activationComp =
+         React.DOM.form({
+         className: "registrationForm",
+         onSubmit: function (e) {
+         e.preventDefault();
+         this.handleSubmit();
+         alert('submit!!!');
+         console.log("Console")
+         },
+         onClick: function (e) {
+         alert('submit!!!');
+         this.handleSubmit();
+         console.log("Console")
+
+         }
+
+         },
+         'Password  ',
+         React.DOM.input({
+         type: 'text',
+         placeholder: 'Enter your password'
+         }),
+
+         React.DOM.input({
+         type: 'submit',
+         value: 'Register'
+         })
+         )
+         } else {
+         activationComp = 'isActivationSuccess=true'
+         }
 
          return (
-             React.DOM.div(
-                 {className: "divider"},
-                 "Label Text",
-                 React.DOM.hr(),
-                 this.props.uuid
-             )
-         );
+         React.DOM.div(
+         {className: "divider"},
+         "Label Text",
+         React.DOM.hr(),
+         React.DOM.h1(null, 'Hello world!'),
+         activationComp
+         )
+         );*/
     }
 });
 
@@ -123,7 +160,7 @@ module.exports = Activation;
 
 
 /*React.render(
-    <Activation url={"http://demo8099007.mockable.io/activation"}/>,
-    document.getElementById('activation_form_id')
-);*/
+ <Activation url={"http://demo8099007.mockable.io/activation"}/>,
+ document.getElementById('activation_form_id')
+ );*/
 
