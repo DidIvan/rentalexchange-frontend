@@ -1,6 +1,7 @@
 var React = require("react"),
     Header = require("./header/header");
-GoodsCategory = require("./goods-category/goodsCategories");
+    GoodsCategory = require("./goods-category/goodsCategories"),
+    Footer = require("./footer/footer");
 
 var Container = React.createClass({
     render() {
@@ -8,6 +9,7 @@ var Container = React.createClass({
             <div>
                 <Header/>
                 <GoodsCategory/>
+                <Footer/>
             </div>
         );
     }

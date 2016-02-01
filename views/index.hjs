@@ -21,6 +21,8 @@
      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
     <script src="javascripts/bundle.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.js"></script>
+    <script type="text/javascript" src="javascripts/materialize.min.js"></script>
   </head>
   <body>
     <div id="container" class="container">
