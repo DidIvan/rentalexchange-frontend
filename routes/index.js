@@ -6,10 +6,10 @@ require("node-jsx").install({
     extension: ".jsx"
 });
 
-var React = require("react"),
-    Container = React.createFactory(require("../public/javascripts/components/container"));
+var React = require("react");
 
 /* GET home page. */
+var Container = React.createFactory(require("../public/javascripts/components/container"));
 router.get('/', function(req, res) {
   var markup = React.renderToString(Container());
 
@@ -17,6 +17,17 @@ router.get('/', function(req, res) {
     title: 'Rental',
     markup: markup 
   });
+});
+
+/* GET activation page. */
+var ContainerActivation = React.createFactory(require("../public/javascripts/components/containerActivation"));
+router.get('/activation', function(req, res) {
+    var markup = React.renderToString(ContainerActivation());
+
+    res.render('index', {
+        title: 'Rental',
+        markup: markup
+    });
 });
 
 module.exports = router;
