@@ -95,7 +95,7 @@ var Auth = React.createClass({
                                     содержаться инструкции по активации учётной записи пользователя с таким e-mail.</p>
                             </div>
                             <div className="row margin">
-                                <img src="../public/img/captcha.jpg" alt="captcha"/>
+                                <img src="img/captcha.jpg" alt="captcha"/>
                             </div>
 
                             <div className="row">
