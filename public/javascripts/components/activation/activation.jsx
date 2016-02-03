@@ -2,8 +2,7 @@
 
 var React = require('react');
 
-var Activation;
-Activation = React.createClass({
+var Activation = React.createClass({
     getInitialState: function () {
         return {
             password: '',
@@ -40,19 +39,20 @@ Activation = React.createClass({
         }
 
         this.setState({errMessage: ''});
-
+        var that = this;
         $.ajax({
             url: this.props.url,
             dataType: 'json',
             type: 'POST',
             data: {password: password, password_1: password_1},
             success: function (data) {
-                this.state.isActivationSuccess = true;
-                this.forceUpdate();
-            }.bind(this),
+                that.setState({isActivationSuccess: true});
+                alert("SUCCESS POST " + status);
+               /* this.forceUpdate();*/
+            },
             error: function (xhr, status, err) {
                 alert("ERROR POST " + status);
-            }.bind(this)
+            }
         });
 
         this.setState({password: '', password_1: ''});
@@ -92,7 +92,7 @@ Activation = React.createClass({
                     </div>
                     <div className="row">
                         <div className="col s6"><p></p></div>
-                        <button className="btn waves-effect light-blue lighten-1" value="Registration">Активировать
+                        <button type="submit" className="btn waves-effect light-blue lighten-1" value="Registration">Активировать
                         </button>
                     </div>
                 </form>;
