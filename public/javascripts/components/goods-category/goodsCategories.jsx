@@ -1,16 +1,13 @@
 var React = require("react"),
-    Category =  require("./category");
+    Category = require("./category");
 
 var GoodsCategory = React.createClass({
     render: function () {
         return (
             <div className="row">
-                <Category image="../public/img/artleo.png" categoryName="Фототехника"/>
-                <Category image="../public/img/00d07bd5f7f5307f333775b4786c--raboty-dlya-detej-detskij-vyazanyj-komplekt.png"
-                               categoryName="все для детей"/>
-                <Category
-                    image="../public/img/11425817-A-young-family-of-four-with-a-cat-sitting-on-sofa-looking-at-camera-and-smiling-Stock-Photo.png"
-                    categoryName="Одежда для всей семьи"/>
+                <Category image="img/goodsCategory1.jpg" categoryName="Фототехника"/>
+                <Category image="img/goodsCategory2.jpg" categoryName="все для детей"/>
+                <Category image="img/goodsCategory3.jpg" categoryName="Одежда для всей семьи"/>
             </div>
         )
     }
