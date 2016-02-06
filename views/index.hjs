@@ -20,7 +20,7 @@
      <link rel="stylesheet" type="text/css" href="css/style-markup.css"/>
      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-    <script src="javascripts/bundle.js"></script>
+    <script src="bundle.js"></script>
     <script type="text/javascript" src="javascripts/jquery.js"></script>
 
     <script type="text/javascript" src="javascripts/materialize.js"></script>
