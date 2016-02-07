@@ -19,7 +19,6 @@ var Activation = React.createClass({
     }
     , handleSubmit: function (e) {
         e.preventDefault();
-        alert('submit!!!');
 
         var password = this.state.password.trim();
         var password_1 = this.state.password_1.trim();
@@ -109,58 +108,7 @@ var Activation = React.createClass({
                 {activationComp}
             </div>
         );
-
-        /*var activationComp = "";
-         if (!this.state.isActivationSuccess) {
-         activationComp =
-         React.DOM.form({
-         className: "registrationForm",
-         onSubmit: function (e) {
-         e.preventDefault();
-         this.handleSubmit();
-         alert('submit!!!');
-         console.log("Console")
-         },
-         onClick: function (e) {
-         alert('submit!!!');
-         this.handleSubmit();
-         console.log("Console")
-
-         }
-
-         },
-         'Password  ',
-         React.DOM.input({
-         type: 'text',
-         placeholder: 'Enter your password'
-         }),
-
-         React.DOM.input({
-         type: 'submit',
-         value: 'Register'
-         })
-         )
-         } else {
-         activationComp = 'isActivationSuccess=true'
-         }
-
-         return (
-         React.DOM.div(
-         {className: "divider"},
-         "Label Text",
-         React.DOM.hr(),
-         React.DOM.h1(null, 'Hello world!'),
-         activationComp
-         )
-         );*/
     }
 });
 
 module.exports = Activation;
-
-
-/*React.render(
- <Activation url={"http://demo8099007.mockable.io/activation"}/>,
- document.getElementById('activation_form_id')
- );*/
-
