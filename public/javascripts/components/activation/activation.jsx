@@ -19,15 +19,14 @@ var Activation = React.createClass({
     }
     , handleSubmit: function (e) {
         e.preventDefault();
-
         var password = this.state.password.trim();
         var password_1 = this.state.password_1.trim();
 
         if (password == "" || password_1 == "") {
             this.setState({errMessage: 'Нужно заполнить поля формы!'});
             return;
-        } else if (password.length < 8) {
-            this.setState({errMessage: 'Пароль должен быть не менее 8 символов!'});
+        } else if (password.length < 2) {
+            this.setState({errMessage: 'Пароль должен быть не менее 2 символов!'});
             return;
         } else if (password.length > 20) {
             this.setState({errMessage: 'Пароль должен быть не более 20 символов!'});
@@ -36,30 +35,29 @@ var Activation = React.createClass({
             this.setState({errMessage: 'Пароли не совпадают!'});
             return;
         }
-
         this.setState({errMessage: ''});
-        var that = this;
+        var dataJson = {
+            "password": this.state.password,
+            "uuid": this.props.uuid
+        };
+        console.log(dataJson);
         $.ajax({
             url: this.props.url,
             dataType: 'json',
+            contentType: "application/json; charset=utf-8",
             type: 'POST',
-            data: {password: password, uuid: that.props.uuid},
+            data: JSON.stringify(dataJson),
             success: function (data) {
-                that.setState({isActivationSuccess: true});
-                alert("SUCCESS POST " + status);
-               /* this.forceUpdate();*/
+                alert("Success!!!")
             },
             error: function (xhr, status, err) {
-                alert("ERROR POST " + status);
+                alert("Error!!!")
             }
         });
-
-        this.setState({password: '', password_1: ''});
     }
-
-    , render: function () {
+    , render: function (data) {
+        console.log("***********"+data);
         var activationComp = "";
-
         if (!this.state.isActivationSuccess) {
             activationComp =
                 <form className="registrationForm" onSubmit={this.handleSubmit}>
@@ -90,7 +88,8 @@ var Activation = React.createClass({
                     </div>
                     <div className="row">
                         <div className="col s6"><p></p></div>
-                        <button type="submit" className="btn waves-effect light-blue lighten-1" value="Registration">Активировать
+                        <button type="submit" className="btn waves-effect light-blue lighten-1">
+                            Активировать
                         </button>
                     </div>
                 </form>;
@@ -101,7 +100,6 @@ var Activation = React.createClass({
                         активации</h5>
                 </div>;
         }
-
         return (
             <div>
                 {activationComp}

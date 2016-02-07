@@ -7,14 +7,12 @@ require("node-jsx").install({
 });
 var React = require("react");
 
-//var ContainerActivationClass = require("../public/javascripts/components/containerActivation");
-
 router.get('/', function(req, res) {
-    var uuid = req.query['uuid'];
-
-    var ContainerActivation = React.createFactory(require("../public/javascripts/components/containerActivation"));
-    console.log(uuid);
-    var markup = React.renderToString(ContainerActivation({uuid: uuid}));
+    var ContainerActivation = React.createFactory(require("../public/javascripts/components/activation/activation.jsx"));
+    var markup = React.renderToString(ContainerActivation({
+        uuid: req.query['uuid'],
+        url: 'http://localhost:9898/user/activation'
+    }));
     res.render('index1', {
         title: 'Rental',
         markup: markup
