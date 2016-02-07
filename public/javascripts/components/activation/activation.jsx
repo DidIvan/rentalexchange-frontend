@@ -43,7 +43,7 @@ var Activation = React.createClass({
             url: this.props.url,
             dataType: 'json',
             type: 'POST',
-            data: {password: password, password_1: password_1},
+            data: {password: password, uuid: that.props.uuid},
             success: function (data) {
                 that.setState({isActivationSuccess: true});
                 alert("SUCCESS POST " + status);
@@ -58,7 +58,6 @@ var Activation = React.createClass({
     }
 
     , render: function () {
-
         var activationComp = "";
 
         if (!this.state.isActivationSuccess) {

@@ -26,31 +26,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-/*app.use('/activation', routes_activation);*/
+app.use('/activation', routes_activation);
 
-app.use('/activation', function(req, res) {
+/*app.use('/activation', function(req, res) {
     var uuid = req.query['uuid'];
     console.log(uuid);
 
-    res.setHeader('Content-Type', 'text/html');
-    res.end(React.renderToStaticMarkup(
-        React.DOM.body(
-            null,
-            React.DOM.div({
-                id: 'ner',
-                dangerouslySetInnerHTML: {
-                    __html: React.renderToString(React.createElement(routes_activation, {
-                        uuid: uuid
-                    }))
-                }
-            }),
-            React.DOM.script({
-                'id': 'initial-data',
-                'type': 'text/jsx'
-            })
-        )
-    ));
-});
+});*/
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
