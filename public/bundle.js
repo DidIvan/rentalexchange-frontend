@@ -18979,6 +18979,7 @@ var bundle =
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
+
 	var Auth = React.createClass({displayName: "Auth",
 	    getInitialState: function () {
 	        return {
@@ -19040,7 +19041,6 @@ var bundle =
 	    },
 	    render: function () {
 	        var registrForm;
-
 	        var loginForm;
 
 	        loginForm = React.createElement("div", {id: "modal1", className: "modal"}, 
@@ -19091,7 +19091,7 @@ var bundle =
 	        )
 
 	        if (!this.state.isActivationSuccess) {
-	            registrForm =
+
 	                React.createElement("div", {id: "modal1", className: "modal"}, 
 	                    React.createElement("div", {className: "card-panel"}, 
 	                        React.createElement("form", {claassName: "login-form", onSubmit: this.handleSubmit}, 
@@ -19163,7 +19163,7 @@ var bundle =
 	        return (
 	            React.createElement("div", null, 
 	                React.createElement("div", {className: "entrance-menu right hide-on-med-and-down valign-wrapper"}, 
-	                    React.createElement("a", {className: "waves-effect waves-light btn modal-trigger", href: "#modal1"}, "Регистрация")
+	                    React.createElement("a", {className: "waves-effect waves-light btn modal-trigger", href: "#modal1"}, "Вход")
 	                ), 
 	                React.createElement("div", null, modalForm)
 	            )
