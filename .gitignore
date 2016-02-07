@@ -2,6 +2,9 @@
 
 *.iml
 
+#Project files
+bundle*.*
+
 node_modules
 
 ## Directory-based project format:
