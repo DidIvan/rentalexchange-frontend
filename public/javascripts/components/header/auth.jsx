@@ -4,12 +4,17 @@ var Auth = React.createClass({
         return {
             email: '',
             errMessage: '',
-            isActivationSuccess: false
+            isActivationSuccess: false,
+            isLoginForm: true
+
         }
     },
     handleEmailChange: function (event) {
         this.setState({email: event.target.value});
         this.setState({errMessage: ""});
+    },
+    handleModalType: function (event) {
+        this.setState({isLoginForm: !this.state.isLoginForm});
     },
     handleSubmit: function (event) {
         event.preventDefault();
@@ -52,22 +57,59 @@ var Auth = React.createClass({
                 } // Callback for Modal close
             });
         });
-        /*  $('.modal-trigger').leanModal({
-         dismissible: true, // Modal can be dismissed by clicking outside of the modal
-         opacity: .5, // Opacity of modal background
-         in_duration: 300, // Transition in duration
-         out_duration: 200, // Transition out duration
-         ready: function () {
-         alert('Ready');
-         }, // Callback for Modal open
-         complete: function () {
-         alert('Closed');
-         } // Callback for Modal close
-         }
-         );*/
     },
     render: function () {
-        var registrForm = "";
+        var registrForm;
+
+        var loginForm;
+
+        loginForm = <div id="modal1" className="modal">
+            <div className="card-panel">
+                <form claassName="login-form" onSubmit={this.handleSubmit}>
+
+                    <div className="row center">
+                        <h5>Регистрация учётной записи пользователя</h5>
+                    </div>
+
+                    <div className="row margin">
+                        <div className="input-field col s12">
+                            <i className="mdi-communication-email prefix"></i>
+                            <input value={this.state.email} id="email" type="email"
+                                   onChange={this.handleEmailChange}/>
+                            <label for="email" className="center-align">Email</label>
+                        </div>
+                    </div>
+
+                    <div className="row margin">
+                        <div className="input-field col s12">
+                            <i className="mdi-communication-email prefix"></i>
+                            <input value={this.state.password} type="password"/>
+                            <label className="center-align">Password</label>
+                        </div>
+                    </div>
+
+                    <div className="row margin">
+                        <img src="img/landingPage/captcha.jpg" alt="captcha"/>
+                    </div>
+
+                    <div className="row">
+                        <div className="input-field col s12">
+                            <button type="submit" className="btn waves-effect waves-light col s12">
+                                Войти
+                            </button>
+                        </div>
+                        <br/>
+
+                        <div className="input-field col s12">
+                            <a className="btn waves-effect waves-light col s12" onClick={this.handleModalType}>
+                                Зарегистрироваться
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
         if (!this.state.isActivationSuccess) {
             registrForm =
                 <div id="modal1" className="modal">
@@ -104,6 +146,13 @@ var Auth = React.createClass({
                                         Зарегистрироваться
                                     </button>
                                 </div>
+                                <br/>
+
+                                <div className="input-field col s12">
+                                    <a className="btn waves-effect waves-light col s12" onClick={this.handleModalType}>
+                                        Войти
+                                    </a>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -130,12 +179,13 @@ var Auth = React.createClass({
                     </div>
                 </div>
         }
+        var modalForm = this.state.isLoginForm ? loginForm : registrForm;
         return (
             <div>
                 <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
                     <a className="waves-effect waves-light btn modal-trigger" href="#modal1">Регистрация</a>
                 </div>
-                <div>{registrForm}</div>
+                <div>{modalForm}</div>
             </div>
         )
     }

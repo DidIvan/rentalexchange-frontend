@@ -18943,7 +18943,7 @@ var bundle =
 	        return (
 	            React.createElement("div", {className: "nav z-depth-2"}, 
 	                React.createElement("div", {className: "logo-center left col s12 valign-wrapper"}, 
-	                    React.createElement("a", {href: "#", className: "brand-logo"}, React.createElement("img", {src: "img/logo.png", className: "valign", alt: "logo"}))
+	                    React.createElement("a", {href: "#", className: "brand-logo"}, React.createElement("img", {src: "img/landingPage/logo.png", className: "valign", alt: "logo"}))
 	                ), 
 	                React.createElement(Search, null), 
 	                React.createElement(Auth, {url: "http://univerpulse.noip.me:8002/user/registration"})
@@ -18984,12 +18984,17 @@ var bundle =
 	        return {
 	            email: '',
 	            errMessage: '',
-	            isActivationSuccess: false
+	            isActivationSuccess: false,
+	            isLoginForm: true
+
 	        }
 	    },
 	    handleEmailChange: function (event) {
 	        this.setState({email: event.target.value});
 	        this.setState({errMessage: ""});
+	    },
+	    handleModalType: function (event) {
+	        this.setState({isLoginForm: !this.state.isLoginForm});
 	    },
 	    handleSubmit: function (event) {
 	        event.preventDefault();
@@ -19032,22 +19037,59 @@ var bundle =
 	                } // Callback for Modal close
 	            });
 	        });
-	        /*  $('.modal-trigger').leanModal({
-	         dismissible: true, // Modal can be dismissed by clicking outside of the modal
-	         opacity: .5, // Opacity of modal background
-	         in_duration: 300, // Transition in duration
-	         out_duration: 200, // Transition out duration
-	         ready: function () {
-	         alert('Ready');
-	         }, // Callback for Modal open
-	         complete: function () {
-	         alert('Closed');
-	         } // Callback for Modal close
-	         }
-	         );*/
 	    },
 	    render: function () {
-	        var registrForm = "";
+	        var registrForm;
+
+	        var loginForm;
+
+	        loginForm = React.createElement("div", {id: "modal1", className: "modal"}, 
+	            React.createElement("div", {className: "card-panel"}, 
+	                React.createElement("form", {claassName: "login-form", onSubmit: this.handleSubmit}, 
+
+	                    React.createElement("div", {className: "row center"}, 
+	                        React.createElement("h5", null, "Регистрация учётной записи пользователя")
+	                    ), 
+
+	                    React.createElement("div", {className: "row margin"}, 
+	                        React.createElement("div", {className: "input-field col s12"}, 
+	                            React.createElement("i", {className: "mdi-communication-email prefix"}), 
+	                            React.createElement("input", {value: this.state.email, id: "email", type: "email", 
+	                                   onChange: this.handleEmailChange}), 
+	                            React.createElement("label", {for: "email", className: "center-align"}, "Email")
+	                        )
+	                    ), 
+
+	                    React.createElement("div", {className: "row margin"}, 
+	                        React.createElement("div", {className: "input-field col s12"}, 
+	                            React.createElement("i", {className: "mdi-communication-email prefix"}), 
+	                            React.createElement("input", {value: this.state.password, type: "password"}), 
+	                            React.createElement("label", {className: "center-align"}, "Password")
+	                        )
+	                    ), 
+
+	                    React.createElement("div", {className: "row margin"}, 
+	                        React.createElement("img", {src: "img/landingPage/captcha.jpg", alt: "captcha"})
+	                    ), 
+
+	                    React.createElement("div", {className: "row"}, 
+	                        React.createElement("div", {className: "input-field col s12"}, 
+	                            React.createElement("button", {type: "submit", className: "btn waves-effect waves-light col s12"}, 
+	                                "Войти"
+	                            )
+	                        ), 
+	                        React.createElement("br", null), 
+
+	                        React.createElement("div", {className: "input-field col s12"}, 
+	                            React.createElement("a", {className: "btn waves-effect waves-light col s12", onClick: this.handleModalType}, 
+	                                "Зарегистрироваться"
+	                            )
+	                        )
+	                    )
+	                )
+	            )
+	        )
+
 	        if (!this.state.isActivationSuccess) {
 	            registrForm =
 	                React.createElement("div", {id: "modal1", className: "modal"}, 
@@ -19083,6 +19125,13 @@ var bundle =
 	                                    React.createElement("button", {type: "submit", className: "btn waves-effect waves-light col s12"}, 
 	                                        "Зарегистрироваться"
 	                                    )
+	                                ), 
+	                                React.createElement("br", null), 
+
+	                                React.createElement("div", {className: "input-field col s12"}, 
+	                                    React.createElement("a", {className: "btn waves-effect waves-light col s12", onClick: this.handleModalType}, 
+	                                        "Войти"
+	                                    )
 	                                )
 	                            )
 	                        )
@@ -19110,12 +19159,13 @@ var bundle =
 	                    )
 	                )
 	        }
+	        var modalForm = this.state.isLoginForm ? loginForm : registrForm;
 	        return (
 	            React.createElement("div", null, 
 	                React.createElement("div", {className: "entrance-menu right hide-on-med-and-down valign-wrapper"}, 
 	                    React.createElement("a", {className: "waves-effect waves-light btn modal-trigger", href: "#modal1"}, "Регистрация")
 	                ), 
-	                React.createElement("div", null, registrForm)
+	                React.createElement("div", null, modalForm)
 	            )
 	        )
 	    }
@@ -19133,9 +19183,9 @@ var bundle =
 	    render: function () {
 	        return (
 	            React.createElement("div", {className: "row"}, 
-	                React.createElement(Category, {image: "img/goodsCategory1.jpg", categoryName: "Фототехника"}), 
-	                React.createElement(Category, {image: "img/goodsCategory2.jpg", categoryName: "все для детей"}), 
-	                React.createElement(Category, {image: "img/goodsCategory3.jpg", categoryName: "Одежда для всей семьи"})
+	                React.createElement(Category, {image: "img/landingPage/goodsCategory1.jpg", categoryName: "Фототехника"}), 
+	                React.createElement(Category, {image: "img/landingPage/goodsCategory2.jpg", categoryName: "все для детей"}), 
+	                React.createElement(Category, {image: "img/landingPage/goodsCategory3.jpg", categoryName: "Одежда для всей семьи"})
 	            )
 	        )
 	    }
@@ -19180,7 +19230,7 @@ var bundle =
 	                React.createElement("div", {className: "row"}, 
 
 	                    React.createElement("div", {className: "col l3 s12"}, 
-	                        React.createElement("a", {href: "index-markup.html", className: "brand-logo"}, React.createElement("img", {src: "img/logo.png", alt: "logo"}))
+	                        React.createElement("a", {href: "index-markup.html", className: "brand-logo"}, React.createElement("img", {src: "img/landingPage/logo.png", alt: "logo"}))
 	                    ), 
 
 	                    React.createElement("div", {className: "col l3 s12"}, 
@@ -19255,10 +19305,10 @@ var bundle =
 	        return (
 	            React.createElement("div", {className: "row"}, 
 	                React.createElement(Title, {title: "ЛУЧШИЕ ПРЕДЛОЖЕНИЯ НЕДЕЛИ"}), 
-	                React.createElement(Goods, {image: "img/Product.jpg", price: "155", goodName: "Name1"}), 
-	                React.createElement(Goods, {image: "img/Product.jpg", price: "250", goodName: "Name2"}), 
-	                React.createElement(Goods, {image: "img/Product.jpg", price: "350", goodName: "Name3"}), 
-	                React.createElement(Goods, {image: "img/Product.jpg", price: "450", goodName: "Name4"})
+	                React.createElement(Goods, {image: "img/landingPage/Product.jpg", price: "155", goodName: "Name1"}), 
+	                React.createElement(Goods, {image: "img/landingPage/Product.jpg", price: "250", goodName: "Name2"}), 
+	                React.createElement(Goods, {image: "img/landingPage/Product.jpg", price: "350", goodName: "Name3"}), 
+	                React.createElement(Goods, {image: "img/landingPage/Product.jpg", price: "450", goodName: "Name4"})
 	            )
 
 	        )

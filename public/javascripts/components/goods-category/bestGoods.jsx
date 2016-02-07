@@ -8,10 +8,10 @@ var BestGoods = React.createClass({
         return (
             <div className="row">
                 <Title title="ЛУЧШИЕ ПРЕДЛОЖЕНИЯ НЕДЕЛИ"/>
-                <Goods image="img/Product.jpg" price="155" goodName="Name1"/>
-                <Goods image="img/Product.jpg" price="250" goodName="Name2"/>
-                <Goods image="img/Product.jpg" price="350" goodName="Name3"/>
-                <Goods image="img/Product.jpg" price="450" goodName="Name4"/>
+                <Goods image="img/landingPage/Product.jpg" price="155" goodName="Name1"/>
+                <Goods image="img/landingPage/Product.jpg" price="250" goodName="Name2"/>
+                <Goods image="img/landingPage/Product.jpg" price="350" goodName="Name3"/>
+                <Goods image="img/landingPage/Product.jpg" price="450" goodName="Name4"/>
             </div>
 
         )
