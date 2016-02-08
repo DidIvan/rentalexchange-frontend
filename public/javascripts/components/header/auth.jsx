@@ -58,6 +58,9 @@ var Auth = React.createClass({
                 } // Callback for Modal close
             });
         });
+        $(document).ready(function () {
+            $('ul.tabs').tabs();
+        });
     },
     render: function () {
         var registrForm;
@@ -66,7 +69,88 @@ var Auth = React.createClass({
         loginForm =
             <div id="modal1" className="modal">
                 <div className="card-panel">
-                    /*===========Module Entrance=============*/
+                    <div className="row">
+                        <div className="col s12">
+                            <ul className="tabs">
+                                <li className="tab col s3"><a href="#test1">Войти</a></li>
+                                <li className="tab col s3"><a class="active" href="#test2">Регистриция</a></li>
+                            </ul>
+                        </div>
+
+                        <div id="test1" className="col s12">
+                            <form claassName="login-form" onSubmit={this.handleSubmit}>
+
+                                <div className="row margin">
+                                    <div className="input-field col s12">
+                                        <i className="mdi-communication-email prefix"></i>
+                                        <input value={this.state.email} id="email" type="email"
+                                               onChange={this.handleEmailChange}/>
+                                        <label for="email" className="center-align">Email</label>
+                                    </div>
+                                </div>
+
+                                <div className="row margin">
+                                    <div className="input-field col s12">
+                                        <i className="mdi-action-lock-outline prefix"></i>
+                                        <input value={this.state.password} id="icon_password" type="password"
+                                               className="validate"/>
+                                        <label for="icon_password">Password</label>
+                                    </div>
+                                </div>
+
+                                <div className="row margin">
+                                    <img src="img/landingPage/captcha.jpg" alt="captcha"/>
+                                </div>
+
+                                <div className="row">
+                                    <div className="input-field col s12">
+                                        <button className="btn waves-effect waves-light col s12" type="submit"
+                                                name="action"><i
+                                            className="mdi-action-lock-open"></i>
+                                            Войти
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div id="test2" className="col s12">
+                            <form claassName="login-form" onSubmit={this.handleSubmit}>
+
+                                <div className="row margin">
+                                    <div className="input-field col s12">
+                                        <i className="mdi-communication-email prefix"></i>
+                                        <input value={this.state.email} id="email" type="email"
+                                               onChange={this.handleEmailChange}/>
+                                        <label for="email" className="center-align">Email</label>
+                                    </div>
+                                </div>
+                                <div className="row"><p className="red-text">{this.state.errMessage}</p></div>
+                                <div className="row margin">
+                                    <p className="center">На этот e-mail мы отправим письмо для проверки корректности
+                                        указанного
+                                        адреса. В
+                                        письме будут
+                                        содержаться инструкции по активации учётной записи пользователя с таким
+                                        e-mail.</p>
+                                </div>
+                                <div className="row margin">
+                                    <img src="img/landingPage/captcha.jpg" alt="captcha"/>
+                                </div>
+
+                                <div className="row">
+                                    <div className="input-field col s12">
+                                        <button className="btn waves-effect waves-light col s12" type="submit"
+                                                name="action"><i className="mdi-action-perm-identity"></i>
+                                            Зарегистрироваться
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
 
