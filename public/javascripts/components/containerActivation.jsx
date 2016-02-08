@@ -3,10 +3,13 @@ var React = require("react"),
 
 var ContainerActivation = React.createClass({
     render: function () {
-
+        var url1 = this.props.url;
+        var uuid1 = this.props.uuid;
+        console.log("*** From ContainerActivation ***  "+uuid1);
+        console.log("*** From ContainerActivation ***  "+url1);
         return (
             <div>
-                <Activation url="http://localhost:9898/user/activation" uuid={this.props.uuid}/>
+                <Activation url1={url1} uuid1={uuid1}/>
             </div>
         );
     }

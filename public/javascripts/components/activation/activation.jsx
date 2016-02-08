@@ -8,7 +8,9 @@ var Activation = React.createClass({
             password: '',
             password_1: '',
             errMessage: '',
-            isActivationSuccess: false
+            isActivationSuccess: false,
+            url_1: this.props.url1,
+            uuid_1: this.props.uuid1
         };
     }
     , handlePasswordChange: function (e) {
@@ -38,11 +40,11 @@ var Activation = React.createClass({
         this.setState({errMessage: ''});
         var dataJson = {
             "password": this.state.password,
-            "uuid": this.props.uuid
+            "uuid": this.state.uuid_1
         };
         console.log(dataJson);
         $.ajax({
-            url: this.props.url,
+            url: this.state.url_1,
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
             type: 'POST',
@@ -55,8 +57,18 @@ var Activation = React.createClass({
             }
         });
     }
-    , render: function (data) {
-        console.log("***********"+data);
+    , componentDidMount: function () {
+        this.setState({
+            url_1: this.props.url1,
+            uuid_1: this.props.uuid1
+        });
+    }
+    , render: function () {
+        console.log("---- From Activation server ///  " + this.props.url1);
+        console.log("---- From Activation server///  " + this.props.uuid1);
+
+        console.log("---- From Activation client ///  " + this.state.url_1);
+        console.log("---- From Activation client///  " + this.state.uuid_1);
         var activationComp = "";
         if (!this.state.isActivationSuccess) {
             activationComp =
@@ -109,3 +121,11 @@ var Activation = React.createClass({
 });
 
 module.exports = Activation;
+/*
+ var React = require('react');
+ var FooClass = require('foo');
+ var Foo = React.createFactory(FooClass);
+ function helper() {
+ FooClass.foo(); // static method
+ return Foo({ props: 'foo' }); // ReactElement
+ }*/
