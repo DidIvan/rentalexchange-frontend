@@ -207,6 +207,18 @@ footer ul li:hover {
 /*end footer*/
 
 /*Begin modal window*/
+/*tabs entrance/registration*/
+.tabs .tab a{
+    color:rgb(41, 128, 185);
+}
+.tabs .tab a:hover {
+    font-weight: bold;
+    color: rgb(42, 155, 221)
+}
+
+.tabs .indicator{
+    background-color:rgb(41, 128, 185);
+}
 
 /* label underline focus color ���� ������ �����*/
 .modal .input-field input[type=email]:focus {

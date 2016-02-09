@@ -80,6 +80,10 @@ var Auth = React.createClass({
                         <div id="test1" className="col s12">
                             <form claassName="login-form" onSubmit={this.handleSubmit}>
 
+                                <div className="row center">
+                                    <h5>Вход на rentalexchange</h5>
+                                </div>
+
                                 <div className="row margin">
                                     <div className="input-field col s12">
                                         <i className="mdi-communication-email prefix"></i>
@@ -116,6 +120,10 @@ var Auth = React.createClass({
 
                         <div id="test2" className="col s12">
                             <form claassName="login-form" onSubmit={this.handleSubmit}>
+
+                                <div className="row center">
+                                    <h5>Регистрация учётной записи пользователя</h5>
+                                </div>
 
                                 <div className="row margin">
                                     <div className="input-field col s12">
