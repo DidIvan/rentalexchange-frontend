@@ -9,8 +9,7 @@ var Header = React.createClass({
                     <a href="#" className="brand-logo"><img src="img/landingPage/logo.png" className="valign" alt="logo"/></a>
                 </div>
                 <Search/>
-
-                <Auth url="http://localhost:9898/user/registration"/>
+                <Auth/>
             </div>
         )
     }
