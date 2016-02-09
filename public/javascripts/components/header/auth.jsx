@@ -92,7 +92,6 @@ var Auth = React.createClass({
                                         <label for="email" className="center-align">Email</label>
                                     </div>
                                 </div>
-
                                 <div className="row margin">
                                     <div className="input-field col s12">
                                         <i className="mdi-action-lock-outline prefix"></i>
