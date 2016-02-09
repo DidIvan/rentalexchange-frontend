@@ -1,5 +1,3 @@
-/** @jsx React.DOM */
-
 var React = require('react');
 
 var Activation = React.createClass({
@@ -8,9 +6,7 @@ var Activation = React.createClass({
             password: '',
             password_1: '',
             errMessage: '',
-            isActivationSuccess: false,
-            url_1: this.props.url1,
-            uuid_1: this.props.uuid1
+            isActivationSuccess: false
         };
     }
     , handlePasswordChange: function (e) {
@@ -57,18 +53,9 @@ var Activation = React.createClass({
             }
         });
     }
-    , componentDidMount: function () {
-        this.setState({
-            url_1: this.props.url1,
-            uuid_1: this.props.uuid1
-        });
-    }
     , render: function () {
-        console.log("---- From Activation server ///  " + this.props.url1);
-        console.log("---- From Activation server///  " + this.props.uuid1);
-
-        console.log("---- From Activation client ///  " + this.state.url_1);
-        console.log("---- From Activation client///  " + this.state.uuid_1);
+        console.log("---- From Activation  url ///  " + this.props.url1);
+        console.log("---- From Activation  uuid  ///  " + this.props.uuid1);
         var activationComp = "";
         if (!this.state.isActivationSuccess) {
             activationComp =
@@ -121,11 +108,3 @@ var Activation = React.createClass({
 });
 
 module.exports = Activation;
-/*
- var React = require('react');
- var FooClass = require('foo');
- var Foo = React.createFactory(FooClass);
- function helper() {
- FooClass.foo(); // static method
- return Foo({ props: 'foo' }); // ReactElement
- }*/
