@@ -1,3 +1,4 @@
 {
-  "port": "example: 8003"
+  "port": "example: 8003",
+  "backendHost": "example: http://univerpulse.noip.me:8080/"
 }

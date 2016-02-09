@@ -1,6 +1,9 @@
 var React = require("react");
 var Entrance = require("./entrance.jsx");
 var Registration = require("./registration.jsx");
+/*var config = require('../../../../config');*/
+
+var backendHost='http://univerpulse.noip.me:8080';
 
 var Auth = React.createClass({
     getInitialState: function () {
@@ -83,11 +86,11 @@ var Auth = React.createClass({
                             </div>
 
                             <div id="test1" className="col s12">
-                                <Entrance/>
+                                <Entrance url={backendHost+"/user/login"}/>
                             </div>
 
                             <div id="test2" className="col s12">
-                                <Registration url={"http://localhost:9898/user/registration"}/>
+                                <Registration url={backendHost+"/user/registration"}/>
                             </div>
                         </div>
                     </div>
