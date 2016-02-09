@@ -1,0 +1,1 @@
+Copy file config.json out of project
