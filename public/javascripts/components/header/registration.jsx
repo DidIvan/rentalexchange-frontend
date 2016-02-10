@@ -23,7 +23,6 @@ var Registration = React.createClass({
                 "email": email
             };
 
-            var that = this;
             $.ajax({
                 url: this.props.url,
                 dataType: 'json',
@@ -31,16 +30,21 @@ var Registration = React.createClass({
                 type: 'POST',
                 data: JSON.stringify(dataJson),
                 success: function (data) {
-                    that.setState({isActivationSuccess: true});
+                    module.setState({isActivationSuccess: true});
                 },
                 error: function (xhr, status, err) {
                     if (xhr.status == 400) {
-                        that.setState({errMessage: "fail registration - user alredy registered in system"})
+                        module.setState({errMessage: "fail registration - user alredy registered in system"})
                     }
                 }
             });
         }
     },
+/*    componentWillUnmount: function () {
+        module.setState({email: ''});
+        module.setState({errMessage: ''});
+        module.setState({isActivationSuccess: false});
+    },*/
     render: function () {
         var registrForm;
         if (!this.state.isActivationSuccess) {
@@ -91,7 +95,7 @@ var Registration = React.createClass({
                 </form>
         }
         return (
-                <div>{registrForm}</div>
+            <div>{registrForm}</div>
         )
     }
 });

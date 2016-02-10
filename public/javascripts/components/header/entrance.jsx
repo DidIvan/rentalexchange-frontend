@@ -5,8 +5,49 @@ var Entrance = React.createClass({
     getInitialState: function () {
         return {
             email: '',
+            password: '',
             errMessage: '',
             isLoginForm: false
+        }
+    },
+    handleEmailChange: function (event) {
+        this.setState({email: event.target.value});
+        this.setState({errMessage: ""});
+    },
+    handlePasswordChange: function (event) {
+        this.setState({password: event.target.value});
+        this.setState({errMessage: ""});
+    },
+
+    handleSubmit: function (event) {
+        event.preventDefault();
+
+        if ((this.state.email || this.state.password) == '') {
+            this.setState({errMessage: "Все поля должны быть заполнены!"})
+        } else {
+            var email = this.state.email.trim();
+            var password = this.state.password.trim();
+            var dataJson = {
+                "email": email,
+                "password": password
+            };
+
+
+            $.ajax({
+                url: this.props.url,
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                type: 'POST',
+                data: JSON.stringify(dataJson),
+                success: function (data) {
+                    module.setState({isLoginForm: true});
+                },
+                error: function (xhr, status, err) {
+                    if (xhr.status == 400) {
+                        module.setState({errMessage: "Неверный логин или пароль."})
+                    }
+                }
+            });
         }
     },
     render: function () {
@@ -17,6 +58,7 @@ var Entrance = React.createClass({
                     <div className="row center">
                         <h5>Вход на rentalexchange</h5>
                     </div>
+
                     <div className="row margin">
                         <div className="input-field col s12">
                             <i className="mdi-communication-email prefix"></i>
@@ -25,14 +67,17 @@ var Entrance = React.createClass({
                             <label for="email" className="center-align">Email</label>
                         </div>
                     </div>
+
                     <div className="row margin">
                         <div className="input-field col s12">
                             <i className="mdi-action-lock-outline prefix"></i>
                             <input value={this.state.password} id="icon_password" type="password"
-                                   className="validate"/>
+                                   className="validate" onChange={this.handlePasswordChange}/>
                             <label for="icon_password">Password</label>
                         </div>
                     </div>
+
+                    <div className="row"><p className="red-text">{this.state.errMessage}</p></div>
 
                     <div className="row margin">
                         <img src="img/landingPage/captcha.jpg" alt="captcha"/>

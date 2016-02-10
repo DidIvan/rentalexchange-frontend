@@ -3,54 +3,10 @@ var Entrance = require("./entrance.jsx");
 var Registration = require("./registration.jsx");
 /*var config = require('../../../../config');*/
 
-var backendHost='http://univerpulse.noip.me:8080';
+var backendHost = 'http://univerpulse.noip.me:8080';
 
 var Auth = React.createClass({
-    getInitialState: function () {
-        return {
-            email: '',
-            errMessage: '',
-            isActivationSuccess: false,
-            isLoginForm: false
 
-        }
-    },
-    handleEmailChange: function (event) {
-        this.setState({email: event.target.value});
-        this.setState({errMessage: ""});
-    },
-    handleModalType: function (event) {
-        this.setState({isLoginForm: !this.state.isLoginForm});
-    },
-    handleSubmit: function (event) {
-        event.preventDefault();
-
-        if (this.state.email == '') {
-            this.setState({errMessage: "empty field"})
-        } else {
-            var email = this.state.email.trim();
-            var dataJson = {
-                "email": email
-            };
-
-        /*    var that = this;
-            $.ajax({
-                url: this.props.url,
-                dataType: 'json',
-                contentType: "application/json; charset=utf-8",
-                type: 'POST',
-                data: JSON.stringify(dataJson),
-                success: function (data) {
-                    that.setState({isActivationSuccess: true});
-                },
-                error: function (xhr, status, err) {
-                    if (xhr.status == 400) {
-                        that.setState({errMessage: "fail registration - user alredy registered in system"})
-                    }
-                }
-            });*/
-        }
-    },
     componentDidMount: function () {
         var that = this;
         $(document).ready(function () {
@@ -68,8 +24,6 @@ var Auth = React.createClass({
         });
     },
     render: function () {
-
-        /*  var modalForm = this.state.isLoginForm ? loginForm : registrForm;*/
         return (
             <div>
                 <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
