@@ -4,14 +4,14 @@ var React = require("react");
 var Entrance = React.createClass({
     getInitialState: function () {
         return {
-            email: '',
+            login: '',
             password: '',
             errMessage: '',
             isLoginForm: false
         }
     },
-    handleEmailChange: function (event) {
-        this.setState({email: event.target.value});
+    handleLoginChange: function (event) {
+        this.setState({login: event.target.value});
         this.setState({errMessage: ""});
     },
     handlePasswordChange: function (event) {
@@ -22,17 +22,15 @@ var Entrance = React.createClass({
     handleSubmit: function (event) {
         event.preventDefault();
 
-        if ((this.state.email || this.state.password) == '') {
+        if ((this.state.login || this.state.password) == '') {
             this.setState({errMessage: "Все поля должны быть заполнены!"})
         } else {
-            var email = this.state.email.trim();
+            var login = this.state.login.trim();
             var password = this.state.password.trim();
             var dataJson = {
-                "email": email,
+                "login": login,
                 "password": password
             };
-
-
             $.ajax({
                 url: this.props.url,
                 dataType: 'json',
@@ -62,8 +60,8 @@ var Entrance = React.createClass({
                     <div className="row margin">
                         <div className="input-field col s12">
                             <i className="mdi-communication-email prefix"></i>
-                            <input value={this.state.email} id="email" type="email"
-                                   onChange={this.handleEmailChange}/>
+                            <input value={this.state.login} id="email" type="email"
+                                   onChange={this.handleLoginChange}/>
                             <label for="email" className="center-align">Email</label>
                         </div>
                     </div>
