@@ -34,7 +34,7 @@ var Registration = React.createClass({
                 },
                 error: function (xhr, status, err) {
                     if (xhr.status == 400) {
-                        module.setState({errMessage: "fail registration - user alredy registered in system"})
+                        module.setState({errMessage: "fail registration - user already registered in system"})
                     }
                 }
             });
