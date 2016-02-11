@@ -225,11 +225,11 @@ var Auth = React.createClass({
                             </div>
 
                             <div id="test1" className="col s12">
-                                <div>{loginForm}</div>
+                                <div url={backendHost+"/user/login"}>{loginForm}</div>
                             </div>
 
                             <div id="test2" className="col s12">
-                                <div>{registrForm}</div>
+                                <div url={backendHost+"/user/registration"}>{registrForm}</div>
                             </div>
                         </div>
                     </div>
