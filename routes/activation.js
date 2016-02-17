@@ -8,7 +8,7 @@ require("node-jsx").install({
 var React = require("react");
 
 router.get('/', function(req, res) {
-    var ContainerActivationClass = require("../public/javascripts/components/containerActivation.jsx");
+    var ContainerActivationClass = require("../public/javascripts/components/activation/activation.jsx");
     var ContainerActivation = React.createFactory(ContainerActivationClass);
     var markup = React.renderToString(ContainerActivation(   {
 
@@ -16,9 +16,9 @@ router.get('/', function(req, res) {
         url: 'http://localhost:9898/user/activation'
 
     }));
-    res.render('index1', {
+    res.render('index-req-conf', {
         title: 'Rental',
-        markup: markup,
+        markup: markup
     });
 });
 

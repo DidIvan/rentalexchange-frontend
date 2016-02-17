@@ -8,7 +8,7 @@ var React = require("react");
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var routes_activation = require('./routes/activation');
+var routes_reg_cong = require('./routes/activation');
 
 var app = express();
 
@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/activation', routes_activation);
+app.use('/user/registration-confirm', routes_reg_cong);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
