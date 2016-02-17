@@ -21,9 +21,9 @@
      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
     <script src="bundle.js"></script>
-    <script type="text/javascript" src="javascripts/jquery.js"></script>
+    <script type="text/javascript" src="javascripts/libs/jquery.js"></script>
 
-    <script type="text/javascript" src="javascripts/materialize.js"></script>
+    <script type="text/javascript" src="javascripts/libs/materialize.js"></script>
   </head>
   <body>
     <div id="container" class="container">

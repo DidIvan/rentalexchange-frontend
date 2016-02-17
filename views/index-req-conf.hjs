@@ -20,9 +20,9 @@
      <link rel="stylesheet" type="text/css" href="css/style-markup.css"/>
      <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-    <script src="bundle1.js"></script>
-    <script type="text/javascript" src="javascripts/jquery.js"></script>
-    <script type="text/javascript" src="javascripts/materialize.min.js"></script>
+    <script src="bundle_reg_conf.js"></script>
+    <script type="text/javascript" src="javascripts/libs/jquery.js"></script>
+    <script type="text/javascript" src="javascripts/libs/materialize.min.js"></script>
   </head>
   <body>
     <div id="container" class="container">

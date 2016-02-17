@@ -10,12 +10,11 @@ var React = require("react");
 router.get('/', function(req, res) {
     var ContainerActivationClass = require("../public/javascripts/components/activation/activation.jsx");
     var ContainerActivation = React.createFactory(ContainerActivationClass);
-    var markup = React.renderToString(ContainerActivation(   {
-
+    var inputData = {
         uuid: req.query['uuid'],
-        url: 'http://localhost:9898/user/activation'
-
-    }));
+        url: 'http://localhost:9898/user/activation###'
+    }
+    var markup = React.renderToString(ContainerActivation(inputData));
     res.render('index-req-conf', {
         title: 'Rental',
         markup: markup

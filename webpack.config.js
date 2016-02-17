@@ -4,7 +4,7 @@ module.exports = [{
     context: path.join(__dirname, "public", "javascripts"),
     entry: {
         bundle: "./app.js",
-        bundle1: "./app1.js"
+        bundle_reg_conf: "./app_reg_conf.js"
     },
     output: {
         /*создаем абсолютный путь*/

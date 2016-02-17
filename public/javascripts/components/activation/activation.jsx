@@ -36,11 +36,11 @@ var Activation = React.createClass({
         this.setState({errMessage: ''});
         var dataJson = {
             "password": this.state.password,
-            "uuid": this.state.uuid_1
+            "uuid": this.props.uuid
         };
         console.log(dataJson);
         $.ajax({
-            url: this.state.url_1,
+            url: this.props.url,
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
             type: 'POST',
@@ -54,8 +54,8 @@ var Activation = React.createClass({
         });
     }
     , render: function () {
-        console.log("---- From Activation  url ///  " + this.props.url1);
-        console.log("---- From Activation  uuid  ///  " + this.props.uuid1);
+        console.log("---- From Activation  url ///  " + this.props.url);
+        console.log("---- From Activation  uuid  ///  " + this.props.uuid);
         var activationComp = "";
         if (!this.state.isActivationSuccess) {
             activationComp =
