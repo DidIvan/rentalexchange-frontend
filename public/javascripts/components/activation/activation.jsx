@@ -33,75 +33,88 @@ var Activation = React.createClass({
             this.setState({errMessage: 'Пароли не совпадают!'});
             return;
         }
+        console.log(this.state.password);
         this.setState({errMessage: ''});
         var dataJson = {
             "password": this.state.password,
-            "uuid": this.props.uuid
+            "uuid": '8fa00d50-5792-431c-ac6d-90ca30533c15'
         };
-        console.log(dataJson);
+
         $.ajax({
-            url: this.props.url,
+            url: 'http://univerpulse.noip.me:8080/user/registration-confirm',
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
             type: 'POST',
             data: JSON.stringify(dataJson),
             success: function (data) {
-                alert("Success!!!")
+                this.state.isActivationSuccess = true;
+                alert("Success!!!");
             },
             error: function (xhr, status, err) {
-                alert("Error!!!")
+                alert(xhr.responseJSON.reason);
+                this.props.errReason = xhr.responseJSON.reason;
+                console.log(this.props.errReason);
             }
         });
     }
     , render: function () {
-        console.log("---- From Activation  url ///  " + this.props.url);
-        console.log("---- From Activation  uuid  ///  " + this.props.uuid);
+        console.log("---- From Activation  url ///  " + this.props.url1);
+        console.log("---- From Activation  uuid  ///  " + this.props.uuid1);
         var activationComp = "";
         if (!this.state.isActivationSuccess) {
             activationComp =
-                <form className="registrationForm" onSubmit={this.handleSubmit}>
-                    <h5 className="header center blue-text text-lighten-1">Активация учетной записи</h5>
+                <form className="registrationForm row center" onSubmit={this.handleSubmit}>
+                    <h5 className="header center">Активация учетной записи</h5>
 
                     <div className="row">
-                        <div className="col s3"><p></p></div>
-                        <div className="input-field col s6">
+                        <div className="input-field col s12">
+                            <i className="mdi-action-lock-outline prefix"></i>
                             <input value={this.state.passwowrd} onChange={this.handlePasswordChange} id="password"
                                    type="password" className="validate"></input>
                             <label className="active" for="password">Новый пароль</label>
                         </div>
-                        <div className="col s3"><p className="red-text">{this.state.errMessage}</p></div>
                     </div>
+
                     <div className="row">
-                        <div className="col s3"><p></p></div>
-                        <div className="input-field col s6">
+                        <div className="input-field col s12">
+                            <i className="mdi-action-lock-outline prefix"></i>
                             <input value={this.state.password_1} onChange={this.handlePasswordChange_1} id="password_1"
                                    type="password" className="validate"></input>
                             <label className="active" for="password_1">Введите новый пароль еще раз</label>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col s3"><p></p></div>
-                        <div className="col l9 s12">
-                            <p><img src="../img/captcha.jpg" alt="captcha"></img></p>
-                        </div>
+
+                    <div className="row margin">
+                        <img src="img/landingPage/captcha.jpg" alt="captcha"/>
                     </div>
+
                     <div className="row">
-                        <div className="col s6"><p></p></div>
-                        <button type="submit" className="btn waves-effect light-blue lighten-1">
+                        <button className="btn blue lighten-2 waves-effect waves-light col s12" type="submit"
+                                name="action"><i className="mdi-action-perm-identity"></i>
                             Активировать
                         </button>
                     </div>
+                    <div className="col s12"><p className="red-text">{this.state.errMessage}</p></div>
                 </form>;
         } else {
             activationComp =
                 <div>
-                    <h5 className="header center blue-text text-lighten-1">На указанный email отправлено письмо
-                        активации</h5>
+                    <p>Поздравляем!</p>
+
+                    <p>Учётная запись пользователя [%e-mail%] активирована.</p>
+
+                    <p> Добро пожаловать в личный кабинет!</p>
+
+                    <p>(На ваш e-mail отправлено уведомление о выполненной активации).</p>
                 </div>;
         }
         return (
-            <div>
-                {activationComp}
+            <div className="container">
+                <div className="card-panel">
+                    <div className="container">
+                        <div className="col s6 offset-s3 grid-example">{activationComp}</div>
+                    </div>
+                </div>
             </div>
         );
     }
