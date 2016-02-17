@@ -71,19 +71,17 @@ var Auth = React.createClass({
             };
             var that = this;
             $.ajax({
-                url: "http://univerpulse.noip.me:8080/user/registration",
-                /*url: "http://demo3788566.mockable.io/activation",*/
+                url: "http://univerpulse.noip.me:8002/user/registration",
                 dataType: 'json',
                 contentType: "application/json; charset=utf-8",
                 type: 'POST',
                 data: JSON.stringify(dataJson),
                 success: function (data, textStatus) {
                     confirm(textStatus);
-                    context.setState({isActivationSuccess: true});
+                    that.setState({isActivationSuccess: true});
                 },
-                error: function (xhr, status, err) {
-                    alert(xhr.responseText + '|\n' + status + '|\n' +error);
-                    //confirm("error"+status);
+                error: function (xhr, status) {
+                    console.log(status);
                     if (xhr.status == 400) {
                         that.setState({errMessage: "fail registration - user already registered in system"})
                     }
