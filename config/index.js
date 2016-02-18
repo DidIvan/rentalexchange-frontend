@@ -12,7 +12,8 @@ nconf.argv()
  .file({file: path.join(strPath, 'config.json')});
 
 nconf.defaults({
-    'port': 3000
+    'port': 3000,
+    'backendHost': 'http:\//univerpulse.noip.me:8002'
 });
 
 module.exports = nconf;

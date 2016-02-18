@@ -6,7 +6,6 @@ module.exports = React.createClass({
 
     render: function () {
         var data = this.props.data;
-        console.log("-------Html:  " + this.props.data.uuidForRequest);
 
         // render the content as a dynamic react component
         var contentHtml = ReactDOMServer.renderToString(<Content {...data}/>);

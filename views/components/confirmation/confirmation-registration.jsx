@@ -37,11 +37,11 @@ var Activation = React.createClass({
         this.setState({errMessage: ''});
         var dataJson = {
             "password": this.state.password,
-            "uuid": '8fa00d50-5792-431c-ac6d-90ca30533c15'
+            "uuid": this.props.uuidForRequest
         };
 
         $.ajax({
-            url: 'http://univerpulse.noip.me:8080/user/registration-confirm',
+            url: this.props.urlBackEnd,
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
             type: 'POST',
@@ -58,8 +58,6 @@ var Activation = React.createClass({
         });
     }
     , render: function () {
-        console.log("---- From Activation  all props: " + this.props.uuidForRequest);
-        console.log("---- From Activation  all props: " + this.props.urlForRequest);
         var activationComp = "";
         if (!this.state.isActivationSuccess) {
             activationComp =

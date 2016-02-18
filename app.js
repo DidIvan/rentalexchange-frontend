@@ -6,36 +6,38 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var React = require("react");
 var reactViews = require('express-react-views');
+var config = require('./config');
+
 var app = express();
 app.set('view engine', 'js');
 app.engine('js', reactViews.createEngine());
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const BACKEND_HOST = config.get('backendHost');
+
 app.get('/', function (req, res) {
     var initialState = {
-        uuidForRequest: "88",
-        urlForRequest: "http://localhost:8002/user/activation"
+        urlBackEnd: BACKEND_HOST
     };
-    res.render('Html-index', { data: initialState });
+    res.render('Html-index', {data: initialState});
 });
 
 app.get('/user-registration-confirm', function (req, res) {
-    const uuid_r= req.query['uuid']
+    const uuid = req.query['uuid']
     var initialState = {
-        uuidForRequest: uuid_r,
-        urlForRequest: "http://localhost:8002/user/activation"
+        uuidForRequest: uuid,
+        urlBackEnd: (BACKEND_HOST + "/user/activation")
     };
-    res.render('Html-confirm-registration', { data: initialState });
+    res.render('Html-confirm-registration', {data: initialState});
 });
 
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
