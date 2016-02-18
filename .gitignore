@@ -4,6 +4,7 @@
 
 #Project files
 bundle*.*
+public/main*.*
 
 node_modules
 
