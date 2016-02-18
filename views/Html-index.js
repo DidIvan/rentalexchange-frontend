@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOMServer = require('react-dom/server');
-var Content = require('./activation-registration.jsx');
+var Content = require('./components/container.jsx');
 
 module.exports = React.createClass({
 
@@ -71,7 +71,7 @@ module.exports = React.createClass({
             <body>
             <div id="content" dangerouslySetInnerHTML={{__html: contentHtml}}/>
 
-            <script src="/main.js"></script>
+            <script src="/main-index.js"></script>
             <script dangerouslySetInnerHTML={{__html: initScript}}/>
 
             </body>

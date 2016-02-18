@@ -8,8 +8,8 @@ var React = require("react");
 var reactViews = require('express-react-views');
 
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+//var routes = require('./routes/index');
+//var users = require('./routes/users');
 //var routes_reg_cong = require('./routes/activation-route');
 
 var app = express();
@@ -28,17 +28,27 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/', function (req, res) {
+    var initialState = {
+        uuidForRequest: "88",
+        urlForRequest: "http://localhost:8002/user/activation"
+    };
+    res.render('Html-index', { data: initialState });
+});
+
 app.get('/user-registration-confirm', function (req, res) {
     const uuid_r= req.query['uuid']
     var initialState = {
         uuidForRequest: uuid_r,
         urlForRequest: "http://localhost:8002/user/activation"
     };
-    res.render('Html', { data: initialState });
+    res.render('Html-confirm-registration', { data: initialState });
 });
 
-app.use('/', routes);
-app.use('/users', users);
+//app.use('/', routes);
+
+
+//app.use('/users', users);
 //app.use('/registration-confirm', routes_reg_cong);
 
 // catch 404 and forward to error handler
@@ -71,6 +81,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;

@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Content = require('./activation-registration.jsx');
+var Content = require('./components/container.jsx');
 
 module.exports = function (data) {
     var container = document.getElementById('content');

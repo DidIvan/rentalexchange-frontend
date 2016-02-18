@@ -1,5 +1,5 @@
 var React = require("react"),
-    Category = require("./category");
+    Category = require("./category.jsx");
 
 var GoodsCategory = React.createClass({
     render: function () {

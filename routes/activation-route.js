@@ -8,7 +8,7 @@ require("node-jsx").install({
 var React = require("react");
 
 router.get('/', function(req, res) {
-    var ContainerActivationClass = require("../public/javascripts/components/activation/activation.jsx");
+    var ContainerActivationClass = require("./activation/activation.jsx");
     var ContainerActivation = React.createFactory(ContainerActivationClass);
     var inputData = {
         uuid: req.query['uuid'],

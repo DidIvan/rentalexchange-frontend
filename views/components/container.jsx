@@ -1,8 +1,8 @@
 var React = require("react"),
-    Header = require("./header/header");
-    GoodsCategory = require("./goods-category/goodsCategories"),
-    Footer = require("./footer/footer");
-    BestGoods = require("./goods-category/bestGoods");
+    Header = require("./header/header.jsx");
+    GoodsCategory = require("./goods-category/goodsCategories.jsx"),
+    Footer = require("./footer/footer.jsx");
+    BestGoods = require("./goods-category/bestGoods.jsx");
 
 var Container = React.createClass({
     render() {

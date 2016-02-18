@@ -9,7 +9,7 @@ require("node-jsx").install({
 var React = require("react");
 
 /* GET home page. */
-var Container = React.createFactory(require("../public/javascripts/components/container"));
+var Container = React.createFactory(require("./container"));
 router.get('/', function(req, res) {
   var markup = React.renderToString(Container());
 

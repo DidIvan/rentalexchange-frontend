@@ -1,4 +1,8 @@
 Copy file config.json out of project
 
 Start project TODO - migrate to webpack
-browserify -t babelify --standalone main views/main.js -o public/main.js && node bin/start-app.js
+browserify -t babelify --standalone main views/main-confirm-registration.js -o public/main-confirm-registration.js
+browserify -t babelify --standalone main views/main-index.js -o public/main-index.js
+
+
+&& node bin/start-app.js

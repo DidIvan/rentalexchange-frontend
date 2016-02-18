@@ -1,6 +1,6 @@
 var React = require("react"),
-    Search = require("./search"),
-    Auth = require("./auth");
+    Search = require("./search.jsx"),
+    Auth = require("./auth.jsx");
 var Header = React.createClass({
     render: function () {
         return (
