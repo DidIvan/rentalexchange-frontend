@@ -1,5 +1,5 @@
 var React = require("react"),
-    ActivationContainer = React.createFactory(require("components/activation/activation"));
+    ActivationContainer = React.createFactory(require("../../views/components/confirmation/confirmation-registration"));
 
 if (typeof window !== "undefined") {
     window.onload = function() {
