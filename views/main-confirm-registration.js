@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Content = require('./components/activation/activation-registration.jsx');
+var Content = require('./components/confirmation/confirmation-registration.jsx');
 
 module.exports = function (data) {
     var container = document.getElementById('content');
@@ -8,5 +8,4 @@ module.exports = function (data) {
         <Content {...data} />,
         container
     );
-
 };

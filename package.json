@@ -1,9 +1,9 @@
 {
-  "name": "expressiso",
+  "name": "Rental Exchange FrontEnd",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node bin/start-app.js"
   },
   "dependencies": {
     "body-parser": "~1.8.1",

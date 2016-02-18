@@ -6,11 +6,8 @@ module.exports = React.createClass({
 
     render: function () {
         var data = this.props.data;
-        console.log("-------Html:  " + this.props.data.uuidForRequest);
-
         // render the content as a dynamic react component
         var contentHtml = ReactDOMServer.renderToString(<Content {...data}/>);
-
         /**
          * re-render the content as json,
          * for client-side app initialization
@@ -49,7 +46,7 @@ module.exports = React.createClass({
          * If avoidance is impossible,
          * know what you are doing and good luck.
          */
-        var initScript = 'main(' + JSON.stringify(data).replace(/script/g, 'scr"+"ipt') + ')';
+        var initScript = 'main-index(' + JSON.stringify(data).replace(/script/g, 'scr"+"ipt') + ')';
 
         return (
             <html lang="en">

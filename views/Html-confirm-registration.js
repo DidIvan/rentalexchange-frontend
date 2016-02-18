@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOMServer = require('react-dom/server');
-var Content = require('./components/activation/activation-registration.jsx');
+var Content = require('./components/confirmation/confirmation-registration.jsx');
 
 module.exports = React.createClass({
 
@@ -49,7 +49,7 @@ module.exports = React.createClass({
          * If avoidance is impossible,
          * know what you are doing and good luck.
          */
-        var initScript = 'main(' + JSON.stringify(data).replace(/script/g, 'scr"+"ipt') + ')';
+        var initScript = 'main-confirm-registration(' + JSON.stringify(data).replace(/script/g, 'scr"+"ipt') + ')';
 
         return (
             <html lang="en">
