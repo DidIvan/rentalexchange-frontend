@@ -65,10 +65,10 @@ module.exports = React.createClass({
                 <script type="text/javascript" src="javascripts/libs/jquery.js"></script>
                 <script type="text/javascript" src="javascripts/libs/materialize.min.js"></script>
             </head>
-            <body>
-            <div id="content" dangerouslySetInnerHTML={{__html: contentHtml}}/>
+            <body className="element">
+            <div id="content" className="container" dangerouslySetInnerHTML={{__html: contentHtml}}/>
 
-            <script src="/main-index.js"></script>
+            <script src="bundle.js"></script>
             <script dangerouslySetInnerHTML={{__html: initScript}}/>
 
             </body>
