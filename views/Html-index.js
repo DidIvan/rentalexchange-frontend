@@ -46,7 +46,7 @@ module.exports = React.createClass({
          * If avoidance is impossible,
          * know what you are doing and good luck.
          */
-        var initScript = 'main-index(' + JSON.stringify(data).replace(/script/g, 'scr"+"ipt') + ')';
+        var initScript = 'bundle(' + JSON.stringify(data).replace(/script/g, 'scr"+"ipt') + ')';
 
         return (
             <html lang="en">
@@ -64,13 +64,13 @@ module.exports = React.createClass({
                 <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
                 <script type="text/javascript" src="javascripts/libs/jquery.js"></script>
                 <script type="text/javascript" src="javascripts/libs/materialize.min.js"></script>
+
             </head>
             <body className="element">
             <div id="content" className="container" dangerouslySetInnerHTML={{__html: contentHtml}}/>
 
-            <script src="bundle.js"></script>
+            <script src="/bundle.js"></script>
             <script dangerouslySetInnerHTML={{__html: initScript}}/>
-
             </body>
             </html>
         );
