@@ -40,6 +40,7 @@ var Activation = React.createClass({
             "uuid": this.props.uuidForRequest
         };
 
+        var that = this;
         $.ajax({
             url: this.props.urlBackEnd,
             dataType: 'json',
@@ -47,13 +48,41 @@ var Activation = React.createClass({
             type: 'POST',
             data: JSON.stringify(dataJson),
             success: function (data) {
-                this.state.isActivationSuccess = true;
+                that.state.isActivationSuccess = true;
                 alert("Success!!!");
             },
             error: function (xhr, status, err) {
-                alert(xhr.responseJSON.reason);
-                this.props.errReason = xhr.responseJSON.reason;
-                console.log(this.props.errReason);
+                if (status == 400) {
+                    if (reason == 'InvalidRequest') {
+                        that.setState({errMessage: "fail confirmation registration - incoming object is null"})
+                    }
+                    if (reason == 'EmptyPassword') {
+                        that.setState({errMessage: "fail confirmation registration - password field is empty"})
+                    }
+                    if (reason == 'InvalidPasswordLength') {
+                        that.setState({errMessage: "fail confirmation registration - password has inappropriate length"})
+                    }
+                    if (reason == 'InvalidPasswordFormat') {
+                        that.setState({errMessage: "fail confirmation registration - password has inappropriate format"})
+                    }
+                    if (reason == 'EmptyUuid') {
+                        that.setState({errMessage: "fail confirmation registration  - uuid field is empty"})
+                    }
+                    if (reason == 'InvalidActivationLink') {
+                        that.setState({errMessage: "fail confirmation registration - " +
+                        "invalid link for activation(expired or doesn't exist). User doesn't exist"})
+                    }
+                    if (reason == 'UserAlreadyRegistrated') {
+                        that.setState({errMessage: "fail confirmation registration - " +
+                        "User already registrated and confirmed registration"})
+                    }
+                    if (reason == 'BlockedAccount') {
+                        that.setState({errMessage: "fail confirmation registration - account has blocked or deleted"})
+                    }
+                }
+                /* alert(xhr.responseJSON.reason);
+                 this.props.errReason = xhr.responseJSON.reason;
+                 console.log(this.props.errReason);*/
             }
         });
     }

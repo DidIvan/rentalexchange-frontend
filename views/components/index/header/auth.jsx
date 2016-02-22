@@ -3,7 +3,6 @@ var React = require("react");
  var Registration = require("./registration.jsx");*/
 /*var config = require('../../../../config');*/
 
-var backendHost = 'http://univerpulse.noip.me:8080';
 
 var Auth = React.createClass({
     getInitialState: function () {
@@ -83,7 +82,18 @@ var Auth = React.createClass({
                 error: function (xhr, status) {
                     console.log(status);
                     if (xhr.status == 400) {
-                        that.setState({errMessage: "fail registration - user already registered in system"})
+                        if (reason == 'InvalidRequest') {
+                            that.setState({errMessage: "fail registration - incoming request is null"})
+                        }
+                        if (reason == 'EmptyMail') {
+                            that.setState({errMessage: "fail registration - e-mail field of request is empty"})
+                        }
+                        if (reason == 'InvalidMailFormat') {
+                            that.setState({errMessage: "fail registration - email has invalid format"})
+                        }
+                        if (reason == 'UserAlreadyRegistered') {
+                            that.setState({errMessage: "fail registration - user already registered in system"})
+                        }
                     }
                 }
             });

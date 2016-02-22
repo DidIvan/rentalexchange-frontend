@@ -48,7 +48,7 @@ module.exports = React.createClass({
          * If avoidance is impossible,
          * know what you are doing and good luck.
          */
-        var initScript = 'main-confirm-registration(' + JSON.stringify(data).replace(/script/g, 'scr"+"ipt') + ')';
+        var initScript = 'bundle_reg_conf(' + JSON.stringify(data).replace(/script/g, 'scr"+"ipt') + ')';
 
         return (
             <html lang="en">
@@ -70,7 +70,7 @@ module.exports = React.createClass({
             <body>
             <div id="content" dangerouslySetInnerHTML={{__html: contentHtml}}/>
 
-            <script src="/main-confirm-registration.js"></script>
+            <script src="/bundle_reg_conf.js"></script>
             <script dangerouslySetInnerHTML={{__html: initScript}}/>
 
             </body>
