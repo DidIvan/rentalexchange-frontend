@@ -1,4 +1,4 @@
-var config = require('./config');
+var config = require('./../config');
 
 const BACKEND_HOST = config.get('backendHost');
 
@@ -7,6 +7,7 @@ function make_base_auth(user, password) {
     var hash = btoa(token);
     return "Basic " + hash;
 }
+
 /**
  * This function send basic-auth GET request.
  * @param {string} url - endpoint in backEnd server.

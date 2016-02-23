@@ -1,9 +1,5 @@
 var React = require("react");
-var PostSecSender = require('./../../../../secured_sender')
-/*var Entrance = require("./entrance.jsx");
- var Registration = require("./registration.jsx");*/
-/*var config = require('../../../../config');*/
-
+//var authenticator = require('./../../../../authenticator');
 
 var Auth = React.createClass({
     getInitialState: function () {
@@ -42,6 +38,15 @@ var Auth = React.createClass({
                 "password": password
             };
             var that = this;
+
+/*            authenticator.login(login, password);
+            if (authenticator.isAuthenticate) {
+                //TODO some if success
+                var userinfo = authenticator.getSecuredRecources("/user-info",null, null );
+            } else {
+                //TODO some if fail
+            }*/
+
             $.ajax({
                 url: this.props.url,
                 dataType: 'json',
