@@ -1,4 +1,5 @@
 var React = require("react");
+var PostSecSender = require('./../../../../secured_sender')
 /*var Entrance = require("./entrance.jsx");
  var Registration = require("./registration.jsx");*/
 /*var config = require('../../../../config');*/
