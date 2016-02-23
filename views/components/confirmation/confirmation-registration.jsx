@@ -72,7 +72,7 @@ var Activation = React.createClass({
                         that.setState({errMessage: "fail confirmation registration - " +
                         "invalid link for activation(expired or doesn't exist). User doesn't exist"})
                     }
-                    if (reason == 'UserAlreadyRegistrated') {
+                    if (reason == 'UserAlreadyRegistreted') {
                         that.setState({errMessage: "fail confirmation registration - " +
                         "User already registrated and confirmed registration"})
                     }

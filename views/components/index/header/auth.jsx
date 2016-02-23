@@ -76,7 +76,8 @@ var Auth = React.createClass({
             };
             var that = this;
             $.ajax({
-                url: "http://univerpulse.noip.me:8002/user/registration",
+                /*url: "http://univerpulse.noip.me:8002/user/registration",*/
+                url: "http://demo3788566.mockable.io/activation",
                 dataType: 'json',
                 contentType: "application/json; charset=utf-8",
                 type: 'POST',
@@ -85,10 +86,11 @@ var Auth = React.createClass({
                     confirm(textStatus);
                     that.setState({isActivationSuccess: true});
                 },
-                error: function (xhr, status) {
-                    console.log(status);
+                error: function (xhr, status, reason) {
+               /*     console.log(status);*/
                     if (xhr.status == 400) {
-                        if (reason == 'InvalidRequest') {
+
+                        if (status.reason == 'InvalidRequest') {
                             that.setState({errMessage: "fail registration - incoming request is null"})
                         }
                         if (reason == 'EmptyMail') {
@@ -106,7 +108,6 @@ var Auth = React.createClass({
         }
     },
     componentDidMount: function () {
-        console.log("@@@@@@@@@@@@@@@@@@@@@");
         var that = this;
         $(document).ready(function () {
             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
