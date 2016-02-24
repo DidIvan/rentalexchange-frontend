@@ -1,6 +1,6 @@
 var React = require("react");
 //var authenticator = require('./../../../../authenticator');
-var backendHost = 'http://univerpulse.noip.me:8080';
+/*var backendHost = 'http://univerpulse.noip.me:8080';*/
 var Auth = React.createClass({
     getInitialState: function () {
         return {
@@ -247,11 +247,11 @@ var Auth = React.createClass({
                             </div>
 
                             <div id="test1" className="col s12">
-                                <div url={backendHost+"/user/login"}>{loginForm}</div>
+                                <div>{loginForm}</div>
                             </div>
 
                             <div id="test2" className="col s12">
-                                <div url={backendHost+"/user/registration"}>{registrForm}</div>
+                                <div>{registrForm}</div>
                             </div>
                         </div>
                     </div>
