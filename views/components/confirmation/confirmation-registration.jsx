@@ -42,7 +42,8 @@ var Activation = React.createClass({
 
         var that = this;
         $.ajax({
-            url: this.props.urlBackEnd,
+           /* url: this.props.urlBackEnd, */
+            url: "https://demo3788566.mockable.io/activation",
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
             type: 'POST',
@@ -52,7 +53,10 @@ var Activation = React.createClass({
                 alert("Success!!!");
             },
             error: function (xhr, status, err) {
-                if (status == 400) {
+                if (xhr.status == 400) {
+                    that.setState({errMessage: xhr.responseText});
+                }
+               /* if (status == 400) {
                     if (reason == 'InvalidRequest') {
                         that.setState({errMessage: "fail confirmation registration - incoming object is null"})
                     }
@@ -79,7 +83,7 @@ var Activation = React.createClass({
                     if (reason == 'BlockedAccount') {
                         that.setState({errMessage: "fail confirmation registration - account has blocked or deleted"})
                     }
-                }
+                }*/
                 /* alert(xhr.responseJSON.reason);
                  this.props.errReason = xhr.responseJSON.reason;
                  console.log(this.props.errReason);*/

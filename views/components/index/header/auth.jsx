@@ -39,13 +39,13 @@ var Auth = React.createClass({
             };
             var that = this;
 
-/*            authenticator.login(login, password);
-            if (authenticator.isAuthenticate) {
-                //TODO some if success
-                var userinfo = authenticator.getSecuredRecources("/user-info",null, null );
-            } else {
-                //TODO some if fail
-            }*/
+            /*            authenticator.login(login, password);
+             if (authenticator.isAuthenticate) {
+             //TODO some if success
+             var userinfo = authenticator.getSecuredRecources("/user-info",null, null );
+             } else {
+             //TODO some if fail
+             }*/
 
             $.ajax({
                 url: this.props.url,
@@ -77,7 +77,7 @@ var Auth = React.createClass({
             var that = this;
             $.ajax({
                 /*url: "http://univerpulse.noip.me:8002/user/registration",*/
-                url: "http://demo3788566.mockable.io/activation",
+                url: "https://demo3788566.mockable.io/activation",
                 dataType: 'json',
                 contentType: "application/json; charset=utf-8",
                 type: 'POST',
@@ -86,23 +86,25 @@ var Auth = React.createClass({
                     confirm(textStatus);
                     that.setState({isActivationSuccess: true});
                 },
-                error: function (xhr, status, reason) {
-               /*     console.log(status);*/
-                    if (xhr.status == 400) {
+                error: function (xhr, textStatus, thrownError) {
 
-                        if (status.reason == 'InvalidRequest') {
-                            that.setState({errMessage: "fail registration - incoming request is null"})
-                        }
-                        if (reason == 'EmptyMail') {
-                            that.setState({errMessage: "fail registration - e-mail field of request is empty"})
-                        }
-                        if (reason == 'InvalidMailFormat') {
-                            that.setState({errMessage: "fail registration - email has invalid format"})
-                        }
-                        if (reason == 'UserAlreadyRegistered') {
-                            that.setState({errMessage: "fail registration - user already registered in system"})
-                        }
+                    if (xhr.status == 400) {
+                        that.setState({errMessage: xhr.responseText});
                     }
+                    /* if (xhr.textStatus == 400) {
+                     if (reason == 'InvalidRequest') {
+                     that.setState({errMessage: "fail registration - incoming request is null"})
+                     }
+                     if (reason == 'EmptyMail') {
+                     that.setState({errMessage: "fail registration - e-mail field of request is empty"})
+                     }
+                     if (reason == 'InvalidMailFormat') {
+                     that.setState({errMessage: "fail registration - email has invalid format"})
+                     }
+                     if (reason == 'UserAlreadyRegistered') {
+                     that.setState({errMessage: "fail registration - user already registered in system"})
+                     }
+                     }*/
                 }
             });
         }
