@@ -37,12 +37,12 @@ app.get('/user-registration-confirm', function (req, res) {
     res.render('Html-confirm-registration', {data: initialState});
 });
 //обработчик ошибок
-app.use(function (err, req, res, next) {
+/*app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
         error: {}
     });
-});
+});*/
 
 module.exports = app;

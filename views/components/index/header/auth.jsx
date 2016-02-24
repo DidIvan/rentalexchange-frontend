@@ -1,5 +1,5 @@
 var React = require("react");
-/*var authenticator = require('./authenticator');*/
+var authenticator = require('app/authenticator');
 
 var Auth = React.createClass({
     getInitialState: function () {
@@ -33,35 +33,10 @@ var Auth = React.createClass({
         } else {
             var login = this.state.login.trim();
             var password = this.state.password.trim();
-            var dataJson = {
-                "login": login,
-                "password": password
-            };
-            var that = this;
 
-            /*            authenticator.login(login, password);
-             if (authenticator.isAuthenticate) {
-             //TODO some if success
-             var userinfo = authenticator.getSecuredRecources("/user-info",null, null );
-             } else {
-             //TODO some if fail
-             }*/
+            authenticator.login(login, password);
 
-            $.ajax({
-                url: this.props.url,
-                dataType: 'json',
-                contentType: "application/json; charset=utf-8",
-                type: 'POST',
-                data: JSON.stringify(dataJson),
-                success: function (data) {
-                    that.setState({isLoginForm: true});
-                },
-                error: function (xhr, status, err) {
-                    if (xhr.status == 400) {
-                        that.setState({errMessage: "Неверный логин или пароль."})
-                    }
-                }
-            });
+
         }
     },
     handleSubmitR: function (event) {
