@@ -1,6 +1,6 @@
 var React = require("react");
 //var authenticator = require('./../../../../authenticator');
-/*var backendHost = 'http://univerpulse.noip.me:8080';*/
+
 var Auth = React.createClass({
     getInitialState: function () {
         return {
@@ -76,14 +76,12 @@ var Auth = React.createClass({
             };
             var that = this;
             $.ajax({
-                /*url: "http://univerpulse.noip.me:8002/user/registration",*/
-                url: "https://demo3788566.mockable.io/activation",
+                url: "http://univerpulse.noip.me:8002/user/registration",
                 dataType: 'json',
                 contentType: "application/json; charset=utf-8",
                 type: 'POST',
                 data: JSON.stringify(dataJson),
                 success: function (data, textStatus) {
-                    confirm(textStatus);
                     that.setState({isActivationSuccess: true});
                 },
                 error: function (xhr, textStatus, thrownError) {

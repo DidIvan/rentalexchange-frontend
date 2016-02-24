@@ -27,8 +27,9 @@ function basicAuthGET(url, successFunction, errorFunction) {
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
         url: BACKEND_HOST + url,
+        // функцию, которая будет вызвана непосредственно перед отправкой ajax-запроса на сервер.
         beforeSend: function (xhr) {
-            xhr.setRequestHeader('Authorization', headerToken);
+            xhr.setRequestHeader('Authorization', headerToken);//method sets the value of an HTTP request header
         },
         success: function (data) {
             successFunction(data);

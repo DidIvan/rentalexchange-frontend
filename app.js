@@ -32,7 +32,7 @@ app.get('/user-registration-confirm', function (req, res) {
     const uuid = req.query['uuid'];
     var initialState = {
         uuidForRequest: uuid,
-        urlBackEnd: (BACKEND_HOST + "/user/activation")
+        urlBackEnd: (BACKEND_HOST + "/user/registration-confirm")
     };
     res.render('Html-confirm-registration', {data: initialState});
 });

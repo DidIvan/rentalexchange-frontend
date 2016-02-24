@@ -42,8 +42,7 @@ var Activation = React.createClass({
 
         var that = this;
         $.ajax({
-           /* url: this.props.urlBackEnd, */
-            url: "https://demo3788566.mockable.io/activation",
+            url: this.props.urlBackEnd,
             dataType: 'json',
             contentType: "application/json; charset=utf-8",
             type: 'POST',
@@ -91,6 +90,8 @@ var Activation = React.createClass({
         });
     }
     , render: function () {
+        console.log("OOOOkkk!"+ this.props.urlBackEnd );
+        console.log(this.props.uuidForRequest);
         var activationComp = "";
         if (!this.state.isActivationSuccess) {
             activationComp =
