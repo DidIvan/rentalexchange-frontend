@@ -49,7 +49,6 @@ var Activation = React.createClass({
             data: JSON.stringify(dataJson),
             success: function (data) {
                 that.state.isActivationSuccess = true;
-                alert("Success!!!");
             },
             error: function (xhr, status, err) {
                 if (xhr.status == 400) {

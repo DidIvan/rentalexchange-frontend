@@ -63,15 +63,34 @@ function basicAuthPOST(url, dataJson, successFunction, errorFunction) {
     return result;
 };
 /**
- * This function check access and set isAuthenticate state and store token.
+ * This function check access and set isAuthenticate state and save token.
  * @param {string} userName - users email.
  * @param {string} password - users password.
  *
  */
+
 module.exports.login = function (userName, password) {
-    headerToken = make_base_auth_token(userName, password);
-    basicAuthGET('/user-login', successLoginFunction, errorLoginFunction);
-}
+    var dataJson = {
+        'email': userName,
+        'password': password
+    };
+    $.ajax({
+        url: 'http://univerpulse.noip.me:8002/user/login',
+        dataType: 'json',
+        contentType: "application/json; charset=utf-8",
+        type: 'POST',
+        data: JSON.stringify(dataJson),
+        success: function (data) {
+            isAuthenticate = true;
+            headerToken=make_base_auth_token(userName,password);
+            console.log(headerToken +"  o  " +isAuthenticate)
+        },
+        error: function (xhr, status, err) {
+            isAuthenticate = false;
+            headerToken="";
+        }
+    });
+};
 
 /**
  * This function send basic-auth GET request to secured resources on backEnd server.
@@ -97,9 +116,10 @@ module.exports.postSecuredRecources = function (url, dataJson, successFunction, 
     return basicAuthPOST(url, dataJson, successFunction, errorFunction);
 };
 /**
-* This function provide current authenticate status.
-*
-* @return {boolean} authenticate status.
-*/
+ * This function provide current authenticate status.
+ *
+ * @return {boolean} authenticate status.
+ */
 module.exports.isAuthenticate = isAuthenticate;
 
+module.exports=Index;

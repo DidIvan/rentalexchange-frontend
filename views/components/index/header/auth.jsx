@@ -1,5 +1,5 @@
 var React = require("react");
-//var authenticator = require('./../../../../authenticator');
+/*var authenticator = require('./authenticator');*/
 
 var Auth = React.createClass({
     getInitialState: function () {
@@ -240,7 +240,7 @@ var Auth = React.createClass({
                             <div className="col s12">
                                 <ul className="tabs">
                                     <li className="tab col s3"><a href="#test1">Войти</a></li>
-                                    <li className="tab col s3"><a class="active" href="#test2">Регистриция</a></li>
+                                    <li className="tab col s3"><a class="active" href="#test2">Регистрация</a></li>
                                 </ul>
                             </div>
 
