@@ -1,5 +1,6 @@
 var React = require("react");
 //var authenticator = require('app/authenticator');
+var Forgot = require("./forgotpass.jsx");
 
 var Auth = React.createClass({
     getInitialState: function () {

@@ -57,7 +57,6 @@ var ForgotPass = React.createClass({
                             <label for="email" className="center-align">Email</label>
                         </div>
                     </div>
-                    <div className="row"><p className="red-text">{this.state.errMessage}</p></div>
                     <div className="row margin">
                         <p className="center">Введите email, указанный при регистрации. На него мы вышлем инструкции по
                             восстановлению пароля.</p>
@@ -67,7 +66,7 @@ var ForgotPass = React.createClass({
                         <div className="input-field col s12">
                             <button className="btn waves-effect waves-light col s12" type="submit"
                                     name="action"><i className="mdi-action-perm-identity"></i>
-                               ОТПРАВИТЬ
+                                ОТПРАВИТЬ
                             </button>
                         </div>
                     </div>
@@ -80,10 +79,8 @@ var ForgotPass = React.createClass({
                     </div>
                     <div className="row margin">
                         <p className="center">Спасибо!
-                            На указаный Вами e-mail <b>{this.state.email}</b> отправлено письмо для проверки
-                            корректности указанного адреса. Пожалуйста, следуйте указанным в письме инструкциям
-                            для активации учётной записи пользователя или повторите попытку регистрации,
-                            если вы ошиблись в адресе.</p>
+                            На указаный Вами e-mail <b>{this.state.email}</b> отправлено письмо для востановления
+                            пароля. Пожалуйста, следуйте указанным в письме инструкциям.</p>
                     </div>
                 </form>
         }
