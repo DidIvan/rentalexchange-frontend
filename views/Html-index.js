@@ -60,7 +60,7 @@ module.exports = React.createClass({
                 <script src="http://fb.me/JSXTransformer-0.12.2.js"></script>
                 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                <link rel="stylesheet" type="text/css" href="css/style-markup.css"/>
+                <link rel="stylesheet" type="text/css" href="/css/style-markup.css"/>
                 <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
                 <script type="text/javascript" src="javascripts/libs/jquery.js"></script>
                 <script type="text/javascript" src="javascripts/libs/materialize.min.js"></script>
