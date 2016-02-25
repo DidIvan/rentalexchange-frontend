@@ -44,10 +44,10 @@ var ForgotPass = React.createClass({
     render: function () {
         var forgotPass;
         if (!this.state.isActivationSuccess) {
-            registrForm =
+            forgotPass =
                 <form claassName="login-form" onSubmit={this.handleSubmit}>
                     <div className="row center">
-                        <h5>ВОССТАНОВЛЕНИЕ ПАРОЛЯ</h5>
+                        <h5>Восстановление пароля</h5>
                     </div>
                     <div className="row margin">
                         <div className="input-field col s12">

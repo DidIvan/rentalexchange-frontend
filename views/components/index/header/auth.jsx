@@ -1,6 +1,6 @@
 var React = require("react");
-//var authenticator = require('app/authenticator');
-var Forgot = require("./forgotpass.jsx");
+var authenticator = require('app/authenticator');
+var ForgotPass = require("./forgotpass.jsx");
 
 var Auth = React.createClass({
     getInitialState: function () {
@@ -9,6 +9,7 @@ var Auth = React.createClass({
             password: '',
             errMessage: '',
             isLoginForm: false,
+            isForgotForm: false,
             email: '',
             isActivationSuccess: false
         }
@@ -68,6 +69,14 @@ var Auth = React.createClass({
             });
         }
     },
+
+    handlePasswordForgot: function (event) {
+        this.setState({isForgotForm: true});
+    },
+
+    defaultForgotForm: function (event) {
+        this.setState({isForgotForm: false});
+    },
     componentDidMount: function () {
         var that = this;
         $(document).ready(function () {
@@ -79,6 +88,7 @@ var Auth = React.createClass({
                     that.setState({errMessage: ''});
                     that.setState({isActivationSuccess: false});
                     that.setState({isLoginForm: false});
+                    that.setState({isForgotForm: false});
                 } // Callback for Modal close
             });
         });
@@ -127,7 +137,9 @@ var Auth = React.createClass({
                             </button>
                         </div>
                     </div>
-                    <div className="row center"><a href="#" className="grey-text">Забыли пароль?</a></div>
+                    <div className="row center"><a href="#click" className="grey-text"
+                                                   onClick={this.handlePasswordForgot}>
+                        Забыли пароль?</a></div>
                 </form>
         } else {
             loginForm =
@@ -189,6 +201,19 @@ var Auth = React.createClass({
                     </div>
                 </form>
         }
+        /*================================forgotForm==========================================*/
+        var forgotForm;
+        if (!this.state.isForgotForm) {
+            forgotForm =
+                <div id="test1" className="col s12">
+                    {loginForm}
+                </div>
+        } else {
+            forgotForm =
+                <div id="click" className="col s12">
+                    <ForgotPass/>
+                </div>
+        }
         return (
             <div>
                 <div className="entrance-menu right hide-on-med-and-down valign-wrapper">
@@ -199,18 +224,20 @@ var Auth = React.createClass({
                         <div className="row">
                             <div className="col s12">
                                 <ul className="tabs">
-                                    <li className="tab col s3"><a href="#test1">Войти</a></li>
-                                    <li className="tab col s3"><a class="active" href="#test2">Регистрация</a></li>
+                                    <li className="tab col s3"><a href="#test1"
+                                                                  onClick={this.defaultForgotForm}>Войти</a></li>
+                                    <li className="tab col s3"><a className="active" href="#test2"
+                                                                  onClick={this.defaultForgotForm}>Регистрация</a></li>
                                 </ul>
                             </div>
 
-                            <div id="test1" className="col s12">
-                                <div>{loginForm}</div>
-                            </div>
+
+                            {forgotForm}
 
                             <div id="test2" className="col s12">
                                 <div>{registrForm}</div>
                             </div>
+
                         </div>
                     </div>
                 </div>
