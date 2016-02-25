@@ -260,6 +260,11 @@ footer ul li:hover {
 .modal .login-form p {
     font-size: 11px;
 }
+/*color link "Forgot password&"*/
+#test1 .login-form a:hover {
+    color: #616161;
+    font-weight: bold;
+}
 
 .modal .card-panel {
     margin: 0;

@@ -1,5 +1,5 @@
 var React = require("react");
-var authenticator = require('app/authenticator');
+//var authenticator = require('app/authenticator');
 
 var Auth = React.createClass({
     getInitialState: function () {
@@ -36,7 +36,6 @@ var Auth = React.createClass({
 
             authenticator.login(login, password);
 
-
         }
     },
     handleSubmitR: function (event) {
@@ -64,20 +63,6 @@ var Auth = React.createClass({
                     if (xhr.status == 400) {
                         that.setState({errMessage: xhr.responseText});
                     }
-                    /* if (xhr.textStatus == 400) {
-                     if (reason == 'InvalidRequest') {
-                     that.setState({errMessage: "fail registration - incoming request is null"})
-                     }
-                     if (reason == 'EmptyMail') {
-                     that.setState({errMessage: "fail registration - e-mail field of request is empty"})
-                     }
-                     if (reason == 'InvalidMailFormat') {
-                     that.setState({errMessage: "fail registration - email has invalid format"})
-                     }
-                     if (reason == 'UserAlreadyRegistered') {
-                     that.setState({errMessage: "fail registration - user already registered in system"})
-                     }
-                     }*/
                 }
             });
         }
@@ -136,13 +121,12 @@ var Auth = React.createClass({
 
                     <div className="row">
                         <div className="input-field col s12">
-                            <button className="btn waves-effect waves-light col s12" type="submit"
-                                    name="action"><i
-                                className="mdi-action-lock-open"></i>
-                                Войти
+                            <button className="btn waves-effect waves-light col s12" type="submit" name="action">
+                                <i className="mdi-action-lock-open"></i>Войти
                             </button>
                         </div>
                     </div>
+                    <div className="row center"><a href="#" className="grey-text">Забыли пароль?</a></div>
                 </form>
         } else {
             loginForm =

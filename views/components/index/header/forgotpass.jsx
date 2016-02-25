@@ -1,6 +1,6 @@
 var React = require("react");
 
-var Registration = React.createClass({
+var ForgotPass = React.createClass({
     getInitialState: function () {
         return {
             email: '',
@@ -40,18 +40,14 @@ var Registration = React.createClass({
             });
         }
     },
-/*    componentWillUnmount: function () {
-        module.setState({email: ''});
-        module.setState({errMessage: ''});
-        module.setState({isActivationSuccess: false});
-    },*/
+
     render: function () {
-        var registrForm;
+        var forgotPass;
         if (!this.state.isActivationSuccess) {
             registrForm =
                 <form claassName="login-form" onSubmit={this.handleSubmit}>
                     <div className="row center">
-                        <h5>Регистрация учётной записи пользователя</h5>
+                        <h5>ВОССТАНОВЛЕНИЕ ПАРОЛЯ</h5>
                     </div>
                     <div className="row margin">
                         <div className="input-field col s12">
@@ -63,27 +59,24 @@ var Registration = React.createClass({
                     </div>
                     <div className="row"><p className="red-text">{this.state.errMessage}</p></div>
                     <div className="row margin">
-                        <p className="center">На этот e-mail мы отправим письмо для проверки
-                            корректностиуказанногоадреса. Вписьме будут содержаться инструкции
-                            по активации учётной записи пользователя с таким email.</p>
+                        <p className="center">Введите email, указанный при регистрации. На него мы вышлем инструкции по
+                            восстановлению пароля.</p>
                     </div>
-                    <div className="row margin">
-                        <img src="img/landingPage/captcha.jpg" alt="captcha"/>
-                    </div>
+
                     <div className="row">
                         <div className="input-field col s12">
                             <button className="btn waves-effect waves-light col s12" type="submit"
                                     name="action"><i className="mdi-action-perm-identity"></i>
-                                Зарегистрироваться
+                               ОТПРАВИТЬ
                             </button>
                         </div>
                     </div>
                 </form>
         } else {
-            registrForm =
+            forgotPass =
                 <form claassName="login-form">
                     <div className="row center">
-                        <h5>Регистрация учётной записи пользователя</h5>
+                        <h5>ВОССТАНОВЛЕНИЕ ПАРОЛЯ</h5>
                     </div>
                     <div className="row margin">
                         <p className="center">Спасибо!
@@ -95,8 +88,8 @@ var Registration = React.createClass({
                 </form>
         }
         return (
-            <div>{registrForm}</div>
+            <div>{forgotPass}</div>
         )
     }
 });
-module.exports = Registration;
+module.exports = ForgotPass;
