@@ -1,6 +1,6 @@
 var React = require("react");
 
-var ForgotPass = React.createClass({
+var Registration = React.createClass({
     getInitialState: function () {
         return {
             email: '',
@@ -40,14 +40,18 @@ var ForgotPass = React.createClass({
             });
         }
     },
-
+/*    componentWillUnmount: function () {
+        module.setState({email: ''});
+        module.setState({errMessage: ''});
+        module.setState({isActivationSuccess: false});
+    },*/
     render: function () {
-        var forgotPass;
+        var registrForm;
         if (!this.state.isActivationSuccess) {
-            forgotPass =
+            registrForm =
                 <form claassName="login-form" onSubmit={this.handleSubmit}>
                     <div className="row center">
-                        <h5>Восстановление доступа к персональному кабинету.</h5>
+                        <h5>Регистрация учётной записи пользователя</h5>
                     </div>
                     <div className="row margin">
                         <div className="input-field col s12">
@@ -57,37 +61,42 @@ var ForgotPass = React.createClass({
                             <label for="email" className="center-align">Email</label>
                         </div>
                     </div>
+                    <div className="row"><p className="red-text">{this.state.errMessage}</p></div>
                     <div className="row margin">
-                        <p className="center">Введите email, указанный при регистрации. На него мы вышлем инструкции по
-                            восстановлению пароля.</p>
+                        <p className="center">На этот e-mail мы отправим письмо для проверки
+                            корректностиуказанногоадреса. Вписьме будут содержаться инструкции
+                            по активации учётной записи пользователя с таким email.</p>
                     </div>
-
+                    <div className="row margin">
+                        <img src="img/landingPage/captcha.jpg" alt="captcha"/>
+                    </div>
                     <div className="row">
                         <div className="input-field col s12">
                             <button className="btn waves-effect waves-light col s12" type="submit"
                                     name="action"><i className="mdi-action-perm-identity"></i>
-                                ОТПРАВИТЬ
+                                Зарегистрироваться
                             </button>
                         </div>
                     </div>
                 </form>
         } else {
-            forgotPass =
+            registrForm =
                 <form claassName="login-form">
                     <div className="row center">
-                        <h5>Восстановление доступа к персональному кабинету.</h5>
+                        <h5>Регистрация учётной записи пользователя</h5>
                     </div>
                     <div className="row margin">
                         <p className="center">Спасибо!
-                            На указаный Вами e-mail <b>{this.state.email}</b> отправлено письмо с ссылкой для
-                            восстановления доступа к персональному кабинету.
-                            Для перехода в кабинет перейдите по ссылке из письма.</p>
+                            На указаный Вами e-mail <b>{this.state.email}</b> отправлено письмо для проверки
+                            корректности указанного адреса. Пожалуйста, следуйте указанным в письме инструкциям
+                            для активации учётной записи пользователя или повторите попытку регистрации,
+                            если вы ошиблись в адресе.</p>
                     </div>
                 </form>
         }
         return (
-            <div>{forgotPass}</div>
+            <div>{registrForm}</div>
         )
     }
 });
-module.exports = ForgotPass;
+module.exports = Registration;

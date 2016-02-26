@@ -97,7 +97,7 @@ var Auth = React.createClass({
         });
     },
     render: function () {
-        /*================================Entrance==========================================*/
+        /*================================Entrance(loginForm)==========================================*/
         var loginForm;
         if (!this.state.isLoginForm) {
             loginForm =
@@ -201,11 +201,10 @@ var Auth = React.createClass({
                     </div>
                 </form>
         }
-        /*================================forgotForm==========================================*/
+        /*=============It's about switching between loginForm and forgotForm =========*/
         var forgotForm;
         if (!this.state.isForgotForm) {
             forgotForm = loginForm;
-
         } else {
             forgotForm =
                 <div className="col s12">
