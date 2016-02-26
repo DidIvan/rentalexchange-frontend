@@ -84,6 +84,7 @@ var Auth = React.createClass({
                 complete: function () {
                     that.setState({email: ''});
                     that.setState({login: ''});
+                    that.setState({password: ''});
                     that.setState({errMessage: ''});
                     that.setState({isActivationSuccess: false});
                     that.setState({isLoginForm: false});
@@ -136,7 +137,7 @@ var Auth = React.createClass({
                             </button>
                         </div>
                     </div>
-                    <div className="row center"><a href="#click" className="grey-text"
+                    <div className="row center"><a href="#" className="grey-text"
                                                    onClick={this.handlePasswordForgot}>
                         Забыли пароль?</a></div>
                 </form>
@@ -207,7 +208,7 @@ var Auth = React.createClass({
 
         } else {
             forgotForm =
-                <div id="click" className="col s12">
+                <div className="col s12">
                     <ForgotPass/>
                 </div>
         }
@@ -233,7 +234,7 @@ var Auth = React.createClass({
                             </div>
 
                             <div id="test2" className="col s12">
-                                <div>{registrForm}</div>
+                                {registrForm}
                             </div>
 
                         </div>
