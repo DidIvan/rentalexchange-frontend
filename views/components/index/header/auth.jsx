@@ -97,7 +97,7 @@ var Auth = React.createClass({
         });
     },
     render: function () {
-        /*================================Entrance(loginForm)==========================================*/
+        /*================================Here we create Login Form==========================================*/
         var loginForm;
         if (!this.state.isLoginForm) {
             loginForm =
@@ -152,7 +152,7 @@ var Auth = React.createClass({
                     </div>
                 </form>
         }
-        /*================================Registration==========================================*/
+        /*================================Here we create Registration Form==========================================*/
         var registrForm;
         if (!this.state.isActivationSuccess) {
             registrForm =
@@ -201,10 +201,10 @@ var Auth = React.createClass({
                     </div>
                 </form>
         }
-        /*================================Forgot Password==========================================*/
+        /*================================Here we create Forgot Password Form=====================================*/
         var forgotForm;
         if (!this.state.isForgotPassword) {
-            forgotPass =
+            forgotForm =
                 <form claassName="login-form" onSubmit={this.handleSubmit}>
                     <div className="row center">
                         <h5>Восстановление доступа к персональному кабинету.</h5>
@@ -250,7 +250,7 @@ var Auth = React.createClass({
         if (!this.state.isForgotForm) {
             commonForm = loginForm;
         } else {
-            commonForm= forgotForm;
+            commonForm = forgotForm;
         }
         return (
             <div>
