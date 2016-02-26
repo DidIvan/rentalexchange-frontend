@@ -5,7 +5,7 @@ var ForgotPass = React.createClass({
         return {
             email: '',
             errMessage: '',
-            isActivationSuccess: false
+            isForgotPassword: false
         }
     },
     handleEmailChange: function (event) {
@@ -30,7 +30,7 @@ var ForgotPass = React.createClass({
                 type: 'POST',
                 data: JSON.stringify(dataJson),
                 success: function (data) {
-                    module.setState({isActivationSuccess: true});
+                    module.setState({isForgotPassword: true});
                 },
                 error: function (xhr, status, err) {
                     if (xhr.status == 400) {
@@ -43,7 +43,7 @@ var ForgotPass = React.createClass({
 
     render: function () {
         var forgotPass;
-        if (!this.state.isActivationSuccess) {
+        if (!this.state.isForgotPassword) {
             forgotPass =
                 <form claassName="login-form" onSubmit={this.handleSubmit}>
                     <div className="row center">
@@ -66,7 +66,7 @@ var ForgotPass = React.createClass({
                         <div className="input-field col s12">
                             <button className="btn waves-effect waves-light col s12" type="submit"
                                     name="action"><i className="mdi-action-perm-identity"></i>
-                                ОТПРАВИТЬ
+                                Вспомнить
                             </button>
                         </div>
                     </div>

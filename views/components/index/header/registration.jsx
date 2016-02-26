@@ -40,11 +40,6 @@ var Registration = React.createClass({
             });
         }
     },
-/*    componentWillUnmount: function () {
-        module.setState({email: ''});
-        module.setState({errMessage: ''});
-        module.setState({isActivationSuccess: false});
-    },*/
     render: function () {
         var registrForm;
         if (!this.state.isActivationSuccess) {

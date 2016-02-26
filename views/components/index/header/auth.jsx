@@ -1,6 +1,6 @@
 var React = require("react");
 var authenticator = require('app/authenticator');
-var ForgotPass = require("./forgotpass.jsx");
+/*var ForgotPass = require("./forgotpass.jsx");*/
 
 var Auth = React.createClass({
     getInitialState: function () {
@@ -201,15 +201,56 @@ var Auth = React.createClass({
                     </div>
                 </form>
         }
+        /*================================Forgot Password==========================================*/
+        var forgotPass;
+        if (!this.state.isForgotPassword) {
+            forgotPass =
+                <form claassName="login-form" onSubmit={this.handleSubmit}>
+                    <div className="row center">
+                        <h5>Восстановление доступа к персональному кабинету.</h5>
+                    </div>
+                    <div className="row margin">
+                        <div className="input-field col s12">
+                            <i className="mdi-communication-email prefix"></i>
+                            <input value={this.state.email} id="email" type="email"
+                                   onChange={this.handleEmailChange}/>
+                            <label for="email" className="center-align">Email</label>
+                        </div>
+                    </div>
+                    <div className="row margin">
+                        <p className="center">Введите email, указанный при регистрации. На него мы вышлем инструкции по
+                            восстановлению пароля.</p>
+                    </div>
+
+                    <div className="row">
+                        <div className="input-field col s12">
+                            <button className="btn waves-effect waves-light col s12" type="submit"
+                                    name="action"><i className="mdi-action-perm-identity"></i>
+                                Вспомнить
+                            </button>
+                        </div>
+                    </div>
+                </form>
+        } else {
+            forgotPass =
+                <form claassName="login-form">
+                    <div className="row center">
+                        <h5>Восстановление доступа к персональному кабинету.</h5>
+                    </div>
+                    <div className="row margin">
+                        <p className="center">Спасибо!
+                            На указаный Вами e-mail <b>{this.state.email}</b> отправлено письмо с ссылкой для
+                            восстановления доступа к персональному кабинету.
+                            Для перехода в кабинет перейдите по ссылке из письма.</p>
+                    </div>
+                </form>
+        }
         /*=============It's about switching between loginForm and forgotForm =========*/
         var forgotForm;
         if (!this.state.isForgotForm) {
             forgotForm = loginForm;
         } else {
-            forgotForm =
-                <div className="col s12">
-                    <ForgotPass/>
-                </div>
+            forgotForm = forgotPass;
         }
         return (
             <div>
