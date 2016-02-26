@@ -73,7 +73,6 @@ var Auth = React.createClass({
     handlePasswordForgot: function (event) {
         this.setState({isForgotForm: true});
     },
-
     defaultForgotForm: function (event) {
         this.setState({isForgotForm: false});
     },
@@ -204,10 +203,8 @@ var Auth = React.createClass({
         /*================================forgotForm==========================================*/
         var forgotForm;
         if (!this.state.isForgotForm) {
-            forgotForm =
-                <div id="test1" className="col s12">
-                    {loginForm}
-                </div>
+            forgotForm = loginForm;
+
         } else {
             forgotForm =
                 <div id="click" className="col s12">
@@ -231,8 +228,9 @@ var Auth = React.createClass({
                                 </ul>
                             </div>
 
-
-                            {forgotForm}
+                            <div id="test1" className="col s12">
+                                {forgotForm}
+                            </div>
 
                             <div id="test2" className="col s12">
                                 <div>{registrForm}</div>
