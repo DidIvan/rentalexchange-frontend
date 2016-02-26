@@ -202,7 +202,7 @@ var Auth = React.createClass({
                 </form>
         }
         /*================================Forgot Password==========================================*/
-        var forgotPass;
+        var forgotForm;
         if (!this.state.isForgotPassword) {
             forgotPass =
                 <form claassName="login-form" onSubmit={this.handleSubmit}>
@@ -232,7 +232,7 @@ var Auth = React.createClass({
                     </div>
                 </form>
         } else {
-            forgotPass =
+            forgotForm =
                 <form claassName="login-form">
                     <div className="row center">
                         <h5>Восстановление доступа к персональному кабинету.</h5>
@@ -246,11 +246,11 @@ var Auth = React.createClass({
                 </form>
         }
         /*=============It's about switching between loginForm and forgotForm =========*/
-        var forgotForm;
+        var commonForm;
         if (!this.state.isForgotForm) {
-            forgotForm = loginForm;
+            commonForm = loginForm;
         } else {
-            forgotForm = forgotPass;
+            commonForm= forgotForm;
         }
         return (
             <div>
@@ -270,7 +270,7 @@ var Auth = React.createClass({
                             </div>
 
                             <div id="test1" className="col s12">
-                                {forgotForm}
+                                {commonForm}
                             </div>
 
                             <div id="test2" className="col s12">
