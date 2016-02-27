@@ -69,6 +69,35 @@ var Auth = React.createClass({
             });
         }
     },
+    handleSubmitF: function (event) {
+        event.preventDefault();
+
+        if (this.state.email == '') {
+            this.setState({errMessage: "empty field"})
+        } else {
+            var email = this.state.email.trim();
+            var dataJson = {
+                "email": email
+            };
+            var that = this;
+            $.ajax({
+                url: "http://univerpulse.noip.me:8002/user/??????????????????????????????",
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                type: 'POST',
+                data: JSON.stringify(dataJson),
+                success: function (data, textStatus) {
+                    that.setState({isForgotForm: true});
+                },
+                error: function (xhr, textStatus, thrownError) {
+
+                    if (xhr.status == 400) {
+                        that.setState({errMessage: xhr.responseText});
+                    }
+                }
+            });
+        }
+    },
 
     handlePasswordForgot: function (event) {
         this.setState({isForgotForm: true});
@@ -201,13 +230,13 @@ var Auth = React.createClass({
                     </div>
                 </form>
         }
-        /*================================Here we create Forgot Password Form=====================================*/
+        /*================================Here we create Forgot Password Form =====================================*/
         var forgotForm;
         if (!this.state.isForgotPassword) {
             forgotForm =
-                <form claassName="login-form" onSubmit={this.handleSubmit}>
+                <form claassName="login-form" onSubmit={this.handleSubmitF}>
                     <div className="row center">
-                        <h5>Восстановление доступа к персональному кабинету.</h5>
+                        <h5>Восстановление доступа к персональному кабинету</h5>
                     </div>
                     <div className="row margin">
                         <div className="input-field col s12">
@@ -217,6 +246,7 @@ var Auth = React.createClass({
                             <label for="email" className="center-align">Email</label>
                         </div>
                     </div>
+                    <div className="row"><p className="red-text">{this.state.errMessage}</p></div>
                     <div className="row margin">
                         <p className="center">Введите email, указанный при регистрации. На него мы вышлем инструкции по
                             восстановлению пароля.</p>
