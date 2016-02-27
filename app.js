@@ -27,7 +27,7 @@ app.get('/', function (req, res) {
     };
     res.render('Html-index', {data: initialState});
 });
-
+//middleware registration-confirm
 app.get('/user-registration-confirm', function (req, res) {
     const uuid = req.query['uuid'];
     var initialState = {
@@ -36,7 +36,7 @@ app.get('/user-registration-confirm', function (req, res) {
     };
     res.render('Html-confirm-registration', {data: initialState});
 });
-
+//middleware change-password-confirm
 app.get('/user-change-password-confirm', function (req, res) {
     const uuid = req.query['uuid'];
     var initialState = {
