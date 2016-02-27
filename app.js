@@ -36,6 +36,15 @@ app.get('/user-registration-confirm', function (req, res) {
     };
     res.render('Html-confirm-registration', {data: initialState});
 });
+
+app.get('/user-change-password-confirm', function (req, res) {
+    const uuid = req.query['uuid'];
+    var initialState = {
+        uuidForRequest: uuid,
+        urlBackEnd: (BACKEND_HOST + "/user/change-password-confirm")
+    };
+    res.render('Html-confirm-registration', {data: initialState});
+});
 //обработчик ошибок
 /*app.use(function (err, req, res, next) {
     res.status(err.status || 500);

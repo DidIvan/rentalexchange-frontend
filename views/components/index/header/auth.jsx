@@ -81,7 +81,7 @@ var Auth = React.createClass({
             };
             var that = this;
             $.ajax({
-                url: "http://univerpulse.noip.me:8002/user/??????????????????????????????",
+                url: "http://univerpulse.noip.me:8002/user/change-password",
                 dataType: 'json',
                 contentType: "application/json; charset=utf-8",
                 type: 'POST',
