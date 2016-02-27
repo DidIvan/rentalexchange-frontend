@@ -45,13 +45,21 @@ app.get('/user-change-password-confirm', function (req, res) {
     };
     res.render('Html-confirm-registration', {data: initialState});
 });
-//обработчик ошибок
-/*app.use(function (err, req, res, next) {
+
+app.get('/error', function (req, res) {
+    var initialState = {
+        urlBackEnd: BACKEND_HOST
+    };
+    res.render('Error', {data: initialState});
+});
+
+//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
         error: {}
     });
-});*/
+});
 
 module.exports = app;
