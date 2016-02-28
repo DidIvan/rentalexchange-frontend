@@ -4,10 +4,10 @@ var UserInfo = React.createClass({
     render: function () {
         return (
             <div className="user right hide-on-med-and-down">
-                <img src="../img/Layer-12.png" alt="profile" className="circle responsive-img valign profile-image"/>
+                <img src="img/landingPage/Layer-12.png" alt="profile" className="circle responsive-img valign profile-image"/>
 
                 <a className="btn-flat dropdown-button waves-effect waves-light white-text center-align" href="#"
-                   data-activates="dropdown1">Èìÿ<i className="mdi-navigation-arrow-drop-down right"></i></a>
+                   data-activates="dropdown1">Name<i className="mdi-navigation-arrow-drop-down right"></i></a>
 
                 <ul id="dropdown1" className="dropdown-content">
 
