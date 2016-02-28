@@ -50,7 +50,7 @@ app.get('/error', function (req, res) {
     var initialState = {
         urlBackEnd: BACKEND_HOST
     };
-    res.render('Error', {data: initialState});
+    res.render('Html-error', {data: initialState});
 });
 
 //���������� ������

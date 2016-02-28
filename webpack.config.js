@@ -4,13 +4,14 @@ module.exports = [{
     context: path.join(__dirname, "/views"),
     entry: {
         bundle: "./main-index.js",
-        bundle_reg_conf: "./main-confirm-registration.js"
+        bundle_reg_conf: "./main-confirm-registration.js",
+        bundle_error: "./Html-error.js"
     },
     output: {
-        /*создаем абсолютный путь*/
+        /*пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ*/
         path: __dirname + "/public",
         filename: "[name].js",
-        /*создаем глобальные переменные*/
+        /*пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ*/
         library: '[name]'
     },
     module: {

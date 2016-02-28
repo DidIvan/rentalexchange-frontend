@@ -1,0 +1,23 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 22px;
+}
+
+.card-panel {
+    transition: box-shadow .25s;
+    padding: 70px; !important;
+    margin: 0.5rem 0 1rem 0;
+    border-radius: 2px;
+    background-color: #fff;
+    text-align: center !important;
+    font-size: 30px !important;
+}
+
+.white-text {
+    color: #FFFFFF !important;
+}
+
+.teal {
+    background-color: rgb(41, 128, 185)  !important;
+}

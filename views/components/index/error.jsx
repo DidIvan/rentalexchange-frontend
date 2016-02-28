@@ -7,13 +7,13 @@ var BestGoods = require("./goods-category/bestGoods.jsx");
 var Container = React.createClass({
     render() {
         return (
-            <div>
+            <div >
                 <Header/>
-                <div class="row">
-                    <div class="col s12 m5">
-                        <div class="card-panel teal">
-          <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+                <div className="row">
+                    <div className="col s12 m12">
+                        <div className="card-panel teal">
+          <span className="white-text">Извините! Страница, которую Вы ищете, не может быть найдена<br/><br/>
+              <img src="img/landingPage/404.png" alt="404"/>
           </span>
                         </div>
                     </div>

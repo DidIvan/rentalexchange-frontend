@@ -46,7 +46,7 @@ module.exports = React.createClass({
          * If avoidance is impossible,
          * know what you are doing and good luck.
          */
-        var initScript = 'bundle(' + JSON.stringify(data).replace(/script/g, 'scr"+"ipt') + ')';
+        var initScript = 'bundle_error(' + JSON.stringify(data).replace(/script/g, 'scr"+"ipt') + ')';
 
         return (
             <html lang="en">
@@ -61,6 +61,7 @@ module.exports = React.createClass({
                 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <link rel="stylesheet" type="text/css" href="/css/style-markup.css"/>
+                <link rel="stylesheet" type="text/css" href="/css/style-custom.css"/>
                 <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
                 <script type="text/javascript" src="javascripts/libs/jquery.js"></script>
                 <script type="text/javascript" src="javascripts/libs/materialize.min.js"></script>
@@ -69,7 +70,7 @@ module.exports = React.createClass({
             <body className="element">
             <div id="content" className="container" dangerouslySetInnerHTML={{__html: contentHtml}}/>
 
-            <script src="/error.js"></script>
+            <script src="/bundle_error.js"></script>
             <script dangerouslySetInnerHTML={{__html: initScript}}/>
             </body>
             </html>
