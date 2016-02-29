@@ -3,7 +3,7 @@
  */
 var React = require("react");
 
-const BACKEND_HOST = 'http://localhost:8002';
+const BACKEND_HOST = 'http://univerpulse.noip.me:8002';
 
 var RegistrationForm = React.createClass({
     getInitialState: function () {
@@ -63,7 +63,7 @@ var RegistrationForm = React.createClass({
                 </form>
         } else {
             webForm =
-                <form claassName="login-form" onSubmit={this.handleSubmitR}>
+                <form claassName="login-form" onSubmit={this.handleSubmit}>
                     <div className="row center">
                         <h5>Восстановление доступа к персональному кабинету</h5>
                     </div>

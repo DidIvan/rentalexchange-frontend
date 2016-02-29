@@ -20,9 +20,10 @@ var LoginForm = React.createClass({
             return;
         }
         var data = {
-            'userName': this.state.userName.trim(),
+            'email': this.state.userName.trim(),
             'password': this.state.password.trim()
         }
+        console.log("beiveru");
         this.props.handleLogin(data);
     },
     handleLoginChange: function (event) {
@@ -39,7 +40,7 @@ var LoginForm = React.createClass({
     },
     render: function () {
         var webForm;
-        if (this.state.isForgotPassword) {
+        if (this.state.isForgotForm) {
             webForm = <ForgotPasswordForm/>
         } else {
             webForm =
@@ -66,7 +67,7 @@ var LoginForm = React.createClass({
                         </div>
                     </div>
 
-                    <div className="row"><p className="red-text">{this.state.errMessage}</p></div>
+                    <div className="row"><p className="red-text">{this.state.uiMessage}</p></div>
 
                     <div className="row margin">
                         <img src="img/landingPage/captcha.jpg" alt="captcha"/>
