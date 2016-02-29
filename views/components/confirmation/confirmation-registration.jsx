@@ -1,4 +1,6 @@
 var React = require('react');
+var Header = require("../index/header/header.jsx");
+var Footer = require("../index/footer/footer.jsx");
 
 var Activation = React.createClass({
     getInitialState: function () {
@@ -89,10 +91,12 @@ var Activation = React.createClass({
         });
     }
     , render: function () {
+
         console.log("OOOOkkk!"+ this.props.urlBackEnd );
         console.log(this.props.uuidForRequest);
         var activationComp = "";
         if (!this.state.isActivationSuccess) {
+
             activationComp =
                 <form className="registrationForm row center" onSubmit={this.handleSubmit}>
                     <h5 className="header center">Активация учетной записи</h5>
@@ -127,6 +131,7 @@ var Activation = React.createClass({
                     </div>
                     <div className="col s12"><p className="red-text">{this.state.errMessage}</p></div>
                 </form>;
+
         } else {
             activationComp =
                 <div>
@@ -140,13 +145,17 @@ var Activation = React.createClass({
                 </div>;
         }
         return (
+
             <div className="container">
+                <Header/>
                 <div className="card-panel">
                     <div className="container">
                         <div className="col s6 offset-s3 grid-example">{activationComp}</div>
                     </div>
                 </div>
+                <Footer/>
             </div>
+
         );
     }
 });

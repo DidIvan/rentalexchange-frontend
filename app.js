@@ -55,11 +55,20 @@ app.get('/error', function (req, res) {
 
 //���������� ������
 app.use(function (err, req, res, next) {
+    alert("Error");
+    console.log("Error!");
     res.status(err.status || 500);
-    res.render('error', {
+    res.render('Html-error', {
         message: err.message,
         error: {}
     });
+});
+
+app.use(function(req, res, next){
+    var initialState = {
+        urlBackEnd: BACKEND_HOST
+    };
+    res.render('Html-error', {data: initialState});
 });
 
 module.exports = app;
