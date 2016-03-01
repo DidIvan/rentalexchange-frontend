@@ -15,7 +15,8 @@ var Container = React.createClass({
         }
     },
     handleLogin: function (data) {
-        sender.POST(data, '/user/login', this.successLoginFunction, this.errorLoginFunction);
+        console.log("fff");
+        sender.POST('/user/login', data, this.successLoginFunction, this.errorLoginFunction);
     },
     successLoginFunction: function (data) {
         this.setState({userLogined: true});
