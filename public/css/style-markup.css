@@ -279,4 +279,8 @@ footer ul li:hover {
     margin: 0 0;
 }
 
+.row .col.s6 {
+    width: 50%;
+    margin-left: 25% !important;
+}
 /*End modal window*/

@@ -102,7 +102,7 @@ var Activation = React.createClass({
                     <h5 className="header center">Активация учетной записи</h5>
 
                     <div className="row">
-                        <div className="input-field col s12">
+                        <div className="input-field col s6">
                             <i className="mdi-action-lock-outline prefix"></i>
                             <input value={this.state.passwowrd} onChange={this.handlePasswordChange} id="password"
                                    type="password" className="validate"></input>
@@ -111,7 +111,7 @@ var Activation = React.createClass({
                     </div>
 
                     <div className="row">
-                        <div className="input-field col s12">
+                        <div className="input-field col s6">
                             <i className="mdi-action-lock-outline prefix"></i>
                             <input value={this.state.password_1} onChange={this.handlePasswordChange_1} id="password_1"
                                    type="password" className="validate"></input>
@@ -124,7 +124,7 @@ var Activation = React.createClass({
                     </div>
 
                     <div className="row">
-                        <button className="btn blue lighten-2 waves-effect waves-light col s12" type="submit"
+                        <button className="btn blue lighten-2 waves-effect waves-light col s6" type="submit"
                                 name="action"><i className="mdi-action-perm-identity"></i>
                             Активировать
                         </button>
