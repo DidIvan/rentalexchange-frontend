@@ -28,7 +28,6 @@ var LoginComponent = React.createClass({
         });
     },
     switchModal: function(){
-        console.log("**************");
         this.setState({isLoginForm: !this.state.isLoginForm});
     },
     render: function () {

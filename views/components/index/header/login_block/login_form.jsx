@@ -35,7 +35,6 @@ var LoginForm = React.createClass({
         this.setState({uiMessage: ""});
     },
     switchModalForgotPassword: function (event) {
-        console.log("----------------" + this.state.isForgotForm);
         this.setState({isForgotForm: !this.state.isForgotForm});
     },
     render: function () {

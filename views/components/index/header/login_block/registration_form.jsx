@@ -65,7 +65,7 @@ var RegistrationForm = React.createClass({
             webForm =
                 <form claassName="login-form" onSubmit={this.handleSubmit}>
                     <div className="row center">
-                        <h5>Восстановление доступа к персональному кабинету</h5>
+                        <h5>Регистрация учётной записи пользователя</h5>
                     </div>
                     <div className="row margin">
                         <div className="input-field col s12">
