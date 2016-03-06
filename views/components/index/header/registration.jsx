@@ -59,11 +59,12 @@ var Registration = React.createClass({
                     <div className="row"><p className="red-text">{this.state.errMessage}</p></div>
                     <div className="row margin">
                         <p className="center">На этот e-mail мы отправим письмо для проверки
-                            корректностиуказанногоадреса. Вписьме будут содержаться инструкции
+                            корректности указанного адреса. В письме будут содержаться инструкции
                             по активации учётной записи пользователя с таким email.</p>
                     </div>
                     <div className="row margin">
-                        <img src="img/landingPage/captcha.jpg" alt="captcha"/>
+                        captcha ready !!!
+                        <div class="g-recaptcha" data-sitekey="6LdqDRoTAAAAAGgnpkPUTc1dDr3mXTGMVk2My2Oy"></div>
                     </div>
                     <div className="row">
                         <div className="input-field col s12">

@@ -64,7 +64,7 @@ module.exports = React.createClass({
                 <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
                 <script type="text/javascript" src="javascripts/libs/jquery.js"></script>
                 <script type="text/javascript" src="javascripts/libs/materialize.min.js"></script>
-
+                <script src='https://www.google.com/recaptcha/api.js'></script>
             </head>
             <body className="element">
             <div id="content" className="container" dangerouslySetInnerHTML={{__html: contentHtml}}/>
