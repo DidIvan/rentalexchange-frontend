@@ -92,8 +92,6 @@ var Activation = React.createClass({
     }
     , render: function () {
 
-        console.log("OOOOkkk!"+ this.props.urlBackEnd );
-        console.log(this.props.uuidForRequest);
         var activationComp = "";
         if (!this.state.isActivationSuccess) {
 
