@@ -82,7 +82,7 @@ var RegistrationForm = React.createClass({
                             по активации учётной записи пользователя с таким email.</p>
                     </div>
                     <div className="row margin">
-                        <div class="g-recaptcha" data-sitekey="6LdkDRoTAAAAANiuKYYpCV-j0H8ECWVFpcya2Rk2"></div>
+
                     </div>
                     <div className="row">
                         <div className="input-field col s12">
