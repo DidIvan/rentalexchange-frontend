@@ -249,8 +249,8 @@ footer ul li:hover {
 
 /*colors  of button "Registration" start*/
 .input-field .btn, .btn:focus {
-    background-color: rgb(41, 128, 185)
-}
+     background-color: rgb(41, 128, 185)
+ }
 
 .input-field .btn:hover {
     background-color: rgb(42, 155, 221)

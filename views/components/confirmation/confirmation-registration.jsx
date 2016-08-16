@@ -18,7 +18,6 @@ var Activation = React.createClass({
         this.setState({password_1: e.target.value});
     }
     , handleSubmit: function (e) {
-        e.preventDefault();
         var password = this.state.password.trim();
         var password_1 = this.state.password_1.trim();
 
