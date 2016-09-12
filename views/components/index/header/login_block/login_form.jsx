@@ -64,6 +64,7 @@ var LoginForm = React.createClass({
                                    onChange={this.handlePasswordChange}/>
                             <label for="icon_password">Password</label>
                         </div>
+                        
                     </div>
 
                     <div className="row"><p className="red-text">{this.state.uiMessage}</p></div>
