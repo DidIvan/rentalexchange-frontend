@@ -2,7 +2,7 @@
  * Created by opasichnyk on 2/29/2016.
  */
 var React = require("react"),
-    sender = require('app/request-sender'),
+    /*sender = require('app/request-sender'),*/
     LoginComponent = require('./login_comp'),
     UserInfo = require('./user_info');
 
@@ -14,13 +14,13 @@ var Container = React.createClass({
             token: ""
         }
     },
-    handleLogin: function (data) {
+/*    handleLogin: function (data) {
         console.log("fff");
         sender.POST('/user/login', data, this.successLoginFunction, this.errorLoginFunction);
-    },
+    },*/
     successLoginFunction: function (data) {
         this.setState({userLogined: true});
-        this.setState({token: sender.make_base_auth_token(data.userName, data.password)});
+    /*    this.setState({token: sender.make_base_auth_token(data.userName, data.password)});*/
     },
     errorLoginFunction: function () {
         this.setState({userLogined: false});

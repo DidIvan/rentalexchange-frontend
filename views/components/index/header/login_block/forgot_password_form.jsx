@@ -1,8 +1,8 @@
 /**
  * Created by opasichnyk on 2/29/2016.
  */
-var React = require("react"),
-    sender = require('app/request-sender');
+var React = require("react");
+  /*  sender = require('app/request-sender');*/
 
 const BACKEND_HOST = 'http://localhost:8002';
 
@@ -34,7 +34,7 @@ var ForgotPasswordForm = React.createClass({
                     this.setState({uiMessage: xhr.responseText});
                 }
             };
-            sender.POST("/user/change-password", dataJson, success, error);
+          /*  sender.POST("/user/change-password", dataJson, success, error);*/
         }
     },
     render: function () {
