@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node bin/start-app.js"
+    "start": "webpack & node bin/start-app.js"
   },
   "dependencies": {
     "babelify": "^6.4.0",

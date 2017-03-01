@@ -1,6 +1,3 @@
-/**
- * Created by opasichnyk on 2/29/2016.
- */
 var React = require("react"),
     /*sender = require('app/request-sender'),*/
     LoginComponent = require('./login_comp'),
